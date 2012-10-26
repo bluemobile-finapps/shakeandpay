@@ -347,7 +347,7 @@
                 ],
                 "implHandler": [
                     "var store = Ext.getStore('Account');",
-                    "Ext.getCmp('accountHiddenField').setValue(store.data.getAt(container.getActiveIndex()).data.number);"
+                    "Ext.getCmp('accountIdField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);"
                 ]
             },
             "designerId": "d7e72e09-7e4e-48bc-90aa-8c040f45c7f6"

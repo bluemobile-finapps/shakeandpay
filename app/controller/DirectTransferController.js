@@ -216,7 +216,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
 
     setAccount: function(container) {
         var store = Ext.getStore('Account');
-        Ext.getCmp('accountHiddenField').setValue(store.data.getAt(container.getActiveIndex()).data.number);
+        Ext.getCmp('accountIdField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);
     },
 
     initView: function() {
