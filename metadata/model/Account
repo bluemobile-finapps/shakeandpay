@@ -23,7 +23,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "field",
-                "name": "number",
+                "name": "accountNumber",
                 "type": "string"
             },
             "designerId": "567d53a4-ff1b-4a4e-b4b8-a0be276be1b7"
@@ -37,10 +37,80 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "field1",
-                "name": "balance",
+                "name": "availableBalance",
                 "type": "float"
             },
             "designerId": "17be7124-c1b3-46a9-b222-9d5d243ba4f9"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field7",
+                "name": "id",
+                "type": "string"
+            },
+            "designerId": "9eae92c5-601c-423d-85db-f5d26ed029d4"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field8",
+                "name": "office",
+                "type": "string"
+            },
+            "designerId": "098b084f-16c9-443c-a096-37e12ee91b32"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field9",
+                "name": "iban",
+                "type": "string"
+            },
+            "designerId": "1974cdf1-8d88-472a-9967-19a019aab3e4"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field10",
+                "name": "retainedBalance",
+                "type": "float"
+            },
+            "designerId": "14494054-496a-4667-97a8-cb14fb7f01de"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field11",
+                "name": "actualBalance",
+                "type": "float"
+            },
+            "designerId": "92251334-16fc-47ea-a287-f67230b69b15"
         }
     ]
 }

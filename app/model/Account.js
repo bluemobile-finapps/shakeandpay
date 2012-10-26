@@ -20,11 +20,31 @@ Ext.define('Finappsparty.model.Account', {
         identifier: 'uuid',
         fields: [
             {
-                name: 'number',
+                name: 'accountNumber',
                 type: 'string'
             },
             {
-                name: 'balance',
+                name: 'availableBalance',
+                type: 'float'
+            },
+            {
+                name: 'id',
+                type: 'string'
+            },
+            {
+                name: 'office',
+                type: 'string'
+            },
+            {
+                name: 'iban',
+                type: 'string'
+            },
+            {
+                name: 'retainedBalance',
+                type: 'float'
+            },
+            {
+                name: 'actualBalance',
                 type: 'float'
             }
         ]

@@ -72,6 +72,26 @@
                 ]
             },
             "designerId": "b01a4d4c-d6d2-42d6-aed5-eb5c78aee2a4"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getAccountUrl",
+                "fn": "getAccountUrl",
+                "designer|params": [
+                    "token",
+                    "idAccount"
+                ],
+                "implHandler": [
+                    "return this.getBaseUrl()+token+'/operations/account/'+idAccount;"
+                ]
+            },
+            "designerId": "7fb73ff1-803d-4535-aa5d-33ce2ae592f7"
         }
     ]
 }

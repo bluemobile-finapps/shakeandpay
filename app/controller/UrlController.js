@@ -37,6 +37,10 @@ Ext.define('Finappsparty.controller.UrlController', {
 
     getProfileUrl: function(token) {
         return this.getBaseUrl()+token+'/operations/client/profile/@me';
+    },
+
+    getAccountUrl: function(token, idAccount) {
+        return this.getBaseUrl()+token+'/operations/account/'+idAccount;
     }
 
 });
