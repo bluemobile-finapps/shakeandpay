@@ -49,9 +49,27 @@ Ext.define('Finappsparty.controller.BeneficiaryController', {
     },
 
     acceptBeneficiaryOperation: function() {
+        var me = this;
+        var bpanel = Ext.getCmp('beneficiaryPanel');
+
+        Ext.Ajax.request({
+            url: me.getApplication().getController('UrlController').getBaseUrlServices()+'accept',
+            params: {
+                'idop': bpanel.getData().data.operationId
+            },
+            method: 'POST',
+            success: function(response){
+                alert('OK');
+            },
+            failure: function(response){
+                alert('KO');
+            }
+
+        });
+
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: ' Operación autorizada ',
+            message: ' Authorized ',
             indicator: false
         });
         setTimeout(function(){
