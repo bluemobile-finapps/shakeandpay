@@ -104,7 +104,7 @@
                 "designer|userClassName": "getTransferUrl",
                 "fn": "getTransferUrl",
                 "implHandler": [
-                    "return this.getBaseUrl()+token+'/operations/account/tranfer/;"
+                    "return this.getBaseUrl()+token+'/operations/account/tranfer/';"
                 ]
             },
             "designerId": "7fe3ae32-cf66-4423-9cad-3c840003da9f"
@@ -120,7 +120,7 @@
                 "designer|userClassName": "getSearchPayeeUrl",
                 "fn": "getSearchPayeeUrl",
                 "implHandler": [
-                    "return this.getBaseUrlServices()+'';"
+                    "return this.getBaseUrlServices()+'send';"
                 ]
             },
             "designerId": "d8500eaf-232c-4246-89b6-3c90cad0e837"
@@ -136,10 +136,26 @@
                 "designer|userClassName": "getBaseUrlServices",
                 "fn": "getBaseUrlServices",
                 "implHandler": [
-                    "return 'http://172.20.45.59:8080/services/';"
+                    "return 'http://192.168.10.163:8080/services/';"
                 ]
             },
             "designerId": "2abceafe-3e22-4ac0-9565-0a6e15d0f7ba"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getSearchPayerUrl",
+                "fn": "getSearchPayerUrl",
+                "implHandler": [
+                    "return this.getBaseUrlServices()+'receive';"
+                ]
+            },
+            "designerId": "04910066-801a-4fa7-b348-bc3a07b016cc"
         }
     ]
 }

@@ -13,22 +13,12 @@
  * Do NOT hand edit this file.
  */
 
-if(Ext.os.is.Android){
-	Ext.Loader.setConfig({
-	    enabled: true,
-	    paths: {
-	        Ext: 'sdk/src'
-	    },
-	    disableCaching: false
-	});
-}else{
-	Ext.Loader.setConfig({
-	    enabled: true,
-	    paths: {
-	        Ext: 'sdk/src'
-	    }
-	});
-}
+Ext.Loader.setConfig({
+    enabled: true,
+    paths: {
+        Ext: 'sdk/src'
+    }
+});
 
 Ext.application({
 
@@ -67,6 +57,7 @@ Ext.application({
                 Ext.Viewport.remove(oldActiveItem,false);
             }
         });
+        //Ext.Ajax.setDisableCaching(false);
         Ext.create('Finappsparty.view.LoginForm', {fullscreen: true});
     }
 

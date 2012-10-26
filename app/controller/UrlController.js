@@ -48,11 +48,15 @@ Ext.define('Finappsparty.controller.UrlController', {
     },
 
     getSearchPayeeUrl: function() {
-        return this.getBaseUrlServices()+'';
+        return this.getBaseUrlServices()+'send';
     },
 
     getBaseUrlServices: function() {
-        return 'http://172.20.45.59:8080/services/';
+        return 'http://192.168.10.163:8080/services/';
+    },
+
+    getSearchPayerUrl: function() {
+        return this.getBaseUrlServices()+'receive';
     }
 
 });

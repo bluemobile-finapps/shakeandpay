@@ -60,7 +60,8 @@
                         "itemId": "usernameField",
                         "inputCls": "inputLarge",
                         "label": null,
-                        "name": "username"
+                        "name": "username",
+                        "value": null
                     },
                     "designerId": "d8886855-bb4e-4200-b0ca-074594c53b12"
                 }
@@ -93,7 +94,8 @@
                         "itemId": "passwordField",
                         "inputCls": "inputLarge",
                         "label": null,
-                        "name": "password"
+                        "name": "password",
+                        "value": null
                     },
                     "designerId": "0e711f02-9fbf-44c2-bf29-959c140a1b32"
                 }

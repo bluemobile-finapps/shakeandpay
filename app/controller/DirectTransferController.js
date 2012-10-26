@@ -121,7 +121,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
     Ext.getCmp('lonField').setValue(0);
 
     if (me.isPayer()) {
-        me.searchBeneficiary();
+        me.searchPayee();
     } else {
         me.searchPayer();    
     }
@@ -156,17 +156,17 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         if (this.validateTransfer()) {
             var me = this;
 
-            //var urlService = 'services/searchBeneficiary.js';
-            var urlService = 'http://172.20.45.59:8080/services/send';
+            var urlService = this.getApplication().getController('UrlController').getSearchPayeeUrl();
             var panel = this.getApplication().getController('MainController').getView('payerPanel');
 
             Ext.Viewport.setMasked({
                 xtype: 'loadmask',
                 message: 'Buscando<br/>beneficiario ...'
-            });    
+            });
 
             Ext.getCmp('directTransfer').submit({
                 url: urlService,
+                disableCaching: false,
                 success: function(form, result) {
                     me.responseSearchBeneficiary(result, panel);
                     Ext.Viewport.setMasked(false);
@@ -184,7 +184,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
     searchPayer: function() {
         var me = this;
 
-        var urlService = 'http://ppcjparis:8080/services/recieve';
+        var urlService = this.getApplication().getController('UrlController').getSearchPayerUrl();
         var panel = this.getApplication().getController('MainController').getView('beneficiaryPanel');
 
         Ext.Viewport.setMasked({
@@ -192,17 +192,35 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
             message: 'Buscando<br/>ordenante ...'
         });
 
-        Ext.getCmp('directTransfer').submit({
+        Ext.Ajax.request({
             url: urlService,
-            success: function(form, result) {
-                me.responseSearchPayer(result, panel);
+            method: 'POST',
+            extraParams: panel.getValues(),
+            success: function(response) {
+                var data = Ext.JSON.decode(response.responseText);
+                me.responseSearchPayer(data, panel);
                 Ext.Viewport.setMasked(false);
             },
-            failure: function(form, result) {
+            failure: function(response) {
                 Ext.Viewport.setMasked(false);
-                Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');
+                Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo más tarde');
             }
         });
+
+        /*
+        Ext.getCmp('directTransfer').submit({
+        url: urlService,
+        disableCaching: false,
+        success: function(form, result) {
+        me.responseSearchPayer(result, panel);
+        Ext.Viewport.setMasked(false);
+        },
+        failure: function(form, result) {
+        Ext.Viewport.setMasked(false);
+        Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');
+        }
+        });
+        */
     },
 
     validateTransfer: function() {
@@ -222,8 +240,8 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
     initView: function() {
         var userData = Ext.getStore('User').getData().getAt(0).data;
         Ext.getCmp('userIdField').setValue(userData.id);
-        Ext.getCmp('userNameField').setValue(userData.name);
-        Ext.getCmp('userLastnameField').setValue(userData.lastname);
+        Ext.getCmp('userNameField').setValue(userData.firstName);
+        Ext.getCmp('userLastnameField').setValue(userData.lastName);
         this.createAccountSelectCarousel();
     }
 
