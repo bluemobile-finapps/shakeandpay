@@ -1,4 +1,4 @@
-// The watch id references the current `watchAcceleration`
+// The watch id references the current watchAcceleration
 var watchID = null;
 var previousReading = {
     x: null,

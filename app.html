@@ -6,11 +6,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>shakeandpay</title>
-    <script src="sdk/sencha-touch-all-debug.js"></script>
+    <script src="sdk/sencha-touch-all.js"></script>
     <link rel="stylesheet" href="sdk/resources/css/bm.css">
     <link rel="stylesheet" href="style.css">
-    <script src="cordova-2.1.0.js" defer></script>
-    <script src="shake.js" defer></script>
+    <script src="cordova-2.1.0.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript">
         if (!Ext.browser.is.WebKit) {
@@ -22,7 +21,60 @@
                 "BlackBerry Browser"
             );
         }
+     	// The watch id references the current watchAcceleration
+        var watchID = null;
+        var previousReading = {
+            x: null,
+            y: null,
+            z: null
+        };
+        //wait for PhoneGap to load
+        function cOnLoad(){
+        	document.addEventListener("deviceready", loaded, false);
+        }
+        // PhoneGap is ready
+        function loaded() {
+            startWatch();
+        }
+        // Start watching the acceleration
+        function startWatch() {
+            watchID = navigator.accelerometer.watchAcceleration(onSuccess, onError, { frequency: 200 });
+            console.log("Watch started");
+        }
+        function stopWatch (){
+            navigator.accelerometer.clearWatch(watchID);
+        }
+        function shaken(){
+            console.log("Shaken");
+            Finappsparty.app.getController('DirectTransferController').searchTransfer();
+        }
+        // Success
+        function onSuccess(acceleration) {
+            var changes = {},
+            bound = 5;
+            if (previousReading.x !== null) {
+                changes.x = Math.abs(previousReading.x - acceleration.x);
+                changes.y = Math.abs(previousReading.y - acceleration.y);
+                changes.z = Math.abs(previousReading.z - acceleration.z);
+            }
+            if (changes.x > bound) {
+                stopWatch();
+                shaken();
+                setTimeout(function(){
+                    startWatch();
+                },5000);
+            }
+            previousReading = {
+                x: acceleration.x,
+                y: acceleration.y,
+                z: acceleration.z
+            };
+        }
+        // Error
+        function onError() {
+            //alert('onError!');
+        }
     </script>
 </head>
-<body></body>
+<body onload="cOnLoad()"></body>
 </html>
