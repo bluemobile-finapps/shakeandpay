@@ -30,7 +30,8 @@
             "MainController",
             "DirectTransferController",
             "BeneficiaryController",
-            "PayerController"
+            "PayerController",
+            "UrlController"
         ]
     },
     "id": "ExtBox1-ext-gen1705",

@@ -42,22 +42,68 @@ Ext.define('Finappsparty.controller.LoginController', {
 
     loginAction: function() {
         var me = this;
+
+        /*
         Ext.Viewport.setMasked({
-            xtype: 'loadmask',
-            message: 'Validando<br/>credenciales ...'
+        xtype: 'loadmask',
+        message: 'Validando<br/>credenciales ...'
         });
-        Ext.getCmp('loginForm').submit({
-            success: function(form, result) {
-                Ext.getStore('User').setData(result.user);
-                Ext.getStore('Account').setData(result.accounts);
-                me.hideLogin();
-                Ext.Viewport.setMasked(false);
+        */
+
+        Ext.Ajax.request({
+            url: me.getApplication().getController('UrlController').getLoginUrl(),
+            method: 'GET',
+            success: function(response) {
+                var dataLogin = Ext.JSON.decode(response.responseText);
+                if (dataLogin.status === 'OK') {
+                    var token = dataLogin.token;
+                    Ext.Ajax.request({
+                        url: me.getApplication().getController('UrlController').getProfileUrl(token),
+                        method: 'GET',
+                        success: function(response) {
+                            var data = Ext.JSON.decode(response.responseText);
+                            var userData = {
+                                username: data.data.holder.username,
+                                password: data.data.holder.password,
+                                firstName: data.data.holder.firstName,
+                                lastName: data.data.holder.lastName,
+                                token: token
+                            };
+                            Ext.getStore('User').setData(userData);
+                        },
+                        failure: function(response) {
+                            error();
+                        }
+                    });
+                } else {
+                    error();
+                }
             },
-            failure: function(form, result) {
-                Ext.Viewport.setMasked(false);
-                Ext.Msg.alert('Aviso', 'No se ha podido acceder, por favor, compruebe las credenciales');
+
+            failure: function(response) {
+                error();
             }
         });
+
+        var error = function() {
+            Ext.Viewport.setMasked(false);
+            Ext.Msg.alert('Aviso', 'No se ha podido acceder, por favor, compruebe las credenciales');
+        };
+
+        /*
+        Ext.getCmp('loginForm').submit({
+        success: function(form, result) {
+        Ext.getStore('User').setData(result.user);
+        Ext.getStore('Account').setData(result.accounts);
+        me.hideLogin();
+        Ext.Viewport.setMasked(false);
+        },
+        failure: function(form, result) {
+        Ext.Viewport.setMasked(false);
+        Ext.Msg.alert('Aviso', 'No se ha podido acceder, por favor, compruebe las credenciales');
+        }
+        });
+        */
     }
 
 });

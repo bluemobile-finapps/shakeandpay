@@ -46,7 +46,8 @@ Ext.application({
         'MainController',
         'DirectTransferController',
         'BeneficiaryController',
-        'PayerController'
+        'PayerController',
+        'UrlController'
     ],
 
     launch: function() {

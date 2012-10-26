@@ -34,10 +34,10 @@ Ext.define('Finappsparty.view.LoginForm', {
                 items: [
                     {
                         xtype: 'textfield',
-                        id: 'loginField',
-                        itemId: 'loginField',
+                        id: 'usernameField',
+                        itemId: 'usernameField',
                         inputCls: 'inputLarge',
-                        name: 'user'
+                        name: 'username'
                     }
                 ]
             },
@@ -50,7 +50,7 @@ Ext.define('Finappsparty.view.LoginForm', {
                         id: 'passwordField',
                         itemId: 'passwordField',
                         inputCls: 'inputLarge',
-                        name: 'pass'
+                        name: 'password'
                     }
                 ]
             },

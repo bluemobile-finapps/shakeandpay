@@ -1,0 +1,77 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "UrlController"
+    },
+    "id": "ExtBox1-ext-gen13252",
+    "designerId": "6734ee8b-668a-4b3f-a03e-52111f96e175",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getLoginUrl",
+                "fn": "getLoginUrl",
+                "implHandler": [
+                    "var username = Ext.getCmp('usernameField').getValue();",
+                    "var password = Ext.getCmp('passwordField').getValue();",
+                    "var loginUrl = 'http://'+username+':'+password+'@'+this.getBaseUrl(true)+'access/login';",
+                    "return loginUrl;"
+                ]
+            },
+            "designerId": "f927519f-2731-4fbd-a946-0c7f12c8a91c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getBaseUrl",
+                "fn": "getBaseUrl",
+                "designer|params": [
+                    "login"
+                ],
+                "implHandler": [
+                    "var baseUrl = 'finappsapi.bdigital.org/api/2012/598de93a7f/';",
+                    "if (login !== undefined && login === true) {",
+                    "    return baseUrl;",
+                    "}",
+                    "return 'http://'+baseUrl;",
+                    ""
+                ]
+            },
+            "designerId": "f1bf8c4d-9e6a-43e2-a96a-52cb8913d1ac"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getProfileUrl",
+                "fn": "getProfileUrl",
+                "designer|params": [
+                    "token"
+                ],
+                "implHandler": [
+                    "return this.getBaseUrl()+token+'/operations/client/profile/@me';"
+                ]
+            },
+            "designerId": "b01a4d4c-d6d2-42d6-aed5-eb5c78aee2a4"
+        }
+    ]
+}

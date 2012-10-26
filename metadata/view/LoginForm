@@ -55,12 +55,12 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|userClassName": "MyTextField1",
-                        "designer|displayName": "LoginField",
-                        "id": "loginField",
-                        "itemId": "loginField",
+                        "designer|displayName": "UsernameField",
+                        "id": "usernameField",
+                        "itemId": "usernameField",
                         "inputCls": "inputLarge",
                         "label": null,
-                        "name": "user"
+                        "name": "username"
                     },
                     "designerId": "d8886855-bb4e-4200-b0ca-074594c53b12"
                 }
@@ -93,7 +93,7 @@
                         "itemId": "passwordField",
                         "inputCls": "inputLarge",
                         "label": null,
-                        "name": "pass"
+                        "name": "password"
                     },
                     "designerId": "0e711f02-9fbf-44c2-bf29-959c140a1b32"
                 }

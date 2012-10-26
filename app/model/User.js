@@ -20,15 +20,23 @@ Ext.define('Finappsparty.model.User', {
         identifier: 'uuid',
         fields: [
             {
-                name: 'name',
+                name: 'firstName',
                 type: 'string'
             },
             {
-                name: 'lastname',
+                name: 'lastName',
                 type: 'string'
             },
             {
-                name: 'key',
+                name: 'token',
+                type: 'string'
+            },
+            {
+                name: 'username',
+                type: 'string'
+            },
+            {
+                name: 'password',
                 type: 'string'
             }
         ]

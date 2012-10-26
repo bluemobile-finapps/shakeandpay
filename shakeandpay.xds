@@ -147,6 +147,14 @@
                 "metadata/resource/css"
             ],
             "className": "css"
+        },
+        "6734ee8b-668a-4b3f-a03e-52111f96e175": {
+            "paths": [
+                "metadata/controller/UrlController",
+                "app/controller/override/UrlController.js",
+                "app/controller/UrlController.js"
+            ],
+            "className": "UrlController"
         }
     },
     "viewOrderMap": {
@@ -165,7 +173,8 @@
             "7407bbbd-8b63-4c52-89a5-85b248c24de8",
             "8eb1c6b2-6560-4b2b-ad94-bbcbe9f2454b",
             "94a7e285-6b72-420e-b505-dbb33773bd32",
-            "9f65bf71-a480-4991-8245-76ae5935eba2"
+            "9f65bf71-a480-4991-8245-76ae5935eba2",
+            "6734ee8b-668a-4b3f-a03e-52111f96e175"
         ],
         "model": [
             "b618df57-94c8-4c47-ba23-d2ea6e183082",
