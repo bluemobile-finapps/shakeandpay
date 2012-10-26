@@ -14,6 +14,7 @@
  */
 
 Ext.Loader.setConfig({
+    disableCaching: false,
     enabled: true,
     paths: {
         Ext: 'sdk/src'
@@ -57,7 +58,7 @@ Ext.application({
                 Ext.Viewport.remove(oldActiveItem,false);
             }
         });
-        //Ext.Ajax.setDisableCaching(false);
+        Ext.Ajax.setDisableCaching(false);
         Ext.create('Finappsparty.view.LoginForm', {fullscreen: true});
     }
 
