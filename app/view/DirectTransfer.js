@@ -106,8 +106,8 @@ Ext.define('Finappsparty.view.DirectTransfer', {
                 items: [
                     {
                         xtype: 'hiddenfield',
-                        id: 'accountField',
-                        itemId: 'accountField',
+                        id: 'accountHiddenField',
+                        itemId: 'accountHiddenField',
                         name: 'accn'
                     }
                 ]

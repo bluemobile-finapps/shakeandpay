@@ -92,6 +92,54 @@
                 ]
             },
             "designerId": "7fb73ff1-803d-4535-aa5d-33ce2ae592f7"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getTransferUrl",
+                "fn": "getTransferUrl",
+                "implHandler": [
+                    "return this.getBaseUrl()+token+'/operations/account/tranfer/;"
+                ]
+            },
+            "designerId": "7fe3ae32-cf66-4423-9cad-3c840003da9f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getSearchPayeeUrl",
+                "fn": "getSearchPayeeUrl",
+                "implHandler": [
+                    ""
+                ]
+            },
+            "designerId": "d8500eaf-232c-4246-89b6-3c90cad0e837"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getBaseUrlServices",
+                "fn": "getBaseUrlServices",
+                "implHandler": [
+                    "return 'http://172.20.45.59:8080/services/';"
+                ]
+            },
+            "designerId": "2abceafe-3e22-4ac0-9565-0a6e15d0f7ba"
         }
     ]
 }

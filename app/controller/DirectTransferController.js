@@ -59,7 +59,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         var n = store.data.items.length;
         if (n !== 0) {
             // Se selecciona automáticamente la primera cuenta
-            Ext.getCmp('accountIdField').setValue(store.data.getAt(0).data.id);
+            Ext.getCmp('accountHiddenField').setValue(store.data.getAt(0).data.id);
             // Se crean los contenedores con los números de cuenta
             for (var i=0;i!=n;i++) {
                 var data = store.data.getAt(i).data;
@@ -157,7 +157,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
             var me = this;
 
             //var urlService = 'services/searchBeneficiary.js';
-            var urlService = 'http://ppcjparis:8080/services/send';
+            var urlService = 'http://172.20.45.59:8080/services/send';
             var panel = this.getApplication().getController('MainController').getView('payerPanel');
 
             Ext.Viewport.setMasked({
@@ -216,7 +216,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
 
     setAccount: function(container) {
         var store = Ext.getStore('Account');
-        Ext.getCmp('accountField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);
+        Ext.getCmp('accountHiddenField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);
     },
 
     initView: function() {

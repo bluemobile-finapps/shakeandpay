@@ -41,6 +41,18 @@ Ext.define('Finappsparty.controller.UrlController', {
 
     getAccountUrl: function(token, idAccount) {
         return this.getBaseUrl()+token+'/operations/account/'+idAccount;
+    },
+
+    getTransferUrl: function() {
+        return this.getBaseUrl()+token+'/operations/account/tranfer/;
+    },
+
+    getSearchPayeeUrl: function() {
+
+    },
+
+    getBaseUrlServices: function() {
+        return 'http://172.20.45.59:8080/services/';
     }
 
 });
