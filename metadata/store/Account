@@ -1,5 +1,5 @@
 {
-    "type": "jsonpstore",
+    "type": "store",
     "reference": {
         "name": "items",
         "type": "array"
@@ -7,26 +7,24 @@
     "codeClass": null,
     "userConfig": {
         "designer|userClassName": "Account",
-        "autoLoad": false,
         "model": "Account",
         "storeId": "Account"
     },
-    "id": "ExtBox1-ext-gen37653",
-    "designerId": "6c177f9f-bb5b-425e-b7a3-dd18eb353512",
+    "id": "ExtBox1-ext-gen38780",
+    "designerId": "daa1fe5b-0134-4512-a546-34f0b4f6ecae",
     "cn": [
         {
-            "type": "sessionstorageproxy",
+            "type": "localstorageproxy",
             "reference": {
                 "name": "proxy",
                 "type": "object"
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "MySessionStorageProxy1",
-                "designer|displayName": "AccountProxy",
-                "id": "accountProxy"
+                "designer|userClassName": "MyLocalStorageProxy",
+                "designer|displayName": "AcountProxy"
             },
-            "designerId": "fbaa1fdd-262e-48a5-aca4-d0b4bace9f1f"
+            "designerId": "fa5a3ede-9d9a-4de8-8832-386e69c92d8d"
         }
     ]
 }

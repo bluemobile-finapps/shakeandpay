@@ -105,7 +105,7 @@ Ext.define('Finappsparty.controller.LoginController', {
                 method: 'GET',
                 success: function(response) {
                     var data = Ext.JSON.decode(response.responseText);
-                    Ext.getStore('Account').setData(data.data);
+                    Ext.getStore('Account').add(data.data);
                 },
                 failure: function(response) {
                     error();

@@ -21,12 +21,10 @@ Ext.define('Finappsparty.store.Account', {
     ],
 
     config: {
-        autoLoad: false,
         model: 'Finappsparty.model.Account',
         storeId: 'Account',
         proxy: {
-            type: 'sessionstorage',
-            id: 'accountProxy'
+            type: 'localstorage'
         }
     }
 });

@@ -58,14 +58,6 @@
             ],
             "className": "MainController"
         },
-        "6c177f9f-bb5b-425e-b7a3-dd18eb353512": {
-            "paths": [
-                "metadata/store/Account",
-                "app/store/override/Account.js",
-                "app/store/Account.js"
-            ],
-            "className": "Account"
-        },
         "8eb1c6b2-6560-4b2b-ad94-bbcbe9f2454b": {
             "paths": [
                 "metadata/controller/DirectTransferController",
@@ -155,6 +147,14 @@
                 "app/controller/UrlController.js"
             ],
             "className": "UrlController"
+        },
+        "daa1fe5b-0134-4512-a546-34f0b4f6ecae": {
+            "paths": [
+                "metadata/store/Account",
+                "app/store/override/Account.js",
+                "app/store/Account.js"
+            ],
+            "className": "Account"
         }
     },
     "viewOrderMap": {
@@ -165,8 +165,8 @@
             "b8f5213a-fa7c-45a8-a1af-272f9b4a0298"
         ],
         "store": [
-            "6c177f9f-bb5b-425e-b7a3-dd18eb353512",
-            "8057410b-e7a0-4427-9ce1-f9090f8b78da"
+            "8057410b-e7a0-4427-9ce1-f9090f8b78da",
+            "daa1fe5b-0134-4512-a546-34f0b4f6ecae"
         ],
         "controller": [
             "0f37582c-27fd-4989-a7f3-54a42b55fe62",

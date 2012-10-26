@@ -31,8 +31,8 @@ Ext.application({
         'User'
     ],
     stores: [
-        'Account',
-        'User'
+        'User',
+        'Account'
     ],
     views: [
         'LoginForm',
