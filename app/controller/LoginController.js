@@ -43,12 +43,12 @@ Ext.define('Finappsparty.controller.LoginController', {
     loginAction: function() {
         var me = this;
 
-        /*
+        var nRequest;
+
         Ext.Viewport.setMasked({
-        xtype: 'loadmask',
-        message: 'Validando<br/>credenciales ...'
+            xtype: 'loadmask',
+            message: 'Validando<br/>credenciales ...'
         });
-        */
 
         Ext.Ajax.request({
             url: me.getApplication().getController('UrlController').getLoginUrl(),
@@ -89,8 +89,9 @@ Ext.define('Finappsparty.controller.LoginController', {
                     Ext.getStore('User').setData(userData);
                     // Save user account data
                     var accounts = data.data.accounts;
+                    nRequest = accounts.length;
                     for (var i=0;i!=accounts.length;i++) {
-                        saveAccountData(token,accounts[i]);                        
+                        saveAccountData(token,accounts[i]);                  
                     }
                 },
                 failure: function(response) {
@@ -106,27 +107,17 @@ Ext.define('Finappsparty.controller.LoginController', {
                 success: function(response) {
                     var data = Ext.JSON.decode(response.responseText);
                     Ext.getStore('Account').add(data.data);
+                    nRequest--;
+                    if (nRequest === 0) {
+                        me.hideLogin();
+                        Ext.Viewport.setMasked(false);
+                    }
                 },
                 failure: function(response) {
                     error();
                 }
             }); 
         };
-
-        /*
-        Ext.getCmp('loginForm').submit({
-        success: function(form, result) {
-        Ext.getStore('User').setData(result.user);
-        Ext.getStore('Account').setData(result.accounts);
-        me.hideLogin();
-        Ext.Viewport.setMasked(false);
-        },
-        failure: function(form, result) {
-        Ext.Viewport.setMasked(false);
-        Ext.Msg.alert('Aviso', 'No se ha podido acceder, por favor, compruebe las credenciales');
-        }
-        });
-        */
     }
 
 });
