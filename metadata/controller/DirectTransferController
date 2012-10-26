@@ -242,8 +242,8 @@
             },
             "codeClass": null,
             "userConfig": {
-                "designer|userClassName": "searchBeneficiary",
-                "fn": "searchBeneficiary",
+                "designer|userClassName": "searchPayee",
+                "fn": "searchPayee",
                 "implHandler": [
                     "if (this.validateTransfer()) {",
                     "    var me = this;",
@@ -324,7 +324,7 @@
                 "implHandler": [
                     "var store = Ext.getStore('Account');",
                     "var accountCarousel = Ext.getCmp('accountCarousel');",
-                    "var balance = store.data.getAt(accountCarousel.getActiveIndex()).data.balance;",
+                    "var balance = store.data.getAt(accountCarousel.getActiveIndex()).data.actualBalance;",
                     "var amount = Ext.getCmp('amountField').getValue();",
                     "return balance > amount;",
                     ""
@@ -347,7 +347,7 @@
                 ],
                 "implHandler": [
                     "var store = Ext.getStore('Account');",
-                    "Ext.getCmp('accountIdField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);"
+                    "Ext.getCmp('accountField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);"
                 ]
             },
             "designerId": "d7e72e09-7e4e-48bc-90aa-8c040f45c7f6"

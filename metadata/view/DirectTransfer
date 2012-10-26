@@ -250,9 +250,9 @@
                     "codeClass": null,
                     "userConfig": {
                         "designer|userClassName": "MyHiddenField",
-                        "designer|displayName": "AccountIdField",
-                        "id": "accountIdField",
-                        "itemId": "accountIdField",
+                        "designer|displayName": "AccountField",
+                        "id": "accountField",
+                        "itemId": "accountField",
                         "name": "accn"
                     },
                     "designerId": "61000175-d846-48c0-96e5-de8065afa92a"

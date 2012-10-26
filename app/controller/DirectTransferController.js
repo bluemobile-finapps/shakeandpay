@@ -152,7 +152,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         panel.show();
     },
 
-    searchBeneficiary: function() {
+    searchPayee: function() {
         if (this.validateTransfer()) {
             var me = this;
 
@@ -208,7 +208,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
     validateTransfer: function() {
         var store = Ext.getStore('Account');
         var accountCarousel = Ext.getCmp('accountCarousel');
-        var balance = store.data.getAt(accountCarousel.getActiveIndex()).data.balance;
+        var balance = store.data.getAt(accountCarousel.getActiveIndex()).data.actualBalance;
         var amount = Ext.getCmp('amountField').getValue();
         return balance > amount;
 
@@ -216,7 +216,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
 
     setAccount: function(container) {
         var store = Ext.getStore('Account');
-        Ext.getCmp('accountIdField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);
+        Ext.getCmp('accountField').setValue(store.data.getAt(container.getActiveIndex()).data.accountNumber);
     },
 
     initView: function() {
