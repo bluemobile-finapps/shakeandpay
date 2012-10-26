@@ -48,7 +48,7 @@ Ext.define('Finappsparty.controller.UrlController', {
     },
 
     getSearchPayeeUrl: function() {
-
+        return this.getBaseUrlServices()+'';
     },
 
     getBaseUrlServices: function() {

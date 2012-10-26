@@ -120,7 +120,7 @@
                 "designer|userClassName": "getSearchPayeeUrl",
                 "fn": "getSearchPayeeUrl",
                 "implHandler": [
-                    ""
+                    "return this.getBaseUrlServices()+'';"
                 ]
             },
             "designerId": "d8500eaf-232c-4246-89b6-3c90cad0e837"
