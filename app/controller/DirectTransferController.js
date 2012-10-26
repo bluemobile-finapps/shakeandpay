@@ -59,7 +59,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         var n = store.data.items.length;
         if (n !== 0) {
             // Se selecciona automáticamente la primera cuenta
-            Ext.getCmp('accountHiddenField').setValue(store.data.getAt(0).data.number);
+            Ext.getCmp('accountIdField').setValue(store.data.getAt(0).data.id);
             // Se crean los contenedores con los números de cuenta
             for (var i=0;i!=n;i++) {
                 var data = store.data.getAt(i).data;
@@ -67,7 +67,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
                 if (data.balance < 0) {
                     cls = 'negative';
                 }
-                var html = '<div class="account">'+data.number+'</div><div class="balance '+cls+'">'+data.balance+' €</div>';
+                var html = '<div class="account">'+data.accountNumber+'</div><div class="balance '+cls+'">'+data.actualBalance+' €</div>';
                 var container = Ext.create('Ext.Container',{
                     html: html,
                     cls: 'accountSelectCarousel'
