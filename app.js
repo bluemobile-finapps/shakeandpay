@@ -13,12 +13,22 @@
  * Do NOT hand edit this file.
  */
 
-Ext.Loader.setConfig({
-    enabled: true,
-    paths: {
-        Ext: 'sdk/src'
-    }
-});
+if (Ext.os.is.Android){
+	Ext.Loader.setConfig({
+	    enabled: true,
+	    paths: {
+	        Ext: 'sdk/src'
+	    },
+	    disableCaching: false
+	});
+}else{
+	Ext.Loader.setConfig({
+	    enabled: true,
+	    paths: {
+	        Ext: 'sdk/src'
+	    }	    
+	});
+}
 
 Ext.application({
 
