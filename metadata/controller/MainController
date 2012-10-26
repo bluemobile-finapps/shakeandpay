@@ -1,0 +1,64 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MainController"
+    },
+    "id": "ExtBox1-ext-gen14054",
+    "designerId": "7407bbbd-8b63-4c52-89a5-85b248c24de8",
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "changeView",
+                "fn": "changeView",
+                "designer|params": [
+                    "viewId"
+                ],
+                "implHandler": [
+                    "var destinationView = this.getView(viewId);",
+                    "if (destinationView !== undefined) {",
+                    "    Ext.Viewport.animateActiveItem(destinationView, {",
+                    "        type: 'fade'",
+                    "    });",
+                    "} else {",
+                    "    Ext.Logger.error(\"No existe la vista de destino\");",
+                    "}"
+                ]
+            },
+            "designerId": "2ed24e3b-c64e-4c31-83da-b864956a39dc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getView",
+                "fn": "getView",
+                "designer|params": [
+                    "viewId"
+                ],
+                "implHandler": [
+                    "var view = Ext.getCmp(viewId);",
+                    "if (view === undefined) {",
+                    "    view = Ext.widget(viewId+'Alias');",
+                    "}",
+                    "return view;"
+                ]
+            },
+            "designerId": "83028c64-fe90-48aa-b043-a942386b08ed"
+        }
+    ]
+}

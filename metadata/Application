@@ -1,0 +1,78 @@
+{
+    "type": "application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "requires": [
+            "Ext.device.Orientation",
+            "Ext.device.Geolocation"
+        ],
+        "models": [
+            "Account",
+            "User"
+        ],
+        "stores": [
+            "Account",
+            "User"
+        ],
+        "views": [
+            "LoginForm",
+            "DirectTransfer",
+            "BeneficiaryPanel",
+            "PayerPanel"
+        ],
+        "name": "Finappsparty",
+        "controllers": [
+            "LoginController",
+            "MainController",
+            "DirectTransferController",
+            "BeneficiaryController",
+            "PayerController"
+        ]
+    },
+    "id": "ExtBox1-ext-gen1705",
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "Loader2",
+                "designer|displayName": "Loader",
+                "enabled": true,
+                "paths": [
+                    "{\"Ext\":\"sdk/src\"}"
+                ]
+            },
+            "designerId": "18a4447d-8051-4bfd-bf65-6a37157eb8a7"
+        },
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "launch",
+                "fn": "launch",
+                "implHandler": [
+                    "Ext.Viewport.onAfter('activeitemchange', function(layout, newActiveItem, oldActiveItem, eOpts) {",
+                    "    if (oldActiveItem !== 0) {",
+                    "        console.log('Se ha eliminado la vista '+oldActiveItem.id);",
+                    "        Ext.Viewport.remove(oldActiveItem,false);",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "9b74d4a4-709c-4b55-82d1-efda1adf2b4a"
+        }
+    ]
+}

@@ -1,0 +1,424 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DirectTransferController"
+    },
+    "id": "ExtBox1-ext-gen38585",
+    "designerId": "8eb1c6b2-6560-4b2b-ad94-bbcbe9f2454b",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onDirectTransferInitialize",
+                "fn": "onDirectTransferInitialize",
+                "implHandler": [
+                    "this.initView();"
+                ],
+                "name": "initialize",
+                "designer|targetType": "Ext.form.Panel",
+                "designer|controlQuery": "#directTransfer"
+            },
+            "designerId": "c3a08d9b-f444-4b8a-9fcc-fc8ba059f6e2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onAccountCarouselActiveItemChange",
+                "fn": "onAccountCarouselActiveItemChange",
+                "implHandler": [
+                    "this.setAccount(container);"
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.carousel.Carousel",
+                "designer|controlQuery": "#accountCarousel"
+            },
+            "designerId": "272e5dcc-7f7e-4d96-b41a-ec5b41405edd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "createAccountSelectCarousel",
+                "fn": "createAccountSelectCarousel",
+                "implHandler": [
+                    "var store = Ext.getStore('Account');",
+                    "var n = store.data.items.length;",
+                    "if (n !== 0) {",
+                    "    // Se selecciona automáticamente la primera cuenta",
+                    "    Ext.getCmp('accountHiddenField').setValue(store.data.getAt(0).data.number);",
+                    "    // Se crean los contenedores con los números de cuenta",
+                    "    for (var i=0;i!=n;i++) {",
+                    "        var data = store.data.getAt(i).data;",
+                    "        var cls = 'positive';",
+                    "        if (data.balance < 0) {",
+                    "            cls = 'negative';",
+                    "        }",
+                    "        var html = '<div class=\"account\">'+data.number+'</div><div class=\"balance '+cls+'\">'+data.balance+' €</div>';",
+                    "        var container = Ext.create('Ext.Container',{",
+                    "            html: html,",
+                    "            cls: 'accountSelectCarousel'",
+                    "        });",
+                    "        Ext.getCmp('accountCarousel').add(container);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "a4877acc-e249-4263-a714-dd6a83931bd6"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onSearchTransferTap",
+                "fn": "onSearchTransferTap",
+                "implHandler": [
+                    "this.searchTransfer();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "searchTransferButton"
+            },
+            "designerId": "36dba728-9ed1-4a53-9987-bf2c6091f878"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "searchTransfer",
+                "fn": "searchTransfer",
+                "implHandler": [
+                    "var me = this;",
+                    "/*",
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ''",
+                    "});",
+                    "*/",
+                    "",
+                    "/*",
+                    "Ext.device.Geolocation.getCurrentPosition({",
+                    "    success: function(position) {",
+                    "        console.log(position.coords);",
+                    "        send(position);",
+                    "    },",
+                    "    failure: function() {",
+                    "        console.log('something went wrong!');",
+                    "        send();",
+                    "    }",
+                    "});",
+                    "",
+                    "var send = function(position) {",
+                    "    var lat = 0;",
+                    "    var lon = 0;",
+                    "    if (position !== null) {",
+                    "        lat = position.coords.latitude;",
+                    "        lon = position.coords.longitude;",
+                    "    }",
+                    "    Ext.getCmp('latField').setValue(lat);",
+                    "    Ext.getCmp('lonField').setValue(lon);",
+                    "    //Ext.Viewport.setMasked(false);",
+                    "    if (me.isPayer()) {",
+                    "        me.searchBeneficiary();",
+                    "    } else {",
+                    "        me.searchPayer();    ",
+                    "    }",
+                    "};",
+                    "",
+                    "*/",
+                    "",
+                    "Ext.getCmp('latField').setValue(0);",
+                    "Ext.getCmp('lonField').setValue(0);",
+                    "",
+                    "if (me.isPayer()) {",
+                    "    me.searchBeneficiary();",
+                    "} else {",
+                    "    me.searchPayer();    ",
+                    "}",
+                    ""
+                ]
+            },
+            "designerId": "78823d18-581c-401e-83ed-53e46ee52d0b"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "isPayer",
+                "fn": "isPayer",
+                "implHandler": [
+                    "return (Ext.getCmp('amountField').getValue() !== null);"
+                ]
+            },
+            "designerId": "255894b5-4d87-4c71-a5b3-ff61fef2d170"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "responseSearchBeneficiary",
+                "fn": "responseSearchBeneficiary",
+                "designer|params": [
+                    "result",
+                    "panel"
+                ],
+                "implHandler": [
+                    "var payerAccount = Ext.getCmp('accountHiddenField').getValue();",
+                    "var amount = Ext.getCmp('amountField').getValue();",
+                    "var data = result.data;",
+                    "data.payerAccount = payerAccount;",
+                    "data.amount = amount;",
+                    "panel.updateData(data);",
+                    "Ext.Viewport.add(panel);",
+                    "panel.show();"
+                ]
+            },
+            "designerId": "df81a480-7f2b-4f66-95b0-5379f5dc0590"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "responseSearchPayer",
+                "fn": "responseSearchPayer",
+                "designer|params": [
+                    "result",
+                    "panel"
+                ],
+                "implHandler": [
+                    "var beneficiaryAccount = Ext.getCmp('accountHiddenField').getValue();",
+                    "var data = result.data;",
+                    "data.beneficiaryAccount = beneficiaryAccount;",
+                    "panel.updateData(data);",
+                    "Ext.Viewport.add(panel);",
+                    "panel.show();"
+                ]
+            },
+            "designerId": "65c3035e-fd05-4a84-a443-161433b0d02f"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "searchBeneficiary",
+                "fn": "searchBeneficiary",
+                "implHandler": [
+                    "if (this.validateTransfer()) {",
+                    "    var me = this;",
+                    "",
+                    "    //var urlService = 'services/searchBeneficiary.js';",
+                    "    var urlService = 'http://ppcjparis:8080/services/send';",
+                    "    var panel = this.getApplication().getController('MainController').getView('payerPanel');",
+                    "",
+                    "    Ext.Viewport.setMasked({",
+                    "        xtype: 'loadmask',",
+                    "        message: 'Buscando<br/>beneficiario ...'",
+                    "    });    ",
+                    "",
+                    "    Ext.getCmp('directTransfer').submit({",
+                    "        url: urlService,",
+                    "        success: function(form, result) {",
+                    "            me.responseSearchBeneficiary(result, panel);",
+                    "            Ext.Viewport.setMasked(false);",
+                    "        },",
+                    "        failure: function(form, result) {",
+                    "            Ext.Viewport.setMasked(false);",
+                    "            Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');",
+                    "        }",
+                    "    });",
+                    "} else {",
+                    "    Ext.Msg.alert('Aviso', 'No dispone de saldo suficiente para realizar la transferencia');",
+                    "}"
+                ]
+            },
+            "designerId": "7fc15a47-e51f-4c7b-a2e4-e23b0a4cfa79"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "searchPayer",
+                "fn": "searchPayer",
+                "implHandler": [
+                    "var me = this;",
+                    "",
+                    "var urlService = 'http://ppcjparis:8080/services/recieve';",
+                    "var panel = this.getApplication().getController('MainController').getView('beneficiaryPanel');",
+                    "",
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: 'Buscando<br/>ordenante ...'",
+                    "});",
+                    "",
+                    "Ext.getCmp('directTransfer').submit({",
+                    "    url: urlService,",
+                    "    success: function(form, result) {",
+                    "        me.responseSearchPayer(result, panel);",
+                    "        Ext.Viewport.setMasked(false);",
+                    "    },",
+                    "    failure: function(form, result) {",
+                    "        Ext.Viewport.setMasked(false);",
+                    "        Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "6b3f0971-ecab-4310-83b2-1b12eb047bfd"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "validateTransfer",
+                "fn": "validateTransfer",
+                "implHandler": [
+                    "var store = Ext.getStore('Account');",
+                    "var accountCarousel = Ext.getCmp('accountCarousel');",
+                    "var balance = store.data.getAt(accountCarousel.getActiveIndex()).data.balance;",
+                    "var amount = Ext.getCmp('amountField').getValue();",
+                    "return balance > amount;",
+                    ""
+                ]
+            },
+            "designerId": "efe334eb-b1d6-4960-904d-8e9953593b42"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "setAccount",
+                "fn": "setAccount",
+                "designer|params": [
+                    "container"
+                ],
+                "implHandler": [
+                    "var store = Ext.getStore('Account');",
+                    "Ext.getCmp('accountHiddenField').setValue(store.data.getAt(container.getActiveIndex()).data.number);"
+                ]
+            },
+            "designerId": "d7e72e09-7e4e-48bc-90aa-8c040f45c7f6"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "initView",
+                "fn": "initView",
+                "implHandler": [
+                    "var userData = Ext.getStore('User').getData().getAt(0).data;",
+                    "Ext.getCmp('userIdField').setValue(userData.id);",
+                    "Ext.getCmp('userNameField').setValue(userData.name);",
+                    "Ext.getCmp('userLastnameField').setValue(userData.lastname);",
+                    "this.createAccountSelectCarousel();"
+                ]
+            },
+            "designerId": "06d7b10f-7e34-4106-95b1-f8e075d708e8"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "logoutButton",
+                "designer|displayName": "logoutButton",
+                "ref": "logoutButton",
+                "selector": "#logoutButton"
+            },
+            "designerId": "d96f52fd-5195-4d2f-8ebd-a815c67a1c19"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onLogoutButtonTap",
+                "fn": "onLogoutButtonTap",
+                "implHandler": [
+                    "this.getApplication().getController('LoginController').showLogin();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "logoutButton"
+            },
+            "designerId": "102f80a5-e5c8-4037-8414-1b0118c8afb4"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "searchTransferButton",
+                "ref": "searchTransferButton",
+                "selector": "#searchTransferButton"
+            },
+            "designerId": "5a737e5c-d57e-4660-b9b1-26ca7c6df7b4"
+        }
+    ]
+}

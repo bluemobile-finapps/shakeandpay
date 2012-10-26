@@ -1,0 +1,100 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PayerController"
+    },
+    "id": "ExtBox1-ext-gen35846",
+    "designerId": "9f65bf71-a480-4991-8245-76ae5935eba2",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPayerCancelActionTap",
+                "fn": "onPayerCancelActionTap",
+                "implHandler": [
+                    "this.cancelPayerOperation();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#payerCancelAction"
+            },
+            "designerId": "df080911-db1a-4ca2-801d-dbc17c51505c"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "cancelPayerOperation",
+                "fn": "cancelPayerOperation",
+                "implHandler": [
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ' Operación cancelada ',",
+                    "    indicator: false",
+                    "});",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    Ext.getCmp('payerPanel').hide();",
+                    "},1000);"
+                ]
+            },
+            "designerId": "e97b35d7-eed3-4755-ba00-7389a2115144"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "acceptPayerOperation",
+                "fn": "acceptPayerOperation",
+                "implHandler": [
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: 'Realizando la<br/>transferencia ...'",
+                    "});",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    Ext.getCmp('payerPanel').hide();",
+                    "},1000);"
+                ]
+            },
+            "designerId": "a64d3546-508b-492f-9cdf-c392115fdd14"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPayerOkActionTap",
+                "fn": "onPayerOkActionTap",
+                "implHandler": [
+                    "this.acceptPayerOperation();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#payerOkAction"
+            },
+            "designerId": "32a8f12f-27b3-4c7e-b23a-653abb851f46"
+        }
+    ]
+}

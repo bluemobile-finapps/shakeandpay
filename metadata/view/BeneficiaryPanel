@@ -1,0 +1,171 @@
+{
+    "type": "panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BeneficiaryPanel",
+        "designer|userAlias": "beneficiaryPanelAlias",
+        "centered": true,
+        "cls": [
+            "modalPanel"
+        ],
+        "hidden": true,
+        "hideAnimation": [
+            "{",
+            "    type: 'popOut',",
+            "    duration: 250,",
+            "    easing: 'ease-in'",
+            "}"
+        ],
+        "html": null,
+        "id": "beneficiaryPanel",
+        "itemId": "beneficiaryPanel",
+        "showAnimation": [
+            "{",
+            "    type: 'popIn',",
+            "    duration: 250,",
+            "    easing: 'ease-out'",
+            "}"
+        ],
+        "styleHtmlContent": true,
+        "hideOnMaskTap": true,
+        "modal": true,
+        "scrollable": "vertical"
+    },
+    "id": "ExtBox1-ext-gen17442",
+    "designerId": "d740530c-fa3b-4c20-a070-95124cf3b066",
+    "cn": [
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar1",
+                "designer|displayName": "BeneficiaryToolbar",
+                "docked": "top",
+                "title": "Ordenante encontrado"
+            },
+            "designerId": "c5e33cdc-5069-462b-8fcb-b059f718d1f6"
+        },
+        {
+            "type": "template",
+            "reference": {
+                "name": "tpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "tpl",
+                "implHandler": [
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label\">",
+                    "        <span>Ordenante</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value\">",
+                    "        <span>{name} {lastname}</span>",
+                    "    </div>",
+                    "</div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label\">",
+                    "        <span>Concepto</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value\">",
+                    "        <span>{concept}</span>",
+                    "    </div>",
+                    "</div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label\">",
+                    "        <span>Cuenta ordenante</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value\">",
+                    "        <span>{account}</span>",
+                    "    </div>",
+                    "<div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">        ",
+                    "    <div class=\"x-form-label label\">",
+                    "        <span>Importe</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value\">",
+                    "        <span>{amount} €</span>",
+                    "    </div>",
+                    "</div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label myLabel\">",
+                    "        <span>Cuenta beneficiaria</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value myValue\">",
+                    "        <span>{beneficiaryAccount}</span>",
+                    "    </div>",
+                    "<div>"
+                ],
+                "designer|displayName": "tpl"
+            },
+            "designerId": "30cf8b5f-da97-4c31-9720-45b2f89ff404"
+        },
+        {
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyContainer",
+                "designer|displayName": "BeneficiaryActions",
+                "docked": "bottom",
+                "height": "100px",
+                "defaults": [
+                    "{",
+                    "    flex: 1",
+                    "}"
+                ],
+                "layout": "hbox"
+            },
+            "designerId": "70a1b5ca-4f98-4be1-9c46-d7dafb646b6e",
+            "cn": [
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton4",
+                        "designer|displayName": "BeneficiaryCancelButton",
+                        "cls": "actionButton",
+                        "id": "beneficiaryCancelButton",
+                        "itemId": "beneficiaryCancelButton",
+                        "ui": "decline",
+                        "text": "Cancelar"
+                    },
+                    "designerId": "f4e89448-6bb9-4329-854a-fc33a5029002"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton3",
+                        "designer|displayName": "BeneficiaryOkButton",
+                        "cls": "actionButton",
+                        "id": "beneficiaryOkButton",
+                        "itemId": "beneficiaryOkButton",
+                        "ui": "confirm",
+                        "text": "Aceptar"
+                    },
+                    "designerId": "6e075eab-4b4f-4ef5-8fbd-29c0c06f5db9"
+                }
+            ]
+        }
+    ]
+}

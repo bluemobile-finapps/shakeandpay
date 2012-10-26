@@ -1,0 +1,32 @@
+{
+    "type": "jsonpstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Account",
+        "autoLoad": false,
+        "model": "Account",
+        "storeId": "Account"
+    },
+    "id": "ExtBox1-ext-gen37653",
+    "designerId": "6c177f9f-bb5b-425e-b7a3-dd18eb353512",
+    "cn": [
+        {
+            "type": "sessionstorageproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MySessionStorageProxy1",
+                "designer|displayName": "AccountProxy",
+                "id": "accountProxy"
+            },
+            "designerId": "fbaa1fdd-262e-48a5-aca4-d0b4bace9f1f"
+        }
+    ]
+}

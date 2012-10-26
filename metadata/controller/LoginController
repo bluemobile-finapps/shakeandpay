@@ -1,0 +1,121 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "me": null,
+        "designer|userClassName": "LoginController"
+    },
+    "id": "ExtBox1-ext-gen5460",
+    "designerId": "0f37582c-27fd-4989-a7f3-54a42b55fe62",
+    "customConfigs": [
+        {
+            "group": "(Custom Properties)",
+            "name": "me",
+            "type": "string"
+        }
+    ],
+    "cn": [
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "showLogin",
+                "fn": "showLogin",
+                "implHandler": [
+                    "this.getApplication().getController('MainController').changeView('loginForm');"
+                ]
+            },
+            "designerId": "1215d410-3dc2-4bd9-9a5e-ed339ff0d5af"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "hideLogin",
+                "fn": "hideLogin",
+                "implHandler": [
+                    "this.getApplication().getController('MainController').changeView('directTransfer');"
+                ]
+            },
+            "designerId": "0bd2a5f9-64d3-42bb-b7d4-7d3c186ba2cf"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loginAction",
+                "fn": "loginAction",
+                "implHandler": [
+                    "var me = this;",
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: 'Validando<br/>credenciales ...'",
+                    "});",
+                    "Ext.getCmp('loginForm').submit({",
+                    "    success: function(form, result) {",
+                    "        Ext.getStore('User').setData(result.user);",
+                    "        Ext.getStore('Account').setData(result.accounts);",
+                    "        me.hideLogin();",
+                    "        Ext.Viewport.setMasked(false);",
+                    "    },",
+                    "    failure: function(form, result) {",
+                    "        Ext.Viewport.setMasked(false);",
+                    "        Ext.Msg.alert('Aviso', 'No se ha podido acceder, por favor, compruebe las credenciales');",
+                    "    }",
+                    "});"
+                ]
+            },
+            "designerId": "e9927c01-0a56-4772-a9bb-43232eda6f28"
+        },
+        {
+            "type": "controllerref",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "loginButton",
+                "designer|displayName": "loginButton",
+                "ref": "loginButton",
+                "selector": "#loginButton"
+            },
+            "designerId": "134fa769-0fe5-4c3c-84cc-6e87f382655a"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onLoginButtonTap",
+                "fn": "onLoginButtonTap",
+                "implHandler": [
+                    "this.loginAction();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "loginButton"
+            },
+            "designerId": "fed23a7a-0ea8-4688-b81e-5f2fd4a1a6f9"
+        }
+    ]
+}

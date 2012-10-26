@@ -1,0 +1,14 @@
+{
+    "type": "jsresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "url": "shake.js",
+        "defer": true
+    },
+    "id": "ExtBox1-ext-gen29344",
+    "designerId": "4d6dc865-e7c3-473c-8ede-f58267aa1829"
+}

@@ -1,0 +1,185 @@
+{
+    "name": "shakeandpay",
+    "settings": {
+        "urlPrefix": "http://localhost/~vjjordan/shakeandpay/",
+        "spacesToIndent": 4,
+        "exportPath": "/Users/vjjordan/Sites/shakeandpay/",
+        "lineEnding": "LF",
+        "genTimestamps": false,
+        "cacheBust": false
+    },
+    "xdsVersion": "2.1.0",
+    "xdsBuild": 640,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000498,
+    "framework": "touch20",
+    "topInstanceFileMap": {
+        "774e699e-f82d-4ceb-b970-d0163652eee3": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "27d90341-2f6b-4bd6-b9da-02ec3d0dc7e8": {
+            "paths": [
+                "metadata/view/DirectTransfer",
+                "app/view/override/DirectTransfer.js",
+                "app/view/DirectTransfer.js"
+            ],
+            "className": "DirectTransfer"
+        },
+        "e449eae6-9181-44b8-8436-e5f88b47fc6e": {
+            "paths": [
+                "metadata/resource/css1"
+            ],
+            "className": "css1"
+        },
+        "c1e9357e-b9ce-4c8b-a3d3-a5e97a0ab8cd": {
+            "paths": [
+                "metadata/view/LoginForm",
+                "app/view/override/LoginForm.js",
+                "app/view/LoginForm.js"
+            ],
+            "className": "LoginForm"
+        },
+        "0f37582c-27fd-4989-a7f3-54a42b55fe62": {
+            "paths": [
+                "metadata/controller/LoginController",
+                "app/controller/override/LoginController.js",
+                "app/controller/LoginController.js"
+            ],
+            "className": "LoginController"
+        },
+        "7407bbbd-8b63-4c52-89a5-85b248c24de8": {
+            "paths": [
+                "metadata/controller/MainController",
+                "app/controller/override/MainController.js",
+                "app/controller/MainController.js"
+            ],
+            "className": "MainController"
+        },
+        "6c177f9f-bb5b-425e-b7a3-dd18eb353512": {
+            "paths": [
+                "metadata/store/Account",
+                "app/store/override/Account.js",
+                "app/store/Account.js"
+            ],
+            "className": "Account"
+        },
+        "8eb1c6b2-6560-4b2b-ad94-bbcbe9f2454b": {
+            "paths": [
+                "metadata/controller/DirectTransferController",
+                "app/controller/override/DirectTransferController.js",
+                "app/controller/DirectTransferController.js"
+            ],
+            "className": "DirectTransferController"
+        },
+        "b618df57-94c8-4c47-ba23-d2ea6e183082": {
+            "paths": [
+                "metadata/model/Account",
+                "app/model/override/Account.js",
+                "app/model/Account.js"
+            ],
+            "className": "Account"
+        },
+        "8057410b-e7a0-4427-9ce1-f9090f8b78da": {
+            "paths": [
+                "metadata/store/User",
+                "app/store/override/User.js",
+                "app/store/User.js"
+            ],
+            "className": "User"
+        },
+        "57cc362e-6054-4771-ae91-313479a22415": {
+            "paths": [
+                "metadata/model/User",
+                "app/model/override/User.js",
+                "app/model/User.js"
+            ],
+            "className": "User"
+        },
+        "d740530c-fa3b-4c20-a070-95124cf3b066": {
+            "paths": [
+                "metadata/view/BeneficiaryPanel",
+                "app/view/override/BeneficiaryPanel.js",
+                "app/view/BeneficiaryPanel.js"
+            ],
+            "className": "BeneficiaryPanel"
+        },
+        "94a7e285-6b72-420e-b505-dbb33773bd32": {
+            "paths": [
+                "metadata/controller/BeneficiaryController",
+                "app/controller/override/BeneficiaryController.js",
+                "app/controller/BeneficiaryController.js"
+            ],
+            "className": "BeneficiaryController"
+        },
+        "b8f5213a-fa7c-45a8-a1af-272f9b4a0298": {
+            "paths": [
+                "metadata/view/PayerPanel",
+                "app/view/override/PayerPanel.js",
+                "app/view/PayerPanel.js"
+            ],
+            "className": "PayerPanel"
+        },
+        "9f65bf71-a480-4991-8245-76ae5935eba2": {
+            "paths": [
+                "metadata/controller/PayerController",
+                "app/controller/override/PayerController.js",
+                "app/controller/PayerController.js"
+            ],
+            "className": "PayerController"
+        },
+        "d250adc3-9f84-4f04-84a8-dc3641d21347": {
+            "paths": [
+                "metadata/resource/js"
+            ],
+            "className": "js"
+        },
+        "4d6dc865-e7c3-473c-8ede-f58267aa1829": {
+            "paths": [
+                "metadata/resource/js1"
+            ],
+            "className": "js1"
+        },
+        "3f2ba3b9-59bf-4f28-9713-65ae746e2702": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "c1e9357e-b9ce-4c8b-a3d3-a5e97a0ab8cd",
+            "27d90341-2f6b-4bd6-b9da-02ec3d0dc7e8",
+            "d740530c-fa3b-4c20-a070-95124cf3b066",
+            "b8f5213a-fa7c-45a8-a1af-272f9b4a0298"
+        ],
+        "store": [
+            "6c177f9f-bb5b-425e-b7a3-dd18eb353512",
+            "8057410b-e7a0-4427-9ce1-f9090f8b78da"
+        ],
+        "controller": [
+            "0f37582c-27fd-4989-a7f3-54a42b55fe62",
+            "7407bbbd-8b63-4c52-89a5-85b248c24de8",
+            "8eb1c6b2-6560-4b2b-ad94-bbcbe9f2454b",
+            "94a7e285-6b72-420e-b505-dbb33773bd32",
+            "9f65bf71-a480-4991-8245-76ae5935eba2"
+        ],
+        "model": [
+            "b618df57-94c8-4c47-ba23-d2ea6e183082",
+            "57cc362e-6054-4771-ae91-313479a22415"
+        ],
+        "resource": [
+            "774e699e-f82d-4ceb-b970-d0163652eee3",
+            "3f2ba3b9-59bf-4f28-9713-65ae746e2702",
+            "e449eae6-9181-44b8-8436-e5f88b47fc6e",
+            "d250adc3-9f84-4f04-84a8-dc3641d21347",
+            "4d6dc865-e7c3-473c-8ede-f58267aa1829"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

@@ -1,0 +1,102 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "BeneficiaryController"
+    },
+    "id": "ExtBox1-ext-gen13613",
+    "designerId": "94a7e285-6b72-420e-b505-dbb33773bd32",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onBeneficiaryCancelButtonTap",
+                "fn": "onBeneficiaryCancelButtonTap",
+                "implHandler": [
+                    "this.cancelBeneficiaryOperation();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#beneficiaryCancelButton"
+            },
+            "designerId": "f3fa2043-538f-433e-ab14-d00a550f74da"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "cancelBeneficiaryOperation",
+                "fn": "cancelBeneficiaryOperation",
+                "implHandler": [
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ' Operación rechazada ',",
+                    "    indicator: false",
+                    "});",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    Ext.getCmp('beneficiaryPanel').hide();",
+                    "},1000);",
+                    ""
+                ]
+            },
+            "designerId": "5a28a560-b479-4213-9ab7-4e868beca2fe"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "acceptBeneficiaryOperation",
+                "fn": "acceptBeneficiaryOperation",
+                "implHandler": [
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ' Operación autorizada ',",
+                    "    indicator: false",
+                    "});",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    Ext.getCmp('beneficiaryPanel').hide();",
+                    "},1000);"
+                ]
+            },
+            "designerId": "65e94c24-5f4f-4619-9e24-106b70cc0441"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onBeneficiaryOkButtonTap",
+                "fn": "onBeneficiaryOkButtonTap",
+                "implHandler": [
+                    "this.acceptBeneficiaryOperation();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#beneficiaryOkButton"
+            },
+            "designerId": "5282d0ef-f43e-459c-b93c-d193ac76271f"
+        }
+    ]
+}

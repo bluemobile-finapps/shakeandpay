@@ -1,0 +1,200 @@
+{
+    "type": "panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PayerPanel",
+        "designer|userAlias": "payerPanelAlias",
+        "centered": true,
+        "cls": [
+            "modalPanel"
+        ],
+        "hidden": true,
+        "hideAnimation": [
+            "{",
+            "    type: 'popOut',",
+            "    duration: 250,",
+            "    easing: 'ease-in'",
+            "}"
+        ],
+        "id": "payerPanel",
+        "itemId": "payerPanel",
+        "showAnimation": [
+            "{",
+            "    type: 'popIn',",
+            "    duration: 250,",
+            "    easing: 'ease-out'",
+            "}"
+        ],
+        "styleHtmlContent": true,
+        "hideOnMaskTap": true,
+        "modal": true,
+        "scrollable": "vertical"
+    },
+    "id": "ExtBox1-ext-gen6171",
+    "designerId": "b8f5213a-fa7c-45a8-a1af-272f9b4a0298",
+    "cn": [
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar2",
+                "designer|displayName": "PayerToolbar",
+                "docked": "top",
+                "title": "Beneficiario encontrado"
+            },
+            "designerId": "2aa4e1d8-79bc-4390-ba0d-becdfac07db4"
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet5",
+                "cls": [
+                    "operationNumberFieldSet"
+                ],
+                "title": "Confirme la operación"
+            },
+            "designerId": "5a24b481-0069-4335-b923-11e422afacda",
+            "cn": [
+                {
+                    "type": "passwordfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyPasswordField1",
+                        "designer|displayName": "PassOperation",
+                        "id": "passOperationField",
+                        "itemId": "passOperationField",
+                        "label": "Clave",
+                        "labelWidth": "50%"
+                    },
+                    "designerId": "30ec7d31-c1f4-4d94-bc28-141c51e88b45"
+                }
+            ]
+        },
+        {
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyContainer1",
+                "designer|displayName": "PayerActions",
+                "docked": "bottom",
+                "height": "100px",
+                "defaults": [
+                    "{",
+                    "    flex: 1",
+                    "}"
+                ],
+                "layout": "hbox"
+            },
+            "designerId": "51642f31-eecb-4ad9-9a16-4610681ea47a",
+            "cn": [
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton5",
+                        "designer|displayName": "PayerCancelAction",
+                        "cls": "actionButton",
+                        "id": "payerCancelAction",
+                        "itemId": "payerCancelAction",
+                        "ui": "decline",
+                        "text": "Cancelar"
+                    },
+                    "designerId": "5bfc0733-71be-4d21-82ae-85806b3f0aa9"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton6",
+                        "designer|displayName": "PayerOkAction",
+                        "cls": "actionButton",
+                        "id": "payerOkAction",
+                        "itemId": "payerOkAction",
+                        "ui": "confirm",
+                        "text": "Aceptar"
+                    },
+                    "designerId": "23e15a4a-c101-4df4-a903-2aa811bd41ab"
+                }
+            ]
+        },
+        {
+            "type": "template",
+            "reference": {
+                "name": "tpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "tpl",
+                "implHandler": [
+                    "<div>",
+                    "    <span>Busque el número {operationNumber} e introduzca la clave correspondiente.</span>",
+                    "</div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label\">",
+                    "        <span>Beneficiario</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value\">",
+                    "        <span>{name} {lastname}</span>",
+                    "    </div>",
+                    "</div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label\">",
+                    "        <span>Cuenta beneficiario</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value\">",
+                    "        <span>{account}</span>",
+                    "    </div>",
+                    "<div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "    <div class=\"x-form-label label myLabel\">",
+                    "        <span>Cuenta ordenante</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value myValue\">",
+                    "        <span>{payerAccount}</span>",
+                    "    </div>",
+                    "<div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">        ",
+                    "    <div class=\"x-form-label label myLabel\">",
+                    "        <span>Importe</span>",
+                    "    </div>",
+                    "    <div class=\"x-input-el value myValue\">",
+                    "        <span>{amount} €</span>",
+                    "    </div>",
+                    "</div>"
+                ],
+                "designer|displayName": "tpl"
+            },
+            "designerId": "67b5c120-4dbc-4599-87b0-94018edc5445"
+        }
+    ]
+}

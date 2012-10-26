@@ -1,0 +1,281 @@
+{
+    "type": "formpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "DirectTransfer",
+        "designer|userAlias": "directTransferAlias",
+        "id": "directTransfer",
+        "itemId": "directTransfer",
+        "style": null,
+        "url": null
+    },
+    "id": "ExtBox1-ext-gen12260",
+    "designerId": "27d90341-2f6b-4bd6-b9da-02ec3d0dc7e8",
+    "cn": [
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar",
+                "designer|displayName": "DirectTransferToolbar",
+                "docked": "top",
+                "title": "Transferencia"
+            },
+            "designerId": "c8884e73-af15-4b99-baa7-d6de02a0cd95",
+            "cn": [
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton2",
+                        "designer|displayName": "LogoutButton",
+                        "id": "logoutButton",
+                        "itemId": "logoutButton",
+                        "text": "Cerrar"
+                    },
+                    "designerId": "98258421-df36-4e0c-a1f0-972d9230b94d"
+                },
+                {
+                    "type": "spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySpacer"
+                    },
+                    "designerId": "219972aa-d676-4354-bbae-24913a4c3bda"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton4",
+                        "designer|displayName": "SearchTransferButton",
+                        "id": "searchTransferButton",
+                        "itemId": "searchTransferButton",
+                        "ui": "confirm",
+                        "iconCls": "action",
+                        "iconMask": true,
+                        "text": null
+                    },
+                    "designerId": "aef947b7-12fd-423d-8378-b723493db730"
+                }
+            ]
+        },
+        {
+            "type": "hiddenfield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyHiddenField1",
+                "designer|displayName": "UserIdField",
+                "id": "userIdField",
+                "itemId": "userIdField",
+                "name": "userId"
+            },
+            "designerId": "3ccf3450-b302-4cc7-a476-be33fceb7995"
+        },
+        {
+            "type": "hiddenfield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyHiddenField2",
+                "designer|displayName": "UserNameField",
+                "id": "userNameField",
+                "itemId": "userNameField",
+                "name": "name"
+            },
+            "designerId": "c6a28c0b-e4c3-4ea3-959d-5d520e877578"
+        },
+        {
+            "type": "hiddenfield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyHiddenField3",
+                "designer|displayName": "UserLastnameField",
+                "id": "userLastnameField",
+                "itemId": "userLastnameField",
+                "name": "lastname"
+            },
+            "designerId": "67087b5f-c1ac-4b3d-9f14-0f46ff8c6387"
+        },
+        {
+            "type": "hiddenfield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyHiddenField4",
+                "designer|displayName": "LatField",
+                "id": "latField",
+                "itemId": "latField",
+                "name": "lat"
+            },
+            "designerId": "f95a8e27-f2ff-4afe-96bd-ca59edeb6710"
+        },
+        {
+            "type": "hiddenfield",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyHiddenField5",
+                "designer|displayName": "LonField",
+                "id": "lonField",
+                "itemId": "lonField",
+                "name": "lon"
+            },
+            "designerId": "a9201a68-98ba-4047-a9b6-e83ef2206681"
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet",
+                "title": "Importe"
+            },
+            "designerId": "a9f37b05-3650-4a32-92de-3b32c1f0d9b6",
+            "cn": [
+                {
+                    "type": "numberfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyNumberField1",
+                        "designer|displayName": "AmountField",
+                        "id": "amountField",
+                        "itemId": "amountField",
+                        "style": null,
+                        "inputCls": "inputLarge",
+                        "label": null,
+                        "labelAlign": null,
+                        "name": "amount"
+                    },
+                    "designerId": "fe91dcd9-2c43-48ae-b8ce-e18eb5ee14d1"
+                }
+            ]
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet2",
+                "title": "Concepto"
+            },
+            "designerId": "e387d173-472e-473d-b740-23b09fe92180",
+            "cn": [
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField",
+                        "designer|displayName": "ConceptField",
+                        "id": "conceptField",
+                        "itemId": "conceptField",
+                        "label": null,
+                        "labelAlign": null,
+                        "name": "concept"
+                    },
+                    "designerId": "a9beddcd-3891-4ab7-ba09-68c6917c2ae0"
+                }
+            ]
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet5",
+                "title": "Número de cuenta"
+            },
+            "designerId": "1c9cc668-c3ec-4c67-9ebd-53f3f9cb783f",
+            "cn": [
+                {
+                    "type": "hiddenfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyHiddenField",
+                        "designer|displayName": "AccountHiddenField",
+                        "id": "accountHiddenField",
+                        "itemId": "accountHiddenField",
+                        "name": "accn"
+                    },
+                    "designerId": "61000175-d846-48c0-96e5-de8065afa92a"
+                }
+            ]
+        },
+        {
+            "type": "carousel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyCarousel",
+                "designer|displayName": "AccountCarousel",
+                "height": "125px",
+                "id": "accountCarousel",
+                "itemId": "accountCarousel",
+                "scrollable": false,
+                "direction": null
+            },
+            "designerId": "3dea564c-c9de-4860-b72e-ef735aa55bef"
+        }
+    ]
+}

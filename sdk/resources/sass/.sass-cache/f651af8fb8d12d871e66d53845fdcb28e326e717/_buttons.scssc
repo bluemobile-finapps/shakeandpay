@@ -1,0 +1,744 @@
+3.1.15 (Brainy Betty)
+bf62a7a32a121bd7a7c5b7c20e4604db9ee39dd7
+o:Sass::Tree::RootNode
+:@has_childrenT:@template"π$// Toolbar icons used with permission from Drew Wilson
+// http://pictos.drewwilson.com/
+// Pictos icons are (c) 2010 Drew Wilson
+
+@import '../global';
+
+/**
+ * @class Ext.Button
+ */
+
+/**
+ * @var {measurement} $button-height Default height for buttons.
+ */
+$button-height: 1.8em;
+
+/**
+ * @var {measurement} $button-radius Default border-radius for buttons.
+ */
+$button-radius: .4em !default;
+
+/**
+ * @var {measurement} $button-stroke-weight Default border width for buttons.
+ */
+$button-stroke-weight: .1em !default;
+
+/**
+ * @var {string} $button-gradient Default gradient for buttons.
+ */
+$button-gradient: $base-gradient !default;
+
+/**
+ * @var {string} $toolbar-icon-size Default size (width and height) for toolbar icons.
+ */
+$toolbar-icon-size: 1.4em !default;
+
+/**
+ * @var {boolean} $include-button-uis Optionally disable separate button UIs, including action, confirm, and decline.
+ */
+$include-button-uis: $include-default-uis !default;
+
+/**
+ * @var {boolean} $include-button-highlights Optionally disable special CSS3 effects on buttons including gradients, text-shadows, and box-shadows.
+ */
+$include-button-highlights: $include-highlights !default;
+
+
+/**
+ * Includes default button styles.
+ */
+@mixin sencha-buttons {
+  // Basic button style
+  .x-button {
+    @include background-clip(padding-box);
+    @if $include-border-radius { @include border-radius($button-radius); }
+    @include display-box;
+    @include box-align(center);
+    @include toolbar-button(#ccc, $button-gradient);
+    min-height: $button-height; // Why was this !important? Breaks small uis - DK
+    padding: .3em .6em;
+    position: relative;
+    overflow: hidden;
+    -webkit-user-select: none;
+
+    // Default icon style
+    .x-button-icon {
+      width: 2.1em;
+      height: 2.1em;
+      background-repeat: no-repeat;
+      background-position: center;
+      display: block;
+
+      &.x-icon-mask {
+        width: 1.3em;
+        height: 1.3em;
+        -webkit-mask-size: 1.3em;
+      }
+    }
+
+    &.x-item-disabled .x-button-label, &.x-item-disabled .x-button-icon {
+      opacity: .5;
+    }
+  }
+
+  .x-button-round {
+    @if $include-border-radius { @include border-radius($button-height/2); }
+    padding: .1em $button-height/2;
+  }
+
+  // Button icon alignment
+  .x-iconalign-left, .x-icon-align-right {
+    @include box-orient(horizontal);
+  }
+  .x-iconalign-top, .x-iconalign-bottom {
+    @include box-orient(vertical);
+  }
+  .x-iconalign-bottom, .x-iconalign-right {
+    @include box-direction(reverse);
+  }
+  .x-iconalign-center {
+    @include box-pack(center);
+  }
+  .x-iconalign-left .x-button-label {
+    margin-left: $toolbar-spacing * 1.5;
+  }
+  .x-iconalign-right .x-button-label {
+    margin-right: $toolbar-spacing * 1.5;
+  }
+  .x-iconalign-top .x-button-label {
+    margin-top: $toolbar-spacing * 1.5;
+  }
+  .x-iconalign-bottom .x-button-label {
+    margin-bottom: $toolbar-spacing * 1.5;
+  }
+
+  // Button labels
+  .x-button-label {
+    @include box-flex(1);
+    @include box-align(center);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1.2em;
+    display: block;
+    overflow: hidden;
+  }
+
+  // Toolbar button styling
+  .x-toolbar .x-button {
+    margin: 0 .2em;
+    padding: .3em .6em;
+
+    .x-button-label {
+      font-size: .7em;
+    }
+  }
+
+  .x-button-small, .x-toolbar .x-button-small {
+    @if $include-border-radius { @include border-radius(.3em); }
+    padding: .2em .4em;
+    min-height: 0;
+
+    .x-button-label {
+      font-size: .6em;
+    }
+
+    .x-button-icon {
+      width: .75em;
+      height: .75em;
+    }
+  }
+
+  // Back/Forward buttons
+  $shadow-width: .065em; // Space between tip and its shadow
+  $overlap-width: .2em; // how far the mask is clipped
+
+  // $mask-height: $button-height + $button-stroke-weight * 2; // Ugh, this is non-specific... borders?
+  $mask-height: $button-height;
+  $mask-width: $mask-height/2.33;
+
+  $mask-offset: $button-radius - $overlap-width - $button-stroke-weight + $shadow-width - .02em;
+
+  $tip-width: $mask-width - $mask-offset + $shadow-width;
+
+  .x-button-forward, .x-button-back {
+    position: relative;
+    overflow: visible;
+    height: $button-height;
+    z-index: 1;
+    &:before, &:after {
+      @include insertion($mask-width, $mask-height, -$button-stroke-weight, auto);
+      z-index: 2;
+      -webkit-mask: $mask-offset 0 theme_image($theme-name, "tip.png") no-repeat;
+      -webkit-mask-size: $mask-width $mask-height;
+      overflow: hidden;
+    }
+  }
+
+  .x-button-back,
+  .x-toolbar .x-button-back {
+    margin-left: $tip-width - $shadow-width + $toolbar-spacing;
+    padding-left: .4em;
+    &:before {
+      left: - $tip-width;
+    }
+    &:after {
+      left: - $tip-width + $shadow-width;
+    }
+  }
+
+  .x-button-forward,
+  .x-toolbar .x-button-forward {
+    margin-right: $tip-width - $shadow-width + $toolbar-spacing;
+    padding-right: .4em;
+    &:before, &:after {
+      -webkit-mask: -$mask-offset 0 theme_image($theme-name, "tip_right.png") no-repeat;
+    }
+    &:before {
+      right: - $tip-width;
+    }
+    &:after {
+      right: - $tip-width + $shadow-width;
+    }
+  }
+
+  // Plain buttons automatically use a margin trick to have a
+  // wide gradial glow for pressed state.
+  .x-button.x-button-plain,
+  .x-toolbar .x-button.x-button-plain {
+    background: none;
+    border: 0 none;
+    @if $include-border-radius { @include border-radius(none); }
+    min-height: 0;
+    text-shadow: none;
+    line-height: auto;
+    height: 1.9em;
+    padding: 0em 0.5em;
+
+    & > * {
+      overflow: visible;
+    }
+
+    .x-button-icon {
+      -webkit-mask-size: $toolbar-icon-size;
+      width: $toolbar-icon-size;
+      height: $toolbar-icon-size;
+    }
+
+    &.x-button-pressing, &.x-button-pressed {
+      background: none;
+
+      $mask-radial-glow: lighten($active-color, 50%);
+      @include background-image(radial-gradient(fade-out($mask-radial-glow, .3), fade-out($mask-radial-glow, 1) 24px));
+      .x-button-icon.x-button-mask {
+        @include background-gradient(#fff, 'recessed');
+      }
+    }
+  }
+
+  // SegmentedButtons
+  .x-segmentedbutton .x-button {
+    margin: 0;
+
+    @if $include-border-radius {
+      @include border-radius(0);
+
+      &.x-first {
+        @include border-left-radius($button-radius);
+      }
+      &.x-last {
+        @include border-right-radius($button-radius);
+      }
+    }
+
+    &:not(:first-child) {
+      border-left: 0;
+    }
+  }
+
+  // Badges
+  $badge-size: 2em !default;
+  $badge-radius: .2em !default;
+  $badge-bg-color: darken($alert-color, 10%) !default;
+  $badge-bg-gradient: $base-gradient !default;
+
+  .x-hasbadge {
+    overflow: visible;
+    .x-badge {
+      @extend .x-button-label;
+      @include background-clip(padding-box);
+      @if $include-border-radius { @include border-radius($badge-radius); }
+      padding: .1em .3em;
+      z-index: 2;
+      @if $include-button-highlights {
+        @include bevel-by-background($badge-bg-color);
+        @include box-shadow(rgba(#000, .5) 0 .1em .1em);
+      }
+      overflow: hidden;
+      @include color-by-background($badge-bg-color, $contrast: 50%);
+      border: 1px solid darken($badge-bg-color, 10%);
+      position: absolute;
+      width: auto;
+      min-width: $badge-size;
+      line-height: 1.2em;
+      font-size: .6em;
+      right: 0px;
+      top: -.2em;
+      max-width: 95%;
+      @include background-gradient($badge-bg-color, $badge-bg-gradient);
+      display: inline-block;
+    }
+  }
+
+  @if $include-default-icons {
+    @include pictos-iconmask('action');
+    @include pictos-iconmask('add');
+    @include pictos-iconmask('arrow_down');
+    @include pictos-iconmask('arrow_left');
+    @include pictos-iconmask('arrow_right');
+    @include pictos-iconmask('arrow_up');
+    @include pictos-iconmask('compose');
+    @include pictos-iconmask('delete');
+    @include pictos-iconmask('organize');
+    @include pictos-iconmask('refresh');
+    @include pictos-iconmask('reply');
+    @include pictos-iconmask('search');
+    @include pictos-iconmask('settings');
+    @include pictos-iconmask('star');
+    @include pictos-iconmask('trash');
+    @include pictos-iconmask('maps');
+    @include pictos-iconmask('locate');
+    @include pictos-iconmask('home');
+  }
+
+  @if $include-button-uis {
+    @include sencha-button-ui('action', $active-color);
+    @include sencha-button-ui('confirm', desaturate(darken($confirm-color, 10%), 5%));
+    @include sencha-button-ui('decline', desaturate(darken($alert-color, 10%), 5%));
+  }
+}
+
+
+/**
+ * Creates a theme UI for buttons.
+ * Also automatically generates UIs for {ui-label}-round and {ui-label}-small.
+ *
+ *     // SCSS
+ *     @include sencha-button-ui('secondary', #99A4AE, 'glossy');
+ *
+ *     // JS
+ *     var cancelBtn = new Ext.Button({text: 'Cancel', ui: 'secondary'});
+ *
+ * @param {string} $ui-label The name of the UI being created.
+ *   Can not included spaces or special punctuation (used in class names)
+ * @param {color} $color Base color for the UI.
+ * @param {string} $gradient Default gradient for the UI.
+ */
+@mixin sencha-button-ui($ui-label, $color, $gradient: $button-gradient) {
+  .x-button.x-button-#{$ui-label}, .x-button.x-button-#{$ui-label}-round, .x-button.x-button-#{$ui-label}-small {
+    @include toolbar-button($color, $gradient);
+  }
+
+  .x-button.x-button-#{$ui-label}-round {
+    @extend .x-button-round;
+  }
+
+  .x-button.x-button-#{$ui-label}-small {
+    @extend .x-button-small;
+  }
+}
+:
+@linei:@options{ :@children[o:Sass::Tree::CommentNode:
+@loud0:@value["É/* Toolbar icons used with permission from Drew Wilson
+ * http://pictos.drewwilson.com/
+ * Pictos icons are (c) 2010 Drew Wilson */;i:@silenti ;	@;
+[ o:Sass::Tree::ImportNode
+;0:@imported_filename"../global;i
+;	@;
+[ o;;0;["!/**
+ * @class Ext.Button
+ */;i;0;	@;
+[ o;;0;["M/**
+ * @var {measurement} $button-height Default height for buttons.
+ */;i;0;	@;
+[ o:Sass::Tree::VariableNode:
+@name"button-height:@guarded0;i;	@:
+@expro:Sass::Script::Number:@denominator_units[ :@numerator_units["em;f1.8 ÃÕ;i;	@:@original"
+1.8em;
+[ o;;0;["T/**
+ * @var {measurement} $button-radius Default border-radius for buttons.
+ */;i;0;	@;
+[ o;;"button-radius;"!default;i;	@;o;;[ ;["em;f0.40000000000000002 ôö;i;	@;"
+0.4em;
+[ o;;0;["Z/**
+ * @var {measurement} $button-stroke-weight Default border width for buttons.
+ */;i;0;	@;
+[ o;;"button-stroke-weight;"!default;i;	@;o;;[ ;["em;f0.10000000000000001 ôö;i;	@;"
+0.1em;
+[ o;;0;["L/**
+ * @var {string} $button-gradient Default gradient for buttons.
+ */;i;0;	@;
+[ o;;"button-gradient;"!default;i";	@;o:Sass::Script::Variable	;"base-gradient:@underscored_name"base_gradient;i";	@;
+[ o;;0;["c/**
+ * @var {string} $toolbar-icon-size Default size (width and height) for toolbar icons.
+ */;i$;0;	@;
+[ o;;"toolbar-icon-size;"!default;i';	@;o;;[ ;["em;f1.3999999999999999 ff;i';	@;"
+1.4em;
+[ o;;0;["}/**
+ * @var {boolean} $include-button-uis Optionally disable separate button UIs, including action, confirm, and decline.
+ */;i);0;	@;
+[ o;;"include-button-uis;"!default;i,;	@;o;	;"include-default-uis;"include_default_uis;i,;	@;
+[ o;;0;["õ/**
+ * @var {boolean} $include-button-highlights Optionally disable special CSS3 effects on buttons including gradients, text-shadows, and box-shadows.
+ */;i.;0;	@;
+[ o;;"include-button-highlights;"!default;i1;	@;o;	;"include-highlights;"include_highlights;i1;	@;
+[ o;;0;["//**
+ * Includes default button styles.
+ */;i4;0;	@;
+[ o:Sass::Tree::MixinDefNode;T;"sencha-buttons;i7;	@;
+[/o;;0;["/* Basic button style */;i8;i ;	@;
+[ o:Sass::Tree::RuleNode;T:
+@rule[".x-button:@parsed_ruleso:"Sass::Selector::CommaSequence:@filename" ;i9:@members[o:Sass::Selector::Sequence;![o:#Sass::Selector::SimpleSequence; @{;i9;![o:Sass::Selector::Class;["x-button; @{;i9;i9;	@;
+[o:Sass::Tree::MixinNode:@keywords{ ;"background-clip;i:;	@;
+[ :
+@args[o:Sass::Script::String	:
+@type:identifier;"padding-box;i:;	@u:Sass::Tree::IfNode[o:Sass::Script::Variable	:
+@name"include-border-radius:@underscored_name"include_border_radius:
+@linei;:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;i;;	@	:@children[ :
+@args[o; 	;"button-radius;"button_radius;i;;	@	o;%;&{ ;"display-box;i<;	@;
+[ ;'[ o;%;&{ ;"box-align;i=;	@;
+[ ;'[o;(	;);*;"center;i=;	@o;%;&{ ;"toolbar-button;i>;	@;
+[ ;'[o:Sass::Script::Color	;0;i>;	@:@attrs{	:rediÃ:
+alphai:
+greeniÃ:	blueiÃo;	;"button-gradient;"button_gradient;i>;	@o:Sass::Tree::PropNode;["min-height;o;	;"button-height;"button_height;i?;	@;i?;	@;
+[ :@prop_syntax:new:
+@tabsi o;;0;["9/* Why was this !important? Breaks small uis - DK */;i?;i ;	@;
+[ o;2;["padding;o;(;);*;".3em .6em;	@;i@;	@;
+[ ;3;4;5i o;2;["position;o;(;);*;"relative;	@;iA;	@;
+[ ;3;4;5i o;2;["overflow;o;(;);*;"hidden;	@;iB;	@;
+[ ;3;4;5i o;2;["-webkit-user-select;o;(;);*;"	none;	@;iC;	@;
+[ ;3;4;5i o;;0;["/* Default icon style */;iE;i ;	@;
+[ o;;T;[".x-button-icon;o;; " ;iF;![o;";![o;#; @…;iF;![o;$;["x-button-icon; @…;iF;iF;	@;
+[o;2;["
+width;o;(;);*;"
+2.1em;	@;iG;	@;
+[ ;3;4;5i o;2;["height;o;(;);*;"
+2.1em;	@;iH;	@;
+[ ;3;4;5i o;2;["background-repeat;o;(;);*;"no-repeat;	@;iI;	@;
+[ ;3;4;5i o;2;["background-position;o;(;);*;"center;	@;iJ;	@;
+[ ;3;4;5i o;2;["display;o;(;);*;"
+block;	@;iK;	@;
+[ ;3;4;5i o;;T;["&.x-icon-mask;o;; " ;iM;![o;";![o;#; @ı;iM;![o:Sass::Selector::Parent; @ı;iMo;$;["x-icon-mask; @ı;iM;iM;	@;
+[o;2;["
+width;o;(;);*;"
+1.3em;	@;iN;	@;
+[ ;3;4;5i o;2;["height;o;(;);*;"
+1.3em;	@;iO;	@;
+[ ;3;4;5i o;2;["-webkit-mask-size;o;(;);*;"
+1.3em;	@;iP;	@;
+[ ;3;4;5i ;5i ;5i o;;T;["H&.x-item-disabled .x-button-label, &.x-item-disabled .x-button-icon;o;; " ;iT;![o;";![o;#; @;iT;![o;6; @;iTo;$;["x-item-disabled; @;iTo;#; @;iT;![o;$;["x-button-label; @;iTo;";![o;#; @;iT;![o;6; @;iTo;$;["x-item-disabled; @;iTo;#; @;iT;![o;$;["x-button-icon; @;iT;iT;	@;
+[o;2;["opacity;o;(;);*;".5;	@;iU;	@;
+[ ;3;4;5i ;5i ;5i o;;T;[".x-button-round;o;; " ;iY;![o;";![o;#; @=;iY;![o;$;["x-button-round; @=;iY;iY;	@;
+[u;+¨[o:Sass::Script::Variable	:
+@name"include-border-radius:@underscored_name"include_border_radius:
+@lineiZ:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;iZ;	@	:@children[ :
+@args[o:Sass::Script::Operation
+:@operand2o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei;iZ;	@	:@original"2;iZ;	@	:@operand1o; 	;"button-height;"button_height;iZ;	@	:@operator:divo;2;["padding;o:Sass::Script::List	;[o;;[ ;["em;f0.10000000000000001 ôö;i[;	@;"
+0.1emo:Sass::Script::Operation
+:@operand2o;;[ ;[ ;i;i[;	@;"2;i[;	@:@operand1o;	;"button-height;"button_height;i[;	@:@operator:div;i[;	@:@separator:
+space;i[;	@;
+[ ;3;4;5i ;5i o;;0;[" /* Button icon alignment */;i^;i ;	@;
+[ o;;T;["+.x-iconalign-left, .x-icon-align-right;o;; " ;i_;![o;";![o;#; @d;i_;![o;$;["x-iconalign-left; @d;i_o;";![o;#; @d;i_;![o;$;["x-icon-align-right; @d;i_;i_;	@;
+[o;%;&{ ;"box-orient;i`;	@;
+[ ;'[o;(	;);*;"horizontal;i`;	@;5i o;;T;["*.x-iconalign-top, .x-iconalign-bottom;o;; " ;ib;![o;";![o;#; @Ä;ib;![o;$;["x-iconalign-top; @Ä;ibo;";![o;#; @Ä;ib;![o;$;["x-iconalign-bottom; @Ä;ib;ib;	@;
+[o;%;&{ ;"box-orient;ic;	@;
+[ ;'[o;(	;);*;"vertical;ic;	@;5i o;;T;[",.x-iconalign-bottom, .x-iconalign-right;o;; " ;ie;![o;";![o;#; @ú;ie;![o;$;["x-iconalign-bottom; @ú;ieo;";![o;#; @ú;ie;![o;$;["x-iconalign-right; @ú;ie;ie;	@;
+[o;%;&{ ;"box-direction;if;	@;
+[ ;'[o;(	;);*;"reverse;if;	@;5i o;;T;[".x-iconalign-center;o;; " ;ih;![o;";![o;#; @∏;ih;![o;$;["x-iconalign-center; @∏;ih;ih;	@;
+[o;%;&{ ;"box-pack;ii;	@;
+[ ;'[o;(	;);*;"center;ii;	@;5i o;;T;["&.x-iconalign-left .x-button-label;o;; " ;ik;![o;";![o;#; @Õ;ik;![o;$;["x-iconalign-left; @Õ;iko;#; @Õ;ik;![o;$;["x-button-label; @Õ;ik;ik;	@;
+[o;2;["margin-left;o;8
+;9o;;@U;[ ;f1.5;il;	@;"1.5;il;	@;:o;	;"toolbar-spacing;"toolbar_spacing;il;	@;;:
+times;il;	@;
+[ ;3;4;5i ;5i o;;T;["'.x-iconalign-right .x-button-label;o;; " ;in;![o;";![o;#; @Ï;in;![o;$;["x-iconalign-right; @Ï;ino;#; @Ï;in;![o;$;["x-button-label; @Ï;in;in;	@;
+[o;2;["margin-right;o;8
+;9o;;@U;[ ;f1.5;io;	@;"1.5;io;	@;:o;	;"toolbar-spacing;"toolbar_spacing;io;	@;;;?;io;	@;
+[ ;3;4;5i ;5i o;;T;["%.x-iconalign-top .x-button-label;o;; " ;iq;![o;";![o;#; @;iq;![o;$;["x-iconalign-top; @;iqo;#; @;iq;![o;$;["x-button-label; @;iq;iq;	@;
+[o;2;["margin-top;o;8
+;9o;;@U;[ ;f1.5;ir;	@;"1.5;ir;	@;:o;	;"toolbar-spacing;"toolbar_spacing;ir;	@;;;?;ir;	@;
+[ ;3;4;5i ;5i o;;T;["(.x-iconalign-bottom .x-button-label;o;; " ;it;![o;";![o;#; @*;it;![o;$;["x-iconalign-bottom; @*;ito;#; @*;it;![o;$;["x-button-label; @*;it;it;	@;
+[o;2;["margin-bottom;o;8
+;9o;;@U;[ ;f1.5;iu;	@;"1.5;iu;	@;:o;	;"toolbar-spacing;"toolbar_spacing;iu;	@;;;?;iu;	@;
+[ ;3;4;5i ;5i o;;0;["/* Button labels */;ix;i ;	@;
+[ o;;T;[".x-button-label;o;; " ;iy;![o;";![o;#; @M;iy;![o;$;["x-button-label; @M;iy;iy;	@;
+[o;%;&{ ;"box-flex;iz;	@;
+[ ;'[o;;@U;[ ;i;iz;	@;"1o;%;&{ ;"box-align;i{;	@;
+[ ;'[o;(	;);*;"center;i{;	@o;2;["white-space;o;(;);*;"nowrap;	@;i|;	@;
+[ ;3;4;5i o;2;["text-overflow;o;(;);*;"ellipsis;	@;i};	@;
+[ ;3;4;5i o;2;["text-align;o;(;);*;"center;	@;i~;	@;
+[ ;3;4;5i o;2;["font-weight;o;(;);*;"	bold;	@;i;	@;
+[ ;3;4;5i o;2;["line-height;o;(;);*;"
+1.2em;	@;i{;	@;
+[ ;3;4;5i o;2;["display;o;(;);*;"
+block;	@;i|;	@;
+[ ;3;4;5i o;2;["overflow;o;(;);*;"hidden;	@;i};	@;
+[ ;3;4;5i ;5i o;;0;["!/* Toolbar button styling */;iÄ;i ;	@;
+[ o;;T;[".x-toolbar .x-button;o;; " ;iÅ;![o;";![o;#; @ò;iÅ;![o;$;["x-toolbar; @ò;iÅo;#; @ò;iÅ;![o;$;["x-button; @ò;iÅ;iÅ;	@;
+[o;2;["margin;o;(;);*;"0 .2em;	@;iÇ;	@;
+[ ;3;4;5i o;2;["padding;o;(;);*;".3em .6em;	@;iÉ;	@;
+[ ;3;4;5i o;;T;[".x-button-label;o;; " ;iÖ;![o;";![o;#; @∑;iÖ;![o;$;["x-button-label; @∑;iÖ;iÖ;	@;
+[o;2;["font-size;o;(;);*;"	.7em;	@;iÜ;	@;
+[ ;3;4;5i ;5i ;5i o;;T;["0.x-button-small, .x-toolbar .x-button-small;o;; " ;iä;![o;";![o;#; @À;iä;![o;$;["x-button-small; @À;iäo;";![o;#; @À;iä;![o;$;["x-toolbar; @À;iäo;#; @À;iä;![o;$;["x-button-small; @À;iä;iä;	@;
+[
+u;+V[o:Sass::Script::Variable	:
+@name"include-border-radius:@underscored_name"include_border_radius:
+@lineiã:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;iã;	@	:@children[ :
+@args[o:Sass::Script::Number:@denominator_units[ :@numerator_units["em:@valuef0.29999999999999999 33;iã;	@	:@original"
+0.3emo;2;["padding;o;(;);*;".2em .4em;	@;iå;	@;
+[ ;3;4;5i o;2;["min-height;o;(;);*;"0;	@;iç;	@;
+[ ;3;4;5i o;;T;[".x-button-label;o;; " ;iè;![o;";![o;#; @Ú;iè;![o;$;["x-button-label; @Ú;iè;iè;	@;
+[o;2;["font-size;o;(;);*;"	.6em;	@;iê;	@;
+[ ;3;4;5i ;5i o;;T;[".x-button-icon;o;; " ;iì;![o;";![o;#; @;iì;![o;$;["x-button-icon; @;iì;iì;	@;
+[o;2;["
+width;o;(;);*;"
+.75em;	@;iî;	@;
+[ ;3;4;5i o;2;["height;o;(;);*;"
+.75em;	@;iï;	@;
+[ ;3;4;5i ;5i ;5i o;;0;["/* Back/Forward buttons */;iô;i ;	@;
+[ o;;"shadow-width;0;iö;	@;o;;[ ;["em;f0.065000000000000002 p§;iö;	@;"0.065em;
+[ o;;0;["+/* Space between tip and its shadow */;iö;i ;	@;
+[ o;;"overlap-width;0;iõ;	@;o;;[ ;["em;f0.20000000000000001 ôö;iõ;	@;"
+0.2em;
+[ o;;0;["&/* how far the mask is clipped */;iõ;i ;	@;
+[ o;;0;["m/* $mask-height: $button-height + $button-stroke-weight * 2; // Ugh, this is non-specific... borders? */;iù;i ;	@;
+[ o;;"mask-height;0;iû;	@;o;	;"button-height;"button_height;iû;	@;
+[ o;;"mask-width;0;iü;	@;o;8
+;9o;;@U;[ ;f2.3300000000000001 p§;iü;	@;"	2.33;iü;	@;:o;	;"mask-height;"mask_height;iü;	@;;;<;
+[ o;;"mask-offset;0;i°;	@;o;8
+;9o;;[ ;["em;f0.02 {;i°;	@;"0.02em;i°;	@;:o;8
+;9o;	;"shadow-width;"shadow_width;i°;	@;i°;	@;:o;8
+;9o;	;"button-stroke-weight;"button_stroke_weight;i°;	@;i°;	@;:o;8
+;9o;	;"overlap-width;"overlap_width;i°;	@;i°;	@;:o;	;"button-radius;"button_radius;i°;	@;;:
+minus;;;@;;:	plus;;;@;
+[ o;;"tip-width;0;i£;	@;o;8
+;9o;	;"shadow-width;"shadow_width;i£;	@;i£;	@;:o;8
+;9o;	;"mask-offset;"mask_offset;i£;	@;i£;	@;:o;	;"mask-width;"mask_width;i£;	@;;;@;;;A;
+[ o;;T;["&.x-button-forward, .x-button-back;o;; " ;i•;![o;";![o;#; @z;i•;![o;$;["x-button-forward; @z;i•o;";![o;#; @z;i•;![o;$;["x-button-back; @z;i•;i•;	@;
+[
+o;2;["position;o;(;);*;"relative;	@;i¶;	@;
+[ ;3;4;5i o;2;["overflow;o;(;);*;"visible;	@;iß;	@;
+[ ;3;4;5i o;2;["height;o;	;"button-height;"button_height;i®;	@;i®;	@;
+[ ;3;4;5i o;2;["z-index;o;(;);*;"1;	@;i©;	@;
+[ ;3;4;5i o;;T;["&:before, &:after;o;; " ;i™;![o;";![o;#; @®;i™;![o;6; @®;i™o:Sass::Selector::Pseudo
+:	@arg0;["before;):
+class; @®;i™o;";![o;#; @®;i™;![o;6; @®;i™o;B
+;C0;["
+after;);D; @®;i™;i™;	@;
+[
+o;%;&{ ;"insertion;i´;	@;
+[ ;'[	o;	;"mask-width;"mask_width;i´;	@o;	;"mask-height;"mask_height;i´;	@o:!Sass::Script::UnaryOperation	:@operando;	;"button-stroke-weight;"button_stroke_weight;i´;	@;i´;	@;;;@o;(	;);*;"	auto;i´;	@o;2;["z-index;o;(;);*;"2;	@;i¨;	@;
+[ ;3;4;5i o;2;["-webkit-mask;o;7	;[	o;	;"mask-offset;"mask_offset;i≠;	@o;;@U;[ ;i ;i≠;	@;"0o:Sass::Script::Funcall
+;&{ ;"theme_image;i≠;	@;'[o;	;"theme-name;"theme_name;i≠;	@o;(	;):string;"tip.png;i≠;	@o;(	;);*;"no-repeat;i≠;	@;i≠;	@;=;>;i≠;	@;
+[ ;3;4;5i o;2;["-webkit-mask-size;o;7	;[o;	;"mask-width;"mask_width;iÆ;	@o;	;"mask-height;"mask_height;iÆ;	@;iÆ;	@;=;>;iÆ;	@;
+[ ;3;4;5i o;2;["overflow;o;(;);*;"hidden;	@;iØ;	@;
+[ ;3;4;5i ;5i ;5i o;;T;["0.x-button-back,
+  .x-toolbar .x-button-back;o;; " ;i¥;![o;";![o;#; @ˇ;i¥;![o;$;["x-button-back; @ˇ;i¥o;";!["
+o;#; @ˇ;i¥;![o;$;["x-toolbar; @ˇ;i¥o;#; @ˇ;i¥;![o;$;["x-button-back; @ˇ;i¥;i¥;	@;
+[	o;2;["margin-left;o;8
+;9o;	;"toolbar-spacing;"toolbar_spacing;iµ;	@;iµ;	@;:o;8
+;9o;	;"shadow-width;"shadow_width;iµ;	@;iµ;	@;:o;	;"tip-width;"tip_width;iµ;	@;;;@;;;A;iµ;	@;
+[ ;3;4;5i o;2;["padding-left;o;(;);*;"	.4em;	@;i∂;	@;
+[ ;3;4;5i o;;T;["&:before;o;; " ;i∑;![o;";![o;#; @/;i∑;![o;6; @/;i∑o;B
+;C0;["before;);D; @/;i∑;i∑;	@;
+[o;2;["	left;o;E	;Fo;	;"tip-width;"tip_width;i∏;	@;i∏;	@;;;@;i∏;	@;
+[ ;3;4;5i ;5i o;;T;["&:after;o;; " ;i∫;![o;";![o;#; @F;i∫;![o;6; @F;i∫o;B
+;C0;["
+after;);D; @F;i∫;i∫;	@;
+[o;2;["	left;o;8
+;9o;	;"shadow-width;"shadow_width;iª;	@;iª;	@;:o;E	;Fo;	;"tip-width;"tip_width;iª;	@;iª;	@;;;@;;;A;iª;	@;
+[ ;3;4;5i ;5i ;5i o;;T;["6.x-button-forward,
+  .x-toolbar .x-button-forward;o;; " ;i¿;![o;";![o;#; @a;i¿;![o;$;["x-button-forward; @a;i¿o;";!["
+o;#; @a;i¿;![o;$;["x-toolbar; @a;i¿o;#; @a;i¿;![o;$;["x-button-forward; @a;i¿;i¿;	@;
+[
+o;2;["margin-right;o;8
+;9o;	;"toolbar-spacing;"toolbar_spacing;i¡;	@;i¡;	@;:o;8
+;9o;	;"shadow-width;"shadow_width;i¡;	@;i¡;	@;:o;	;"tip-width;"tip_width;i¡;	@;;;@;;;A;i¡;	@;
+[ ;3;4;5i o;2;["padding-right;o;(;);*;"	.4em;	@;i¬;	@;
+[ ;3;4;5i o;;T;["&:before, &:after;o;; " ;i√;![o;";![o;#; @ë;i√;![o;6; @ë;i√o;B
+;C0;["before;);D; @ë;i√o;";![o;#; @ë;i√;![o;6; @ë;i√o;B
+;C0;["
+after;);D; @ë;i√;i√;	@;
+[o;2;["-webkit-mask;o;7	;[	o;E	;Fo;	;"mask-offset;"mask_offset;iƒ;	@;iƒ;	@;;;@o;;@U;[ ;i ;iƒ;	@;"0o;G
+;&{ ;"theme_image;iƒ;	@;'[o;	;"theme-name;"theme_name;iƒ;	@o;(	;);H;"tip_right.png;iƒ;	@o;(	;);*;"no-repeat;iƒ;	@;iƒ;	@;=;>;iƒ;	@;
+[ ;3;4;5i ;5i o;;T;["&:before;o;; " ;i∆;![o;";![o;#; @¿;i∆;![o;6; @¿;i∆o;B
+;C0;["before;);D; @¿;i∆;i∆;	@;
+[o;2;["
+right;o;E	;Fo;	;"tip-width;"tip_width;i«;	@;i«;	@;;;@;i«;	@;
+[ ;3;4;5i ;5i o;;T;["&:after;o;; " ;i…;![o;";![o;#; @◊;i…;![o;6; @◊;i…o;B
+;C0;["
+after;);D; @◊;i…;i…;	@;
+[o;2;["
+right;o;8
+;9o;	;"shadow-width;"shadow_width;i ;	@;i ;	@;:o;E	;Fo;	;"tip-width;"tip_width;i ;	@;i ;	@;;;@;;;A;i ;	@;
+[ ;3;4;5i ;5i ;5i o;;0;["k/* Plain buttons automatically use a margin trick to have a
+ * wide gradial glow for pressed state. */;iŒ;i ;	@;
+[ o;;T;["D.x-button.x-button-plain,
+  .x-toolbar .x-button.x-button-plain;o;; " ;i—;![o;";![o;#; @ˆ;i—;![o;$;["x-button; @ˆ;i—o;$;["x-button-plain; @ˆ;i—o;";!["
+o;#; @ˆ;i—;![o;$;["x-toolbar; @ˆ;i—o;#; @ˆ;i—;![o;$;["x-button; @ˆ;i—o;$;["x-button-plain; @ˆ;i—;i—;	@;
+[o;2;["background;o;(;);*;"	none;	@;i“;	@;
+[ ;3;4;5i o;2;["border;o;(;);*;"0 none;	@;i”;	@;
+[ ;3;4;5i u;+[o:Sass::Script::Variable	:
+@name"include-border-radius:@underscored_name"include_border_radius:
+@linei‘:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;i‘;	@	:@children[ :
+@args[o:Sass::Script::String	:
+@type:identifier:@value"	none;i‘;	@	o;2;["min-height;o;(;);*;"0;	@;i’;	@;
+[ ;3;4;5i o;2;["text-shadow;o;(;);*;"	none;	@;i÷;	@;
+[ ;3;4;5i o;2;["line-height;o;(;);*;"	auto;	@;i◊;	@;
+[ ;3;4;5i o;2;["height;o;(;);*;"
+1.9em;	@;iÿ;	@;
+[ ;3;4;5i o;2;["padding;o;(;);*;"0em 0.5em;	@;iŸ;	@;
+[ ;3;4;5i o;;T;["
+& > *;o;; " ;i€;![o;";![o;#; @B;i€;![o;6; @B;i€">o;#; @B;i€;![o:Sass::Selector::Universal; @B;i€:@namespace0;i€;	@;
+[o;2;["overflow;o;(;);*;"visible;	@;i‹;	@;
+[ ;3;4;5i ;5i o;;T;[".x-button-icon;o;; " ;iﬂ;![o;";![o;#; @X;iﬂ;![o;$;["x-button-icon; @X;iﬂ;iﬂ;	@;
+[o;2;["-webkit-mask-size;o;	;"toolbar-icon-size;"toolbar_icon_size;i‡;	@;i‡;	@;
+[ ;3;4;5i o;2;["
+width;o;	;"toolbar-icon-size;"toolbar_icon_size;i·;	@;i·;	@;
+[ ;3;4;5i o;2;["height;o;	;"toolbar-icon-size;"toolbar_icon_size;i‚;	@;i‚;	@;
+[ ;3;4;5i ;5i o;;T;[",&.x-button-pressing, &.x-button-pressed;o;; " ;iÂ;![o;";![o;#; @{;iÂ;![o;6; @{;iÂo;$;["x-button-pressing; @{;iÂo;";![o;#; @{;iÂ;![o;6; @{;iÂo;$;["x-button-pressed; @{;iÂ;iÂ;	@;
+[	o;2;["background;o;(;);*;"	none;	@;iÊ;	@;
+[ ;3;4;5i o;;"mask-radial-glow;0;iË;	@;o;G
+;&{ ;"lighten;iË;	@;'[o;	;"active-color;"active_color;iË;	@o;;[ ;["%;i7;iË;	@;"50%;
+[ o;%;&{ ;"background-image;iÈ;	@;
+[ ;'[o;G
+;&{ ;"radial-gradient;iÈ;	@;'[o;G
+;&{ ;"fade-out;iÈ;	@;'[o;	;"mask-radial-glow;"mask_radial_glow;iÈ;	@o;;@U;[ ;f0.29999999999999999 33;iÈ;	@;"0.3o;7	;[o;G
+;&{ ;"fade-out;iÈ;	@;'[o;	;"mask-radial-glow;"mask_radial_glow;iÈ;	@o;;@U;[ ;i;iÈ;	@;"1o;;[ ;["px;i;iÈ;	@;"	24px;iÈ;	@;=;>o;;T;["!.x-button-icon.x-button-mask;o;; " ;iÍ;![o;";![o;#; @Ã;iÍ;![o;$;["x-button-icon; @Ã;iÍo;$;["x-button-mask; @Ã;iÍ;iÍ;	@;
+[o;%;&{ ;"background-gradient;iÎ;	@;
+[ ;'[o;,	;0;iÎ;	@;-{	;.iˇ;/i;0iˇ;1iˇo;(	;);H;"recessed;iÎ;	@;5i ;5i ;5i o;;0;["/* SegmentedButtons */;i;i ;	@;
+[ o;;T;["!.x-segmentedbutton .x-button;o;; " ;iÒ;![o;";![o;#; @Í;iÒ;![o;$;["x-segmentedbutton; @Í;iÒo;#; @Í;iÒ;![o;$;["x-button; @Í;iÒ;iÒ;	@;
+[o;2;["margin;o;(;);*;"0;	@;iÚ;	@;
+[ ;3;4;5i u;+Æ[o:Sass::Script::Variable	:
+@name"include-border-radius:@underscored_name"include_border_radius:
+@lineiÙ:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;iı;	@	:@children[ :
+@args[o:Sass::Script::Number:@denominator_units[ :@numerator_units[ :@valuei ;iı;	@	:@original"0o:Sass::Tree::RuleNode:@has_childrenT:
+@rule["&.x-first:@parsed_ruleso:"Sass::Selector::CommaSequence:@filename" ;i˜:@members[o:Sass::Selector::Sequence;[o:#Sass::Selector::SimpleSequence;@;i˜;[o:Sass::Selector::Parent;@;i˜o:Sass::Selector::Class;["x-first;@;i˜;i˜;	@	;[o;
+;{ ;"border-left-radius;i¯;	@	;[ ;[o; 	;"button-radius;"button_radius;i¯;	@	:
+@tabsi o;;T;["&.x-last;o;;" ;i˙;[o;;[o;;@/;i˙;[o;;@/;i˙o;;["x-last;@/;i˙;i˙;	@	;[o;
+;{ ;"border-right-radius;i˚;	@	;[ ;[o; 	;"button-radius;"button_radius;i˚;	@	;i o;;T;["&:not(:first-child);o;; " ;iˇ;![o;";![o;#; @;iˇ;![o;6; @;iˇo:(Sass::Selector::SelectorPseudoClass	;"not; @:@selectoro;;![o;";![o;#;![o;B;C0;["first-child;);D;iˇ;iˇ;	@;
+[o;2;["border-left;o;(;);*;"0;	@;i ;	@;
+[ ;3;4;5i ;5i ;5i o;;0;["/* Badges */;i;i ;	@;
+[ o;;"badge-size;"!default;i;	@;o;;[ ;["em;i;i;	@;"2em;
+[ o;;"badge-radius;"!default;i;	@;o;;[ ;["em;f0.20000000000000001 ôö;i;	@;"
+0.2em;
+[ o;;"badge-bg-color;"!default;i;	@;o;G
+;&{ ;"darken;i;	@;'[o;	;"alert-color;"alert_color;i;	@o;;[ ;["%;i;i;	@;"10%;
+[ o;;"badge-bg-gradient;"!default;i;	@;o;	;"base-gradient;"base_gradient;i;	@;
+[ o;;T;[".x-hasbadge;o;; " ;i
+;![o;";![o;#; @O;i
+;![o;$;["x-hasbadge; @O;i
+;i
+;	@;
+[o;2;["overflow;o;(;);*;"visible;	@;i;	@;
+[ ;3;4;5i o;;T;[".x-badge;o;; " ;i;![o;";![o;#; @c;i;![o;$;["x-badge; @c;i;i;	@;
+[o:Sass::Tree::ExtendNode	;L["."x-button-label;i;	@;
+[ o;%;&{ ;"background-clip;i;	@;
+[ ;'[o;(	;);*;"padding-box;i;	@u;+[o:Sass::Script::Variable	:
+@name"include-border-radius:@underscored_name"include_border_radius:
+@linei:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"border-radius;i;	@	:@children[ :
+@args[o; 	;"badge-radius;"badge_radius;i;	@	o;2;["padding;o;(;);*;".1em .3em;	@;i;	@;
+[ ;3;4;5i o;2;["z-index;o;(;);*;"2;	@;i;	@;
+[ ;3;4;5i u;+˙[o:Sass::Script::Variable	:
+@name"include-button-highlights:@underscored_name"include_button_highlights:
+@linei:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"bevel-by-background;i;	@	:@children[ :
+@args[o; 	;"badge-bg-color;"badge_bg_color;i;	@	o;
+;{ ;"box-shadow;i;	@	;[ ;[o:Sass::Script::List	:@value[	o:Sass::Script::Funcall
+;{ ;"	rgba;i;	@	;[o:Sass::Script::Color	;0;i;	@	:@attrs{	:redi :
+alphai:
+greeni :	bluei o:Sass::Script::Number:@denominator_units[ :@numerator_units[ ;f0.5;i;	@	:@original"0.5o;;@!;[ ;i ;i;	@	;"0o;;[ ;["em;f0.10000000000000001 ôö;i;	@	;"
+0.1emo;;[ ;["em;f0.10000000000000001 ôö;i;	@	;"
+0.1em;i;	@	:@separator:
+spaceo;2;["overflow;o;(;);*;"hidden;	@;i;	@;
+[ ;3;4;5i o;%;&{"contrasto;;[ ;["%;i7;i;	@;"50%;"color-by-background;i;	@;
+[ ;'[o;	;"badge-bg-color;"badge_bg_color;i;	@o;2;["border;o;7	;[o;;[ ;["px;i;i;	@;"1pxo;(	;);*;"
+solid;i;	@o;G
+;&{ ;"darken;i;	@;'[o;	;"badge-bg-color;"badge_bg_color;i;	@o;;[ ;["%;i;i;	@;"10%;i;	@;=;>;i;	@;
+[ ;3;4;5i o;2;["position;o;(;);*;"absolute;	@;i;	@;
+[ ;3;4;5i o;2;["
+width;o;(;);*;"	auto;	@;i;	@;
+[ ;3;4;5i o;2;["min-width;o;	;"badge-size;"badge_size;i;	@;i;	@;
+[ ;3;4;5i o;2;["line-height;o;(;);*;"
+1.2em;	@;i;	@;
+[ ;3;4;5i o;2;["font-size;o;(;);*;"	.6em;	@;i;	@;
+[ ;3;4;5i o;2;["
+right;o;(;);*;"0px;	@;i;	@;
+[ ;3;4;5i o;2;["top;o;;[ ;["em;f-0.20000000000000001 ôö;i;	@;"-0.2em;i;	@;
+[ ;3;4;5i o;2;["max-width;o;(;);*;"95%;	@;i ;	@;
+[ ;3;4;5i o;%;&{ ;"background-gradient;i!;	@;
+[ ;'[o;	;"badge-bg-color;"badge_bg_color;i!;	@o;	;"badge-bg-gradient;"badge_bg_gradient;i!;	@o;2;["display;o;(;);*;"inline-block;	@;i";	@;
+[ ;3;4;5i ;5i ;5i u;+˝[o:Sass::Script::Variable	:
+@name"include-default-icons:@underscored_name"include_default_icons:
+@linei&:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"pictos-iconmask;i';	@	:@children[ :
+@args[o:Sass::Script::String	:
+@type:string:@value"action;i';	@	o;
+;{ ;"pictos-iconmask;i(;	@	;[ ;[o;	;;;"add;i(;	@	o;
+;{ ;"pictos-iconmask;i);	@	;[ ;[o;	;;;"arrow_down;i);	@	o;
+;{ ;"pictos-iconmask;i*;	@	;[ ;[o;	;;;"arrow_left;i*;	@	o;
+;{ ;"pictos-iconmask;i+;	@	;[ ;[o;	;;;"arrow_right;i+;	@	o;
+;{ ;"pictos-iconmask;i,;	@	;[ ;[o;	;;;"arrow_up;i,;	@	o;
+;{ ;"pictos-iconmask;i-;	@	;[ ;[o;	;;;"compose;i-;	@	o;
+;{ ;"pictos-iconmask;i.;	@	;[ ;[o;	;;;"delete;i.;	@	o;
+;{ ;"pictos-iconmask;i/;	@	;[ ;[o;	;;;"organize;i/;	@	o;
+;{ ;"pictos-iconmask;i0;	@	;[ ;[o;	;;;"refresh;i0;	@	o;
+;{ ;"pictos-iconmask;i1;	@	;[ ;[o;	;;;"
+reply;i1;	@	o;
+;{ ;"pictos-iconmask;i2;	@	;[ ;[o;	;;;"search;i2;	@	o;
+;{ ;"pictos-iconmask;i3;	@	;[ ;[o;	;;;"settings;i3;	@	o;
+;{ ;"pictos-iconmask;i4;	@	;[ ;[o;	;;;"	star;i4;	@	o;
+;{ ;"pictos-iconmask;i5;	@	;[ ;[o;	;;;"
+trash;i5;	@	o;
+;{ ;"pictos-iconmask;i6;	@	;[ ;[o;	;;;"	maps;i6;	@	o;
+;{ ;"pictos-iconmask;i7;	@	;[ ;[o;	;;;"locate;i7;	@	o;
+;{ ;"pictos-iconmask;i8;	@	;[ ;[o;	;;;"	home;i8;	@	u;+ü[o:Sass::Script::Variable	:
+@name"include-button-uis:@underscored_name"include_button_uis:
+@linei;:@options{ 0[o:Sass::Tree::MixinNode:@keywords{ ;"sencha-button-ui;i<;	@	:@children[ :
+@args[o:Sass::Script::String	:
+@type:string:@value"action;i<;	@	o; 	;"active-color;"active_color;i<;	@	o;
+;{ ;"sencha-button-ui;i=;	@	;[ ;[o;	;;;"confirm;i=;	@	o:Sass::Script::Funcall
+;{ ;"desaturate;i=;	@	;[o;
+;{ ;"darken;i=;	@	;[o; 	;"confirm-color;"confirm_color;i=;	@	o:Sass::Script::Number:@denominator_units[ :@numerator_units["%;i;i=;	@	:@original"10%o;;[ ;["%;i
+;i=;	@	;"5%o;
+;{ ;"sencha-button-ui;i>;	@	;[ ;[o;	;;;"decline;i>;	@	o;
+;{ ;"desaturate;i>;	@	;[o;
+;{ ;"darken;i>;	@	;[o; 	;"alert-color;"alert_color;i>;	@	o;;[ ;["%;i;i>;	@	;"10%o;;[ ;["%;i
+;i>;	@	;"5%;'[ o;;0;["/**
+ * Creates a theme UI for buttons.
+ * Also automatically generates UIs for {ui-label}-round and {ui-label}-small.
+ *
+ *     // SCSS
+ *     @include sencha-button-ui('secondary', #99A4AE, 'glossy');
+ *
+ *     // JS
+ *     var cancelBtn = new Ext.Button({text: 'Cancel', ui: 'secondary'});
+ *
+ * @param {string} $ui-label The name of the UI being created.
+ *   Can not included spaces or special punctuation (used in class names)
+ * @param {color} $color Base color for the UI.
+ * @param {string} $gradient Default gradient for the UI.
+ */;iC;0;	@;
+[ o;;T;"sencha-button-ui;iR;	@;
+[o;;T;[".x-button.x-button-o;	;"ui-label;"ui_label;iS;	@", .x-button.x-button-o;	;"ui-label;"ui_label;iS;	@" -round, .x-button.x-button-o;	;"ui-label;"ui_label;iS;	@"-small;iS;	@;
+[o;%;&{ ;"toolbar-button;iT;	@;
+[ ;'[o;	;"
+color;"
+color;iT;	@o;	;"gradient;"gradient;iT;	@;5i o;;T;[".x-button.x-button-o;	;"ui-label;"ui_label;iW;	@"-round;iW;	@;
+[o;M	;L["."x-button-round;iX;	@;
+[ ;5i o;;T;[".x-button.x-button-o;	;"ui-label;"ui_label;i[;	@"-small;i[;	@;
+[o;M	;L["."x-button-small;i\;	@;
+[ ;5i ;'[[o;;"ui-label;"ui_label;	@0[o;;"
+color;"
+color;	@0[o;;"gradient;"gradient;	@o;	;"button-gradient;"button_gradient;iR;	@

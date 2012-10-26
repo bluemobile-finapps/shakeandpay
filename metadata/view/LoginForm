@@ -1,0 +1,121 @@
+{
+    "type": "formpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "LoginForm",
+        "designer|userAlias": "loginFormAlias",
+        "designer|initialView": true,
+        "id": "loginForm",
+        "itemId": "loginForm",
+        "hideOnMaskTap": false,
+        "masked": null,
+        "url": "services/login.js"
+    },
+    "id": "ExtBox1-ext-gen7440",
+    "designerId": "c1e9357e-b9ce-4c8b-a3d3-a5e97a0ab8cd",
+    "cn": [
+        {
+            "type": "titlebar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyTitleBar",
+                "designer|displayName": "LoginToolbar",
+                "docked": "top",
+                "title": "Datos de acceso"
+            },
+            "designerId": "75396fbb-0aa5-42e3-9180-7aaecdcc14e8"
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet3",
+                "title": "Identificación"
+            },
+            "designerId": "fa9fb897-cdb6-4709-9edb-6abea0f9e14b",
+            "cn": [
+                {
+                    "type": "textfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyTextField1",
+                        "designer|displayName": "LoginField",
+                        "id": "loginField",
+                        "itemId": "loginField",
+                        "inputCls": "inputLarge",
+                        "label": null,
+                        "name": "user"
+                    },
+                    "designerId": "d8886855-bb4e-4200-b0ca-074594c53b12"
+                }
+            ]
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet4",
+                "title": "Nº secreto"
+            },
+            "designerId": "0cbf47d6-6121-4095-a569-fc5c6626a99d",
+            "cn": [
+                {
+                    "type": "passwordfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyPasswordField",
+                        "designer|displayName": "PasswordField",
+                        "id": "passwordField",
+                        "itemId": "passwordField",
+                        "inputCls": "inputLarge",
+                        "label": null,
+                        "name": "pass"
+                    },
+                    "designerId": "0e711f02-9fbf-44c2-bf29-959c140a1b32"
+                }
+            ]
+        },
+        {
+            "type": "button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyButton3",
+                "designer|displayName": "LoginButton",
+                "cls": "mainButton",
+                "id": "loginButton",
+                "itemId": "loginButton",
+                "ui": "confirm",
+                "text": "Entrar"
+            },
+            "designerId": "68a5b110-4ed2-4a63-86c7-f69b542053f8"
+        }
+    ]
+}
