@@ -195,7 +195,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         Ext.Ajax.request({
             url: urlService,
             method: 'POST',
-            extraParams: panel.getValues(),
+            extraParams: Ext.getCmp('directTransfer').getValues(),
             success: function(response) {
                 var data = Ext.JSON.decode(response.responseText);
                 me.responseSearchPayer(data, panel);
