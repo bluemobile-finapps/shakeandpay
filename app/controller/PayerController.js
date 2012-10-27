@@ -66,7 +66,10 @@ Ext.define('Finappsparty.controller.PayerController', {
             success: function(response){
                 var data = Ext.JSON.decode(response.responseText);
                 Ext.Viewport.setMasked(false);
+                if(data.data)
                 me.makeTransfer(data);
+                else
+                Ext.Msg.alert('Fail', 'The payee has gone :(');
             },
             failure: function(response){
                 Ext.Viewport.setMasked(false);
