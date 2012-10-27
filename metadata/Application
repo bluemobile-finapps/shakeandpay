@@ -47,7 +47,6 @@
             "userConfig": {
                 "designer|userClassName": "Loader2",
                 "designer|displayName": "Loader",
-                "disableCaching": false,
                 "enabled": true,
                 "paths": [
                     "{\"Ext\":\"sdk/src\"}"
@@ -72,7 +71,7 @@
                     "        Ext.Viewport.remove(oldActiveItem,false);",
                     "    }",
                     "});",
-                    "Ext.Ajax.setDisableCaching(false);"
+                    "//Ext.Ajax.setDisableCaching(false);"
                 ]
             },
             "designerId": "9b74d4a4-709c-4b55-82d1-efda1adf2b4a"

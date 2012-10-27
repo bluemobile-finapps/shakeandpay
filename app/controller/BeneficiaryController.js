@@ -51,19 +51,20 @@ Ext.define('Finappsparty.controller.BeneficiaryController', {
     acceptBeneficiaryOperation: function() {
         var me = this;
         var bpanel = Ext.getCmp('beneficiaryPanel');
+        var data = bpanel.getData();
 
         Ext.Ajax.request({
-            url: me.getApplication().getController('UrlController').getBaseUrlServices()+'accept',
+            url: me.getApplication().getController('UrlController').getBaseUrlServices()+'accept/receive',
             params: {
-                'idop': bpanel.getData().data.operationId
+                'idop': data.operationId
             },
             method: 'POST',
             success: function(response){
-                alert('OK');
+                Ext.Msg.alert('Accepted', 'Operation accepted. ' + data.name + 'is now transfering your money');
+
             },
             failure: function(response){
-                alert('KO');
-            }
+            Ext.Msg.alert('Fail', 'Something has gone wrong :(');  }
 
         });
 

@@ -192,18 +192,35 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
             message: 'Buscando<br/>ordenante ...'
         });
 
-        Ext.getCmp('directTransfer').submit({
+        Ext.Ajax.request({
             url: urlService,
-            disableCaching: false,
-            success: function(form, result) {
-                me.responseSearchPayer(result, panel);
+            method: 'POST',
+            extraParams: Ext.getCmp('directTransfer').getValues(),
+            success: function(response) {
+                var data = Ext.JSON.decode(response.responseText);
+                me.responseSearchPayer(data, panel);
                 Ext.Viewport.setMasked(false);
             },
-            failure: function(form, result) {
+            failure: function(response) {
                 Ext.Viewport.setMasked(false);
-                Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');
+                Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo más tarde');
             }
         });
+
+        /*
+        Ext.getCmp('directTransfer').submit({
+        url: urlService,
+        disableCaching: false,
+        success: function(form, result) {
+        me.responseSearchPayer(result, panel);
+        Ext.Viewport.setMasked(false);
+        },
+        failure: function(form, result) {
+        Ext.Viewport.setMasked(false);
+        Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');
+        }
+        });
+        */
     },
 
     validateTransfer: function() {
