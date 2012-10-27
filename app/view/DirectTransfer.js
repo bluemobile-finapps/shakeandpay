@@ -20,28 +20,21 @@ Ext.define('Finappsparty.view.DirectTransfer', {
     config: {
         id: 'directTransfer',
         itemId: 'directTransfer',
+        scrollable: {
+            direction: 'vertical',
+            directionLock: true
+        },
         items: [
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Transferencia',
+                title: 'Shake & Pay',
                 items: [
                     {
                         xtype: 'button',
                         id: 'logoutButton',
                         itemId: 'logoutButton',
-                        text: 'Cerrar'
-                    },
-                    {
-                        xtype: 'spacer'
-                    },
-                    {
-                        xtype: 'button',
-                        id: 'searchTransferButton',
-                        itemId: 'searchTransferButton',
-                        ui: 'confirm',
-                        iconCls: 'action',
-                        iconMask: true
+                        text: 'Close'
                     }
                 ]
             },
@@ -77,7 +70,7 @@ Ext.define('Finappsparty.view.DirectTransfer', {
             },
             {
                 xtype: 'fieldset',
-                title: 'Importe',
+                title: 'Amount',
                 items: [
                     {
                         xtype: 'numberfield',
@@ -90,19 +83,21 @@ Ext.define('Finappsparty.view.DirectTransfer', {
             },
             {
                 xtype: 'fieldset',
-                title: 'Concepto',
+                hidden: true,
+                title: 'Concept',
                 items: [
                     {
                         xtype: 'textfield',
                         id: 'conceptField',
                         itemId: 'conceptField',
-                        name: 'concept'
+                        name: 'concept',
+                        value: 'Shake & Pay'
                     }
                 ]
             },
             {
                 xtype: 'fieldset',
-                title: 'Número de cuenta',
+                title: 'Account number',
                 items: [
                     {
                         xtype: 'hiddenfield',
@@ -118,8 +113,27 @@ Ext.define('Finappsparty.view.DirectTransfer', {
                 id: 'accountCarousel',
                 itemId: 'accountCarousel',
                 scrollable: false
+            },
+            {
+                xtype: 'button',
+                cls: 'mainButton',
+                id: 'searchTransferButton',
+                itemId: 'searchTransferButton',
+                ui: 'confirm',
+                text: 'Receive money'
+            }
+        ],
+        listeners: [
+            {
+                fn: 'onAmountFieldChange',
+                event: 'change',
+                delegate: '#amountField'
             }
         ]
+    },
+
+    onAmountFieldChange: function(textfield, newValue, oldValue, options) {
+        Ext.getCmp('searchTransferButton').setUi('decline');
     }
 
 });

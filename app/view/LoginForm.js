@@ -22,35 +22,41 @@ Ext.define('Finappsparty.view.LoginForm', {
         itemId: 'loginForm',
         hideOnMaskTap: false,
         url: 'services/login.js',
+        scrollable: {
+            direction: 'vertical',
+            directionLock: true
+        },
         items: [
             {
                 xtype: 'titlebar',
                 docked: 'top',
-                title: 'Datos de acceso'
+                title: 'Shake & Pay'
             },
             {
                 xtype: 'fieldset',
-                title: 'Identificación',
+                title: 'Username',
                 items: [
                     {
                         xtype: 'textfield',
                         id: 'usernameField',
                         itemId: 'usernameField',
                         inputCls: 'inputLarge',
-                        name: 'username'
+                        name: 'username',
+                        value: 'vjjordan'
                     }
                 ]
             },
             {
                 xtype: 'fieldset',
-                title: 'Nº secreto',
+                title: 'Password',
                 items: [
                     {
                         xtype: 'passwordfield',
                         id: 'passwordField',
                         itemId: 'passwordField',
                         inputCls: 'inputLarge',
-                        name: 'password'
+                        name: 'password',
+                        value: 'sadiel'
                     }
                 ]
             },
@@ -60,7 +66,7 @@ Ext.define('Finappsparty.view.LoginForm', {
                 id: 'loginButton',
                 itemId: 'loginButton',
                 ui: 'confirm',
-                text: 'Entrar'
+                text: 'Login'
             }
         ]
     }
