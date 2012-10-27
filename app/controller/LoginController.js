@@ -88,8 +88,7 @@ Ext.define('Finappsparty.controller.LoginController', {
                         lastName: data.data.holder.lastName,
                         token: token
                     };
-                    Ext.getStore('User').removeAll();
-                    Ext.getStore('Account').removeAll();
+                    me.resetStore();
                     Ext.getStore('User').setData(userData);
                     // Save user account data
                     var accounts = data.data.accounts;
@@ -122,6 +121,15 @@ Ext.define('Finappsparty.controller.LoginController', {
                 }
             }); 
         };
+    },
+
+    resetStore: function() {
+        var userStore = Ext.getStore('User');
+        userStore.removeAll();
+        userStore.remove(userStore.getRange());
+        var accountStore = Ext.getStore('Account');
+        accountStore.removeAll();
+        accountStore.remove(accountStore.getRange());
     }
 
 });
