@@ -28,16 +28,13 @@ Ext.define('Finappsparty.view.DirectTransfer', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Transferencia',
+                title: 'Shake & Pay',
                 items: [
                     {
                         xtype: 'button',
                         id: 'logoutButton',
                         itemId: 'logoutButton',
-                        text: 'Cerrar'
-                    },
-                    {
-                        xtype: 'spacer'
+                        text: 'Close'
                     }
                 ]
             },
@@ -73,7 +70,7 @@ Ext.define('Finappsparty.view.DirectTransfer', {
             },
             {
                 xtype: 'fieldset',
-                title: 'Importe',
+                title: 'Amount',
                 items: [
                     {
                         xtype: 'numberfield',
@@ -87,7 +84,7 @@ Ext.define('Finappsparty.view.DirectTransfer', {
             {
                 xtype: 'fieldset',
                 hidden: true,
-                title: 'Concepto',
+                title: 'Concept',
                 items: [
                     {
                         xtype: 'textfield',
@@ -100,7 +97,7 @@ Ext.define('Finappsparty.view.DirectTransfer', {
             },
             {
                 xtype: 'fieldset',
-                title: 'Número de cuenta',
+                title: 'Account number',
                 items: [
                     {
                         xtype: 'hiddenfield',
@@ -125,7 +122,18 @@ Ext.define('Finappsparty.view.DirectTransfer', {
                 ui: 'confirm',
                 text: 'Receive money'
             }
+        ],
+        listeners: [
+            {
+                fn: 'onAmountFieldChange',
+                event: 'change',
+                delegate: '#amountField'
+            }
         ]
+    },
+
+    onAmountFieldChange: function(textfield, newValue, oldValue, options) {
+        Ext.getCmp('searchTransferButton').setUi('decline');
     }
 
 });

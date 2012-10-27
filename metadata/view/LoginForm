@@ -35,7 +35,7 @@
                 "designer|userClassName": "MyTitleBar",
                 "designer|displayName": "LoginToolbar",
                 "docked": "top",
-                "title": "Datos de acceso"
+                "title": "Shake & Pay"
             },
             "designerId": "75396fbb-0aa5-42e3-9180-7aaecdcc14e8"
         },
@@ -48,7 +48,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet3",
-                "title": "Identificación"
+                "title": "Username"
             },
             "designerId": "fa9fb897-cdb6-4709-9edb-6abea0f9e14b",
             "cn": [
@@ -84,7 +84,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet4",
-                "title": "Nº secreto"
+                "title": "Password"
             },
             "designerId": "0cbf47d6-6121-4095-a569-fc5c6626a99d",
             "cn": [
@@ -125,7 +125,7 @@
                 "id": "loginButton",
                 "itemId": "loginButton",
                 "ui": "confirm",
-                "text": "Entrar"
+                "text": "Login"
             },
             "designerId": "68a5b110-4ed2-4a63-86c7-f69b542053f8"
         }

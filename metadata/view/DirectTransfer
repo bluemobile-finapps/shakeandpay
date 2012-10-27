@@ -33,7 +33,7 @@
                 "designer|userClassName": "MyToolbar",
                 "designer|displayName": "DirectTransferToolbar",
                 "docked": "top",
-                "title": "Transferencia"
+                "title": "Shake & Pay"
             },
             "designerId": "c8884e73-af15-4b99-baa7-d6de02a0cd95",
             "cn": [
@@ -49,21 +49,9 @@
                         "designer|displayName": "LogoutButton",
                         "id": "logoutButton",
                         "itemId": "logoutButton",
-                        "text": "Cerrar"
+                        "text": "Close"
                     },
                     "designerId": "98258421-df36-4e0c-a1f0-972d9230b94d"
-                },
-                {
-                    "type": "spacer",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MySpacer"
-                    },
-                    "designerId": "219972aa-d676-4354-bbae-24913a4c3bda"
                 }
             ]
         },
@@ -156,7 +144,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet",
-                "title": "Importe"
+                "title": "Amount"
             },
             "designerId": "a9f37b05-3650-4a32-92de-3b32c1f0d9b6",
             "cn": [
@@ -178,7 +166,26 @@
                         "labelAlign": null,
                         "name": "amount"
                     },
-                    "designerId": "fe91dcd9-2c43-48ae-b8ce-e18eb5ee14d1"
+                    "designerId": "fe91dcd9-2c43-48ae-b8ce-e18eb5ee14d1",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "designer|userClassName": "onAmountFieldChange",
+                                "fn": "onAmountFieldChange",
+                                "implHandler": [
+                                    "Ext.getCmp('searchTransferButton').setUi('decline');"
+                                ],
+                                "name": "change"
+                            },
+                            "designerId": "4f1b08ac-03c1-4c71-8a6a-94666c749692"
+                        }
+                    ]
                 }
             ]
         },
@@ -192,7 +199,7 @@
             "userConfig": {
                 "designer|userClassName": "MyFieldSet2",
                 "hidden": true,
-                "title": "Concepto"
+                "title": "Concept"
             },
             "designerId": "e387d173-472e-473d-b740-23b09fe92180",
             "cn": [
@@ -228,7 +235,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet5",
-                "title": "Número de cuenta"
+                "title": "Account number"
             },
             "designerId": "1c9cc668-c3ec-4c67-9ebd-53f3f9cb783f",
             "cn": [

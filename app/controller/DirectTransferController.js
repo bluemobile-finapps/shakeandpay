@@ -159,7 +159,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
 
             Ext.Viewport.setMasked({
                 xtype: 'loadmask',
-                message: 'Buscando<br/>beneficiario ...'
+                message: 'Searching<br/>payee ...'
             });
 
             Ext.getCmp('directTransfer').submit({
@@ -171,11 +171,11 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
                 },
                 failure: function(form, result) {
                     Ext.Viewport.setMasked(false);
-                    Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');
+                    Ext.Msg.alert('Warning', 'Unable to perform the request, please try again');
                 }
             });
         } else {
-            Ext.Msg.alert('Aviso', 'No dispone de saldo suficiente para realizar la transferencia');
+            Ext.Msg.alert('Warning', 'Not enough money');
         }
     },
 
@@ -187,7 +187,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
 
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: 'Buscando<br/>ordenante ...'
+            message: 'Searching<br/>payer ...'
         });
 
         Ext.getCmp('directTransfer').submit({
@@ -199,7 +199,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
             },
             failure: function(form, result) {
                 Ext.Viewport.setMasked(false);
-                Ext.Msg.alert('Aviso', 'No se ha podido realizar la petición, por favor, vuelva a intentarlo');
+                Ext.Msg.alert('Warning', 'Unable to perform the request, please try again');
             }
         });
     },
