@@ -219,6 +219,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
     },
 
     initView: function() {
+        Ext.getCmp('directTransfer').reset();
         var userData = Ext.getStore('User').getData().getAt(0).data;
         Ext.getCmp('userIdField').setValue(userData.id);
         Ext.getCmp('userNameField').setValue(userData.firstName);

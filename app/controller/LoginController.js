@@ -34,6 +34,8 @@ Ext.define('Finappsparty.controller.LoginController', {
 
     showLogin: function() {
         this.getApplication().getController('MainController').changeView('loginForm');
+        Ext.getStore('User').removeAll();
+        Ext.getStore('Account').removeAll();
     },
 
     hideLogin: function() {
@@ -86,6 +88,8 @@ Ext.define('Finappsparty.controller.LoginController', {
                         lastName: data.data.holder.lastName,
                         token: token
                     };
+                    Ext.getStore('User').removeAll();
+                    Ext.getStore('Account').removeAll();
                     Ext.getStore('User').setData(userData);
                     // Save user account data
                     var accounts = data.data.accounts;

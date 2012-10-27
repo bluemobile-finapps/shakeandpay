@@ -30,7 +30,9 @@
                 "designer|userClassName": "showLogin",
                 "fn": "showLogin",
                 "implHandler": [
-                    "this.getApplication().getController('MainController').changeView('loginForm');"
+                    "this.getApplication().getController('MainController').changeView('loginForm');",
+                    "Ext.getStore('User').removeAll();",
+                    "Ext.getStore('Account').removeAll();"
                 ]
             },
             "designerId": "1215d410-3dc2-4bd9-9a5e-ed339ff0d5af"
@@ -107,6 +109,8 @@
                     "                lastName: data.data.holder.lastName,",
                     "                token: token",
                     "            };",
+                    "            Ext.getStore('User').removeAll();",
+                    "            Ext.getStore('Account').removeAll();",
                     "            Ext.getStore('User').setData(userData);",
                     "            // Save user account data",
                     "            var accounts = data.data.accounts;",
