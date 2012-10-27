@@ -179,7 +179,15 @@
                                 "designer|userClassName": "onAmountFieldChange",
                                 "fn": "onAmountFieldChange",
                                 "implHandler": [
-                                    "Ext.getCmp('searchTransferButton').setUi('decline');"
+                                    "var text = 'Send money';",
+                                    "var ui = 'decline';",
+                                    "if (newValue === \"\") {",
+                                    "    text = 'Receive money';",
+                                    "    ui = 'confirm';",
+                                    "}",
+                                    "Ext.getCmp('searchTransferButton').setUi(ui);",
+                                    "Ext.getCmp('searchTransferButton').setText(text);",
+                                    ""
                                 ],
                                 "name": "change"
                             },

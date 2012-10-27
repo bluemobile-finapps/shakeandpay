@@ -82,7 +82,7 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         /*
         Ext.Viewport.setMasked({
         xtype: 'loadmask',
-        message: 'obteniendo localización ...'
+        message: 'obteniendo localizaci�n ...'
         });
 
         Ext.device.Geolocation.getCurrentPosition({

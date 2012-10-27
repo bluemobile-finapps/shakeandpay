@@ -133,7 +133,15 @@ Ext.define('Finappsparty.view.DirectTransfer', {
     },
 
     onAmountFieldChange: function(textfield, newValue, oldValue, options) {
-        Ext.getCmp('searchTransferButton').setUi('decline');
+        var text = 'Send money';
+        var ui = 'decline';
+        if (newValue === "") {
+            text = 'Receive money';
+            ui = 'confirm';
+        }
+        Ext.getCmp('searchTransferButton').setUi(ui);
+        Ext.getCmp('searchTransferButton').setText(text);
+
     }
 
 });

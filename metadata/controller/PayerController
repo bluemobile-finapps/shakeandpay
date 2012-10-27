@@ -163,8 +163,8 @@
                     "        ' destinationAccount ' + result.data.account +",
                     "        ' value ' + pdata.amount +",
                     "        'concept ' + ' Shake and Pay' +",
-                    "            ' payee' + pdata.name);",
-                    "        ",
+                    "        ' payee' + pdata.name);",
+                    "",
                     "    }",
                     "",
                     "});"
