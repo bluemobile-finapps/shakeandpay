@@ -45,7 +45,7 @@ Ext.define('Finappsparty.view.PayerPanel', {
             '</div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
             '    <div class="x-form-label label">',
-            '        <span>Payeeo</span>',
+            '        <span>Payee</span>',
             '    </div>',
             '    <div class="x-input-el value">',
             '        <span>{name} {lastname}</span>',

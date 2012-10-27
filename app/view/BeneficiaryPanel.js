@@ -56,7 +56,7 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
             '        <span>Concept</span>',
             '    </div>',
             '    <div class="x-input-el value">',
-            '        <span>{concept}</span>',
+            '        <span>Shake and Pay</span>',
             '    </div>',
             '</div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">        ',
