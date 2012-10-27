@@ -14,10 +14,8 @@
         "hideOnMaskTap": false,
         "masked": null,
         "scrollable": [
-            "{",
-            "    direction: 'vertical',",
-            "    directionLock: true",
-            "}"
+            "false",
+            ""
         ],
         "url": "services/login.js"
     },

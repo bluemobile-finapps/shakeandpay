@@ -31,7 +31,7 @@ function onSuccess(acceleration) {
         changes.y = Math.abs(previousReading.y - acceleration.y);
         changes.z = Math.abs(previousReading.z - acceleration.z);
     }
-    if (changes.x > bound) {
+    if (changes.x > bound && Ext.Viewport.getActiveItem().getId() === 'direcTransfer' && Ext.getCmp('amountField').getValue() !== 0) {
         stopWatch();
         shaken();
         setTimeout(function(){

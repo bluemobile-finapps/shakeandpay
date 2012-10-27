@@ -34,6 +34,9 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
             },
             "logoutButton": {
                 tap: 'onLogoutButtonTap'
+            },
+            "#cardsButton": {
+                tap: 'onCardsButtonTap'
             }
         }
     },
@@ -52,6 +55,10 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
 
     onLogoutButtonTap: function(button, e, options) {
         this.getApplication().getController('LoginController').showLogin();
+    },
+
+    onCardsButtonTap: function(button, e, options) {
+        this.getApplication().getController('MainController').changeView('cardPanel');
     },
 
     createAccountSelectCarousel: function() {

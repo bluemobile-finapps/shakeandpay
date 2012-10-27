@@ -29,17 +29,20 @@ Ext.application({
     ],
     models: [
         'Account',
-        'User'
+        'User',
+        'Card'
     ],
     stores: [
         'User',
-        'Account'
+        'Account',
+        'Card'
     ],
     views: [
         'LoginForm',
         'DirectTransfer',
         'BeneficiaryPanel',
-        'PayerPanel'
+        'PayerPanel',
+        'CardPanel'
     ],
     name: 'Finappsparty',
     controllers: [
@@ -48,7 +51,8 @@ Ext.application({
         'DirectTransferController',
         'BeneficiaryController',
         'PayerController',
-        'UrlController'
+        'UrlController',
+        'CardController'
     ],
 
     launch: function() {

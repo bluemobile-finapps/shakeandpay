@@ -20,10 +20,7 @@ Ext.define('Finappsparty.view.DirectTransfer', {
     config: {
         id: 'directTransfer',
         itemId: 'directTransfer',
-        scrollable: {
-            direction: 'vertical',
-            directionLock: true
-        },
+        scrollable: false,
         items: [
             {
                 xtype: 'toolbar',
@@ -35,6 +32,16 @@ Ext.define('Finappsparty.view.DirectTransfer', {
                         id: 'logoutButton',
                         itemId: 'logoutButton',
                         text: 'Close'
+                    },
+                    {
+                        xtype: 'spacer'
+                    },
+                    {
+                        xtype: 'button',
+                        id: 'cardsButton',
+                        itemId: 'cardsButton',
+                        ui: 'action',
+                        text: 'Cards'
                     }
                 ]
             },

@@ -159,6 +159,26 @@
                 ]
             },
             "designerId": "04910066-801a-4fa7-b348-bc3a07b016cc"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "getCardUrl",
+                "fn": "getCardUrl",
+                "designer|params": [
+                    "token",
+                    "idCard"
+                ],
+                "implHandler": [
+                    "return this.getBaseUrl()+token+'/operations/cards/'+idCard+'/status';"
+                ]
+            },
+            "designerId": "3388643b-3988-4825-b15a-a2bad3ae316c"
         }
     ]
 }

@@ -155,6 +155,38 @@
                 "app/store/Account.js"
             ],
             "className": "Account"
+        },
+        "2662d62f-6bfd-459e-9d90-a3421904fa20": {
+            "paths": [
+                "metadata/view/CardPanel",
+                "app/view/override/CardPanel.js",
+                "app/view/CardPanel.js"
+            ],
+            "className": "CardPanel"
+        },
+        "bdfbe4ed-0eb0-433c-9ef9-ed7faa3a345a": {
+            "paths": [
+                "metadata/controller/CardController",
+                "app/controller/override/CardController.js",
+                "app/controller/CardController.js"
+            ],
+            "className": "CardController"
+        },
+        "30f72352-4f39-4fc2-9699-9e37fe2648b1": {
+            "paths": [
+                "metadata/store/Card",
+                "app/store/override/Card.js",
+                "app/store/Card.js"
+            ],
+            "className": "Card"
+        },
+        "5dbd00d3-630c-4fdf-b42c-380bf4c01e55": {
+            "paths": [
+                "metadata/model/Card",
+                "app/model/override/Card.js",
+                "app/model/Card.js"
+            ],
+            "className": "Card"
         }
     },
     "viewOrderMap": {
@@ -162,11 +194,13 @@
             "c1e9357e-b9ce-4c8b-a3d3-a5e97a0ab8cd",
             "27d90341-2f6b-4bd6-b9da-02ec3d0dc7e8",
             "d740530c-fa3b-4c20-a070-95124cf3b066",
-            "b8f5213a-fa7c-45a8-a1af-272f9b4a0298"
+            "b8f5213a-fa7c-45a8-a1af-272f9b4a0298",
+            "2662d62f-6bfd-459e-9d90-a3421904fa20"
         ],
         "store": [
             "8057410b-e7a0-4427-9ce1-f9090f8b78da",
-            "daa1fe5b-0134-4512-a546-34f0b4f6ecae"
+            "daa1fe5b-0134-4512-a546-34f0b4f6ecae",
+            "30f72352-4f39-4fc2-9699-9e37fe2648b1"
         ],
         "controller": [
             "0f37582c-27fd-4989-a7f3-54a42b55fe62",
@@ -174,11 +208,13 @@
             "8eb1c6b2-6560-4b2b-ad94-bbcbe9f2454b",
             "94a7e285-6b72-420e-b505-dbb33773bd32",
             "9f65bf71-a480-4991-8245-76ae5935eba2",
-            "6734ee8b-668a-4b3f-a03e-52111f96e175"
+            "6734ee8b-668a-4b3f-a03e-52111f96e175",
+            "bdfbe4ed-0eb0-433c-9ef9-ed7faa3a345a"
         ],
         "model": [
             "b618df57-94c8-4c47-ba23-d2ea6e183082",
-            "57cc362e-6054-4771-ae91-313479a22415"
+            "57cc362e-6054-4771-ae91-313479a22415",
+            "5dbd00d3-630c-4fdf-b42c-380bf4c01e55"
         ],
         "resource": [
             "774e699e-f82d-4ceb-b970-d0163652eee3",

@@ -12,10 +12,7 @@
         "itemId": "directTransfer",
         "style": null,
         "scrollable": [
-            "{",
-            "    direction: 'vertical',",
-            "    directionLock: true",
-            "}"
+            "false"
         ],
         "url": null
     },
@@ -52,6 +49,34 @@
                         "text": "Close"
                     },
                     "designerId": "98258421-df36-4e0c-a1f0-972d9230b94d"
+                },
+                {
+                    "type": "spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySpacer2"
+                    },
+                    "designerId": "a3989f76-f8d4-480f-8944-43c32d201be2"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton12",
+                        "id": "cardsButton",
+                        "itemId": "cardsButton",
+                        "ui": "action",
+                        "text": "Cards"
+                    },
+                    "designerId": "9f83f033-2724-4ee6-a8fe-fef03dbc836a"
                 }
             ]
         },
@@ -278,8 +303,7 @@
                 "height": "125px",
                 "id": "accountCarousel",
                 "itemId": "accountCarousel",
-                "scrollable": false,
-                "direction": null
+                "scrollable": false
             },
             "designerId": "3dea564c-c9de-4860-b72e-ef735aa55bef"
         },

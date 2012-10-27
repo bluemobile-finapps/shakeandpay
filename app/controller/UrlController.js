@@ -57,6 +57,10 @@ Ext.define('Finappsparty.controller.UrlController', {
 
     getSearchPayerUrl: function() {
         return this.getBaseUrlServices()+'receive';
+    },
+
+    getCardUrl: function(token, idCard) {
+        return this.getBaseUrl()+token+'/operations/cards/'+idCard+'/status';
     }
 
 });

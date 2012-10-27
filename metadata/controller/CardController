@@ -1,0 +1,122 @@
+{
+    "type": "controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CardController"
+    },
+    "id": "ExtBox1-ext-gen6829",
+    "designerId": "bdfbe4ed-0eb0-433c-9ef9-ed7faa3a345a",
+    "cn": [
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onCloseCardPanelTap",
+                "fn": "onCloseCardPanelTap",
+                "implHandler": [
+                    "this.getApplication().getController('LoginController').showLogin();"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#closeCardPanel"
+            },
+            "designerId": "39a144dd-bd42-4e47-8f6d-50c41d643079"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onAccountButtonTap",
+                "fn": "onAccountButtonTap",
+                "implHandler": [
+                    "this.getApplication().getController('MainController').changeView('directTransfer');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#accountButton"
+            },
+            "designerId": "c9676f38-d8ac-4003-b1a8-97aa43621529"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPayCardButtonTap",
+                "fn": "onPayCardButtonTap",
+                "implHandler": [
+                    "alert('preparar el pago con tarjeta');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#payCardButton"
+            },
+            "designerId": "dcb44b22-285c-41e2-b989-38e453552057"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "createCardSelectCarousel",
+                "fn": "createCardSelectCarousel",
+                "implHandler": [
+                    "var store = Ext.getStore('Card');",
+                    "var n = store.data.items.length;",
+                    "if (n !== 0) {",
+                    "    // Se selecciona automáticamente la primera tarjeta",
+                    "    Ext.getCmp('cardHiddenField').setValue(store.data.getAt(0).data.id);",
+                    "    // Se crean los contenedores con las tarjetas",
+                    "    for (var i=0;i!=n;i++) {",
+                    "        var data = store.data.getAt(i).data;",
+                    "        var html = '<div class=\"account\">'+data.number+'</div>';",
+                    "        var container = Ext.create('Ext.Container',{",
+                    "            html: html,",
+                    "            cls: 'accountSelectCarousel'",
+                    "        });",
+                    "        Ext.getCmp('cardCarousel').add(container);",
+                    "    }",
+                    "}"
+                ]
+            },
+            "designerId": "197efcf8-983b-4a94-b8da-bdd07094ac1e"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onCardPanelInitialize",
+                "fn": "onCardPanelInitialize",
+                "implHandler": [
+                    "this.createCardSelectCarousel();"
+                ],
+                "name": "initialize",
+                "designer|targetType": "Ext.form.Panel",
+                "designer|controlQuery": "#cardPanel"
+            },
+            "designerId": "1454bcc6-7f60-4975-8dc6-693b7dae7b27"
+        }
+    ]
+}

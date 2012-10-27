@@ -1,0 +1,85 @@
+{
+    "type": "datamodel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Card"
+    },
+    "id": "ExtBox1-ext-gen14466",
+    "designerId": "5dbd00d3-630c-4fdf-b42c-380bf4c01e55",
+    "cn": [
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field12",
+                "name": "id",
+                "type": "string"
+            },
+            "designerId": "58d0df21-ca24-40a4-a905-228877b33259"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field13",
+                "name": "number",
+                "type": "string"
+            },
+            "designerId": "025d4fa0-7722-4a7b-8af0-0c0b5dd16767"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field14",
+                "name": "holder",
+                "type": "string"
+            },
+            "designerId": "4fb71617-e87f-4534-be3d-aa363e5ac68c"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field15",
+                "name": "linkAccount",
+                "type": "string"
+            },
+            "designerId": "ad417f72-b579-40ad-84d7-afb106fb3293"
+        },
+        {
+            "type": "datafield",
+            "reference": {
+                "name": "fields",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "field16",
+                "name": "segurityCode",
+                "type": "string"
+            },
+            "designerId": "a4a7e2c4-505e-4cb3-b63f-545f90b898ce"
+        }
+    ]
+}

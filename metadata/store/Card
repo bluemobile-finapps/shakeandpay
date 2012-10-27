@@ -1,0 +1,30 @@
+{
+    "type": "store",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "Card",
+        "model": "Card",
+        "storeId": "Card"
+    },
+    "id": "ExtBox1-ext-gen14153",
+    "designerId": "30f72352-4f39-4fc2-9699-9e37fe2648b1",
+    "cn": [
+        {
+            "type": "localstorageproxy",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyLocalStorageProxy1",
+                "designer|displayName": "CardProxy"
+            },
+            "designerId": "647e0b66-0e20-4ce5-93dd-80cc4471d532"
+        }
+    ]
+}

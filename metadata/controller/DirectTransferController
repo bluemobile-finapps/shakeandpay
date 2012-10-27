@@ -439,6 +439,25 @@
                 ]
             },
             "designerId": "304a0b9e-7876-49bc-ba1b-ae4beffbfdff"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onCardsButtonTap",
+                "fn": "onCardsButtonTap",
+                "implHandler": [
+                    "this.getApplication().getController('MainController').changeView('cardPanel');"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#cardsButton"
+            },
+            "designerId": "396bb796-82fa-4dac-ad27-eb5ef24b9c31"
         }
     ]
 }

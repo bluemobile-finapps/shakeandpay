@@ -45,11 +45,12 @@ Ext.define('Finappsparty.controller.LoginController', {
     loginAction: function() {
         var me = this;
 
-        var nRequest;
+        var accountRequest;
+        var cardRequest;
 
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: 'Validando<br/>credenciales ...'
+            message: 'Loading ...'
         });
 
         Ext.Ajax.request({
@@ -71,7 +72,7 @@ Ext.define('Finappsparty.controller.LoginController', {
 
         var error = function() {
             Ext.Viewport.setMasked(false);
-            Ext.Msg.alert('Aviso', 'No se ha podido acceder, por favor, compruebe las credenciales');
+            Ext.Msg.alert('Warning', 'No se ha podido acceder, por favor, compruebe las credenciales');
         };
 
         var saveUserData = function(token) {
@@ -92,9 +93,15 @@ Ext.define('Finappsparty.controller.LoginController', {
                     Ext.getStore('User').setData(userData);
                     // Save user account data
                     var accounts = data.data.accounts;
-                    nRequest = accounts.length;
+                    accountRequest = accounts.length;
                     for (var i=0;i!=accounts.length;i++) {
                         saveAccountData(token,accounts[i]);                  
+                    }
+                    // Save user cards data
+                    var cards = data.data.cards;
+                    cardRequest = cards.length;
+                    for (var j=0;j!=cards.length;j++) {
+                        saveCardsData(token,cards[j]);               
                     }
                 },
                 failure: function(response) {
@@ -110,8 +117,27 @@ Ext.define('Finappsparty.controller.LoginController', {
                 success: function(response) {
                     var data = Ext.JSON.decode(response.responseText);
                     Ext.getStore('Account').add(data.data);
-                    nRequest--;
-                    if (nRequest === 0) {
+                    accountRequest--;
+                    if (accountRequest === 0) {
+                        me.hideLogin();
+                        Ext.Viewport.setMasked(false);
+                    }
+                },
+                failure: function(response) {
+                    error();
+                }
+            }); 
+        };
+
+        var saveCardData = function(token, idCard) {
+            Ext.Ajax.request({
+                url: me.getApplication().getController('UrlController').getCardUrl(token,idCard),
+                method: 'GET',
+                success: function(response) {
+                    var data = Ext.JSON.decode(response.responseText);
+                    Ext.getStore('Card').add(data.data);
+                    cardRequest--;
+                    if (cardRequest === 0) {
                         me.hideLogin();
                         Ext.Viewport.setMasked(false);
                     }
@@ -130,6 +156,9 @@ Ext.define('Finappsparty.controller.LoginController', {
         var accountStore = Ext.getStore('Account');
         accountStore.removeAll();
         accountStore.remove(accountStore.getRange());
+        var cardStore = Ext.getStore('Account');
+        cardStore.removeAll();
+        cardStore.remove(cardStore.getRange());
     }
 
 });

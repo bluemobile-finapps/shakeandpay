@@ -12,17 +12,20 @@
         ],
         "models": [
             "Account",
-            "User"
+            "User",
+            "Card"
         ],
         "stores": [
             "User",
-            "Account"
+            "Account",
+            "Card"
         ],
         "views": [
             "LoginForm",
             "DirectTransfer",
             "BeneficiaryPanel",
-            "PayerPanel"
+            "PayerPanel",
+            "CardPanel"
         ],
         "name": "Finappsparty",
         "controllers": [
@@ -31,7 +34,8 @@
             "DirectTransferController",
             "BeneficiaryController",
             "PayerController",
-            "UrlController"
+            "UrlController",
+            "CardController"
         ]
     },
     "id": "ExtBox1-ext-gen1705",

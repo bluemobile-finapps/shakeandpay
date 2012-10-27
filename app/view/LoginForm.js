@@ -21,11 +21,8 @@ Ext.define('Finappsparty.view.LoginForm', {
         id: 'loginForm',
         itemId: 'loginForm',
         hideOnMaskTap: false,
+        scrollable: false,
         url: 'services/login.js',
-        scrollable: {
-            direction: 'vertical',
-            directionLock: true
-        },
         items: [
             {
                 xtype: 'titlebar',

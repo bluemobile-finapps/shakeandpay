@@ -1,0 +1,143 @@
+{
+    "type": "formpanel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "CardPanel",
+        "designer|userAlias": "cardPanelAlias",
+        "id": "cardPanel",
+        "itemId": "cardPanel"
+    },
+    "id": "ExtBox1-ext-gen8771",
+    "designerId": "2662d62f-6bfd-459e-9d90-a3421904fa20",
+    "cn": [
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar3",
+                "designer|displayName": "CardPanelToolbar",
+                "docked": "top",
+                "title": "Shake & Pay"
+            },
+            "designerId": "605af43a-6a4d-4925-88d2-bf663c0b8840",
+            "cn": [
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton7",
+                        "designer|displayName": "CloseCardPanel",
+                        "id": "closeCardPanel",
+                        "itemId": "closeCardPanel",
+                        "text": "Close"
+                    },
+                    "designerId": "d4c8f26c-96a0-4d7e-b2dc-d66a60129eb0"
+                },
+                {
+                    "type": "spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MySpacer"
+                    },
+                    "designerId": "e9ace737-214f-41ff-99c9-d81e10f961de"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyButton8",
+                        "id": "accountButton",
+                        "itemId": "accountButton",
+                        "ui": "action",
+                        "text": "Accounts"
+                    },
+                    "designerId": "5fed100a-bf33-4385-9596-aa8270e90c9a"
+                }
+            ]
+        },
+        {
+            "type": "fieldset",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyFieldSet5",
+                "title": "Credit cards"
+            },
+            "designerId": "4b4278cb-fdbf-421b-8d4b-be625ebaf245",
+            "cn": [
+                {
+                    "type": "hiddenfield",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "designer|userClassName": "MyHiddenField6",
+                        "id": "cardHiddenField",
+                        "itemId": "cardHiddenField",
+                        "name": "card"
+                    },
+                    "designerId": "11bb8b9c-71f7-44d9-8c79-3e33a541603f"
+                }
+            ]
+        },
+        {
+            "type": "carousel",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyCarousel1",
+                "designer|displayName": "CardCarousel",
+                "height": "100px",
+                "id": "cardCarousel",
+                "itemId": "cardcarousel"
+            },
+            "designerId": "117df7c8-c760-4dd2-a1f8-902d85385c1e"
+        },
+        {
+            "type": "button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyButton11",
+                "designer|displayName": "PayCardButton",
+                "cls": "mainButton",
+                "id": "payCardButton",
+                "itemId": "payCardButton",
+                "ui": "decline",
+                "text": "Pay"
+            },
+            "designerId": "2799ee57-fb5c-4b77-ae92-06bbfb5ccc80"
+        }
+    ]
+}
