@@ -175,7 +175,7 @@
                     "idCard"
                 ],
                 "implHandler": [
-                    "return this.getBaseUrl()+token+'/operations/cards/'+idCard+'/status';"
+                    "return this.getBaseUrl()+token+'/operations/card/'+idCard+'/status';"
                 ]
             },
             "designerId": "3388643b-3988-4825-b15a-a2bad3ae316c"

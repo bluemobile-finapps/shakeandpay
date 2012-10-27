@@ -187,6 +187,14 @@
                 "app/model/Card.js"
             ],
             "className": "Card"
+        },
+        "dc154b62-6e9f-4a8d-8195-9433454a8f26": {
+            "paths": [
+                "metadata/view/PayOrder",
+                "app/view/override/PayOrder.js",
+                "app/view/PayOrder.js"
+            ],
+            "className": "PayOrder"
         }
     },
     "viewOrderMap": {
@@ -195,7 +203,8 @@
             "27d90341-2f6b-4bd6-b9da-02ec3d0dc7e8",
             "d740530c-fa3b-4c20-a070-95124cf3b066",
             "b8f5213a-fa7c-45a8-a1af-272f9b4a0298",
-            "2662d62f-6bfd-459e-9d90-a3421904fa20"
+            "2662d62f-6bfd-459e-9d90-a3421904fa20",
+            "dc154b62-6e9f-4a8d-8195-9433454a8f26"
         ],
         "store": [
             "8057410b-e7a0-4427-9ce1-f9090f8b78da",

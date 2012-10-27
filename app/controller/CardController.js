@@ -29,6 +29,15 @@ Ext.define('Finappsparty.controller.CardController', {
             },
             "#cardPanel": {
                 initialize: 'onCardPanelInitialize'
+            },
+            "#cardCarousel": {
+                activeitemchange: 'onCardCarouselActiveItemChange'
+            },
+            "#payOrderCancelButton": {
+                tap: 'onPayOrderCancelButtonTap'
+            },
+            "#payOrderOkButton": {
+                tap: 'onPayOrderOkButtonTap'
             }
         }
     },
@@ -42,11 +51,39 @@ Ext.define('Finappsparty.controller.CardController', {
     },
 
     onPayCardButtonTap: function(button, e, options) {
-        alert('preparar el pago con tarjeta');
+        this.searchCommerce();
     },
 
     onCardPanelInitialize: function(component, options) {
         this.createCardSelectCarousel();
+    },
+
+    onCardCarouselActiveItemChange: function(container, value, oldValue, options) {
+        this.setCard(container);
+    },
+
+    onPayOrderCancelButtonTap: function(button, e, options) {
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: ' Pay cancelled ',
+            indicator: false
+        });
+        setTimeout(function(){
+            Ext.Viewport.setMasked(false);
+            Ext.getCmp('payOrder').hide();
+        },1000);
+    },
+
+    onPayOrderOkButtonTap: function(button, e, options) {
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: ' Pay Ok ',
+            indicator: false
+        });
+        setTimeout(function(){
+            Ext.Viewport.setMasked(false);
+            Ext.getCmp('payOrder').hide();
+        },1000);
     },
 
     createCardSelectCarousel: function() {
@@ -66,6 +103,26 @@ Ext.define('Finappsparty.controller.CardController', {
                 Ext.getCmp('cardCarousel').add(container);
             }
         }
+    },
+
+    setCard: function(container) {
+        var store = Ext.getStore('Card');
+        Ext.getCmp('cardHiddenField').setValue(store.data.getAt(container.getActiveIndex()).data.number);
+    },
+
+    searchCommerce: function() {
+        var me = this;
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: 'Search pay order ...'
+        });
+
+        setTimeout(function(){
+            Ext.Viewport.setMasked(false);
+            var panel = me.getApplication().getController('MainController').getView('payOrder');
+            Ext.Viewport.add(panel);
+            panel.show();          
+        },1000);
     }
 
 });

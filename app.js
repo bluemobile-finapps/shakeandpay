@@ -42,7 +42,8 @@ Ext.application({
         'DirectTransfer',
         'BeneficiaryPanel',
         'PayerPanel',
-        'CardPanel'
+        'CardPanel',
+        'PayOrder'
     ],
     name: 'Finappsparty',
     controllers: [

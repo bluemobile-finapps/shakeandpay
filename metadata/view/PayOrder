@@ -1,0 +1,108 @@
+{
+    "type": "panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "PayOrder",
+        "designer|userAlias": "payOrderAlias",
+        "centered": true,
+        "height": "90%",
+        "hideAnimation": [
+            "{",
+            "    type: 'popOut',",
+            "    duration: 250,",
+            "    easing: 'ease-in'",
+            "}"
+        ],
+        "html": "<div style=\"margin:10px;\"> <div style=\"padding:10px;\">     <span>Ok to pay?</span> </div> <div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">         <div class=\"x-form-label label\">         <span>Commerce</span>     </div>     <div class=\"x-input-el value\">         <span>Shake & Pay Commerce</span>     </div> </div> <div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">             <div class=\"x-form-label label\">         <span>Amount</span>     </div>     <div class=\"x-input-el value\" style=\"text-align:center;padding:20px;0px;\">         <span style=\"font-size:2.5em;\">125.95 €</span>     </div> </div> </div>",
+        "id": "payOrder",
+        "itemId": "payOrder",
+        "showAnimation": [
+            "{",
+            "    type: 'popIn',",
+            "    duration: 250,",
+            "    easing: 'ease-out'",
+            "}"
+        ],
+        "width": "90%",
+        "modal": true
+    },
+    "id": "ExtBox1-ext-gen8178",
+    "designerId": "dc154b62-6e9f-4a8d-8195-9433454a8f26",
+    "cn": [
+        {
+            "type": "container",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyContainer2",
+                "designer|displayName": "PayOrderActions",
+                "docked": "bottom",
+                "height": "100px",
+                "html": null,
+                "layout": "hbox"
+            },
+            "designerId": "2253ce28-a976-4b23-8e7f-0f5588f9e83f",
+            "cn": [
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "designer|userClassName": "MyButton11",
+                        "designer|displayName": "PayOrderCancelButton",
+                        "cls": "actionButton",
+                        "id": "payOrderCancelButton",
+                        "itemId": "payOrderCancelButton",
+                        "ui": "decline",
+                        "text": "No"
+                    },
+                    "designerId": "07f47700-60eb-4a8b-a06d-ba0895ae746e"
+                },
+                {
+                    "type": "button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "layout|flex": 1,
+                        "designer|userClassName": "MyButton12",
+                        "designer|displayName": "PayOrderOkButton",
+                        "cls": "actionButton",
+                        "id": "payOrderOkButton",
+                        "itemId": "payOrderOkButton",
+                        "ui": "confirm",
+                        "text": "YES"
+                    },
+                    "designerId": "ae233c48-f857-49e4-8251-9775761778d7"
+                }
+            ]
+        },
+        {
+            "type": "toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyToolbar4",
+                "docked": "top",
+                "title": "Pay order"
+            },
+            "designerId": "3f2e65bd-f3f2-451f-9957-8b9ae5f76927"
+        }
+    ]
+}

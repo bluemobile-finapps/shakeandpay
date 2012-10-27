@@ -13,10 +13,7 @@
         "itemId": "loginForm",
         "hideOnMaskTap": false,
         "masked": null,
-        "scrollable": [
-            "false",
-            ""
-        ],
+        "scrollable": null,
         "url": "services/login.js"
     },
     "id": "ExtBox1-ext-gen7440",

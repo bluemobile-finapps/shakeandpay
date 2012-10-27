@@ -45,8 +45,7 @@ Ext.define('Finappsparty.controller.LoginController', {
     loginAction: function() {
         var me = this;
 
-        var accountRequest;
-        var cardRequest;
+        var nRequest;
 
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
@@ -91,17 +90,17 @@ Ext.define('Finappsparty.controller.LoginController', {
                     };
                     me.resetStore();
                     Ext.getStore('User').setData(userData);
-                    // Save user account data
                     var accounts = data.data.accounts;
-                    accountRequest = accounts.length;
+                    nRequest = accounts.length;            
+                    var cards = data.data.cards;
+                    nRequest += cards.length;            
+                    // Save user account data
                     for (var i=0;i!=accounts.length;i++) {
                         saveAccountData(token,accounts[i]);                  
                     }
                     // Save user cards data
-                    var cards = data.data.cards;
-                    cardRequest = cards.length;
                     for (var j=0;j!=cards.length;j++) {
-                        saveCardsData(token,cards[j]);               
+                        saveCardData(token,cards[j]);               
                     }
                 },
                 failure: function(response) {
@@ -117,8 +116,8 @@ Ext.define('Finappsparty.controller.LoginController', {
                 success: function(response) {
                     var data = Ext.JSON.decode(response.responseText);
                     Ext.getStore('Account').add(data.data);
-                    accountRequest--;
-                    if (accountRequest === 0) {
+                    nRequest--;
+                    if (nRequest === 0) {
                         me.hideLogin();
                         Ext.Viewport.setMasked(false);
                     }
@@ -136,8 +135,8 @@ Ext.define('Finappsparty.controller.LoginController', {
                 success: function(response) {
                     var data = Ext.JSON.decode(response.responseText);
                     Ext.getStore('Card').add(data.data);
-                    cardRequest--;
-                    if (cardRequest === 0) {
+                    nRequest--;
+                    if (nRequest === 0) {
                         me.hideLogin();
                         Ext.Viewport.setMasked(false);
                     }

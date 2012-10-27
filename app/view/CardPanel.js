@@ -60,7 +60,7 @@ Ext.define('Finappsparty.view.CardPanel', {
                 xtype: 'carousel',
                 height: '100px',
                 id: 'cardCarousel',
-                itemId: 'cardcarousel'
+                itemId: 'cardCarousel'
             },
             {
                 xtype: 'button',

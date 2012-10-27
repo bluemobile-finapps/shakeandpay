@@ -11,9 +11,7 @@
         "id": "directTransfer",
         "itemId": "directTransfer",
         "style": null,
-        "scrollable": [
-            "false"
-        ],
+        "scrollable": null,
         "url": null
     },
     "id": "ExtBox1-ext-gen12260",

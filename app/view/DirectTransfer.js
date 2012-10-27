@@ -20,7 +20,6 @@ Ext.define('Finappsparty.view.DirectTransfer', {
     config: {
         id: 'directTransfer',
         itemId: 'directTransfer',
-        scrollable: false,
         items: [
             {
                 xtype: 'toolbar',

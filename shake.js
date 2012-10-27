@@ -25,19 +25,21 @@ function shaken(){
 // Success
 function onSuccess(acceleration) {
     var changes = {},
-    bound = 5;
+    bound = 15;
     if (previousReading.x !== null) {
         changes.x = Math.abs(previousReading.x - acceleration.x);
         changes.y = Math.abs(previousReading.y - acceleration.y);
         changes.z = Math.abs(previousReading.z - acceleration.z);
     }
-    if (changes.x > bound && Ext.Viewport.getActiveItem().getId() === 'direcTransfer' && Ext.getCmp('amountField').getValue() !== 0) {
+    if (changes.x > bound) {
+        navigator.notification.vibrate(500);
         stopWatch();
         shaken();
         setTimeout(function(){
-            startWatch();
+           startWatch();
         },5000);
     }
+
     previousReading = {
         x: acceleration.x,
         y: acceleration.y,

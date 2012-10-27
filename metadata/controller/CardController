@@ -60,7 +60,7 @@
                 "designer|userClassName": "onPayCardButtonTap",
                 "fn": "onPayCardButtonTap",
                 "implHandler": [
-                    "alert('preparar el pago con tarjeta');"
+                    "this.searchCommerce();"
                 ],
                 "name": "tap",
                 "designer|targetType": "Ext.Button",
@@ -117,6 +117,126 @@
                 "designer|controlQuery": "#cardPanel"
             },
             "designerId": "1454bcc6-7f60-4975-8dc6-693b7dae7b27"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "setCard",
+                "fn": "setCard",
+                "designer|params": [
+                    "container"
+                ],
+                "implHandler": [
+                    "var store = Ext.getStore('Card');",
+                    "Ext.getCmp('cardHiddenField').setValue(store.data.getAt(container.getActiveIndex()).data.number);"
+                ]
+            },
+            "designerId": "acb7d47d-3ab5-4f2b-b9de-862f321777ac"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onCardCarouselActiveItemChange",
+                "fn": "onCardCarouselActiveItemChange",
+                "implHandler": [
+                    "this.setCard(container);"
+                ],
+                "name": "activeitemchange",
+                "designer|targetType": "Ext.carousel.Carousel",
+                "designer|controlQuery": "#cardCarousel"
+            },
+            "designerId": "752c535a-b67d-4d46-b1d7-4039fcf5e4d0"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "searchCommerce",
+                "fn": "searchCommerce",
+                "implHandler": [
+                    "var me = this;",
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: 'Search pay order ...'",
+                    "});",
+                    "",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    var panel = me.getApplication().getController('MainController').getView('payOrder');",
+                    "    Ext.Viewport.add(panel);",
+                    "    panel.show();          ",
+                    "},1000);"
+                ]
+            },
+            "designerId": "e7790e93-583e-4201-be28-aab1bb48a2d2"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPayOrderCancelButtonTap",
+                "fn": "onPayOrderCancelButtonTap",
+                "implHandler": [
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ' Pay cancelled ',",
+                    "    indicator: false",
+                    "});",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    Ext.getCmp('payOrder').hide();",
+                    "},1000);"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#payOrderCancelButton"
+            },
+            "designerId": "90c18544-025f-49e4-8e16-dfa79962ca37"
+        },
+        {
+            "type": "controlleraction",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "onPayOrderOkButtonTap",
+                "fn": "onPayOrderOkButtonTap",
+                "implHandler": [
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ' Pay Ok ',",
+                    "    indicator: false",
+                    "});",
+                    "setTimeout(function(){",
+                    "    Ext.Viewport.setMasked(false);",
+                    "    Ext.getCmp('payOrder').hide();",
+                    "},1000);"
+                ],
+                "name": "tap",
+                "designer|targetType": "Ext.Button",
+                "designer|controlQuery": "#payOrderOkButton"
+            },
+            "designerId": "1c3c0230-115d-42bf-8e90-d0f2a10db44e"
         }
     ]
 }

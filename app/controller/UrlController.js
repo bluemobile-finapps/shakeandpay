@@ -60,7 +60,7 @@ Ext.define('Finappsparty.controller.UrlController', {
     },
 
     getCardUrl: function(token, idCard) {
-        return this.getBaseUrl()+token+'/operations/cards/'+idCard+'/status';
+        return this.getBaseUrl()+token+'/operations/card/'+idCard+'/status';
     }
 
 });
