@@ -103,8 +103,11 @@
             "userConfig": {
                 "designer|userClassName": "getTransferUrl",
                 "fn": "getTransferUrl",
+                "designer|params": [
+                    "token"
+                ],
                 "implHandler": [
-                    "return this.getBaseUrl()+token+'/operations/account/tranfer/';"
+                    "return this.getBaseUrl()+token+'/operations/account/tranfer';"
                 ]
             },
             "designerId": "7fe3ae32-cf66-4423-9cad-3c840003da9f"

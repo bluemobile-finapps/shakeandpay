@@ -38,7 +38,7 @@ Ext.define('Finappsparty.controller.BeneficiaryController', {
     cancelBeneficiaryOperation: function() {
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: ' Operación rechazada ',
+            message: ' Operation rejected ',
             indicator: false
         });
         setTimeout(function(){
@@ -53,6 +53,12 @@ Ext.define('Finappsparty.controller.BeneficiaryController', {
         var bpanel = Ext.getCmp('beneficiaryPanel');
         var data = bpanel.getData();
 
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: ' Authorized ',
+            indicator: false
+        });
+
         Ext.Ajax.request({
             url: me.getApplication().getController('UrlController').getBaseUrlServices()+'accept/receive',
             params: {
@@ -60,23 +66,20 @@ Ext.define('Finappsparty.controller.BeneficiaryController', {
             },
             method: 'POST',
             success: function(response){
-                Ext.Msg.alert('Accepted', 'Operation accepted. ' + data.name + 'is now transfering your money');
+                Ext.Viewport.setMasked(false);
+                Ext.getCmp('beneficiaryPanel').hide();
+                Ext.Msg.alert('Accepted', 'Your account number is now being sent to ' + data.name);
 
             },
             failure: function(response){
-            Ext.Msg.alert('Fail', 'Something has gone wrong :(');  }
+                Ext.Viewport.setMasked(false);
+                Ext.getCmp('beneficiaryPanel').hide();
+                Ext.Msg.alert('Fail', 'Something has gone wrong :(');  
+            }
 
         });
 
-        Ext.Viewport.setMasked({
-            xtype: 'loadmask',
-            message: ' Authorized ',
-            indicator: false
-        });
-        setTimeout(function(){
-            Ext.Viewport.setMasked(false);
-            Ext.getCmp('beneficiaryPanel').hide();
-        },1000);
+
     }
 
 });

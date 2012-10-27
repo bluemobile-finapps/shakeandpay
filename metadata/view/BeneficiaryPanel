@@ -49,7 +49,7 @@
                 "designer|userClassName": "MyToolbar1",
                 "designer|displayName": "BeneficiaryToolbar",
                 "docked": "top",
-                "title": "Ordenante encontrado"
+                "title": "Payer found"
             },
             "designerId": "c5e33cdc-5069-462b-8fcb-b059f718d1f6"
         },
@@ -64,8 +64,11 @@
                 "designer|userClassName": "tpl",
                 "implHandler": [
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
+                    "<div class=\"x-input-el value\">Just one step to get money</div>",
+                    "</div>",
+                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
                     "    <div class=\"x-form-label label\">",
-                    "        <span>Ordenante</span>",
+                    "        <span>Name</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value\">",
                     "        <span>{name} {lastname}</span>",
@@ -73,23 +76,15 @@
                     "</div>",
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
                     "    <div class=\"x-form-label label\">",
-                    "        <span>Concepto</span>",
+                    "        <span>Concept</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value\">",
                     "        <span>{concept}</span>",
                     "    </div>",
                     "</div>",
-                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
-                    "    <div class=\"x-form-label label\">",
-                    "        <span>Cuenta ordenante</span>",
-                    "    </div>",
-                    "    <div class=\"x-input-el value\">",
-                    "        <span>{account}</span>",
-                    "    </div>",
-                    "<div>",
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">        ",
                     "    <div class=\"x-form-label label\">",
-                    "        <span>Importe</span>",
+                    "        <span>Amount</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value\">",
                     "        <span>{amount} €</span>",
@@ -97,7 +92,7 @@
                     "</div>",
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
                     "    <div class=\"x-form-label label myLabel\">",
-                    "        <span>Cuenta beneficiaria</span>",
+                    "        <span>Your account</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value myValue\">",
                     "        <span>{beneficiaryAccount}</span>",
@@ -143,7 +138,7 @@
                         "id": "beneficiaryCancelButton",
                         "itemId": "beneficiaryCancelButton",
                         "ui": "decline",
-                        "text": "Cancelar"
+                        "text": "No"
                     },
                     "designerId": "f4e89448-6bb9-4329-854a-fc33a5029002"
                 },
@@ -161,7 +156,7 @@
                         "id": "beneficiaryOkButton",
                         "itemId": "beneficiaryOkButton",
                         "ui": "confirm",
-                        "text": "Aceptar"
+                        "text": "Yes"
                     },
                     "designerId": "6e075eab-4b4f-4ef5-8fbd-29c0c06f5db9"
                 }

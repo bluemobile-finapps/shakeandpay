@@ -43,8 +43,8 @@ Ext.define('Finappsparty.controller.UrlController', {
         return this.getBaseUrl()+token+'/operations/account/'+idAccount;
     },
 
-    getTransferUrl: function() {
-        return this.getBaseUrl()+token+'/operations/account/tranfer/';
+    getTransferUrl: function(token) {
+        return this.getBaseUrl()+token+'/operations/account/tranfer';
     },
 
     getSearchPayeeUrl: function() {

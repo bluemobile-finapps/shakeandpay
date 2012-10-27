@@ -43,7 +43,7 @@
                 "implHandler": [
                     "Ext.Viewport.setMasked({",
                     "    xtype: 'loadmask',",
-                    "    message: ' Operación cancelada ',",
+                    "    message: ' Transfer cancelled ',",
                     "    indicator: false",
                     "});",
                     "setTimeout(function(){",
@@ -65,14 +65,33 @@
                 "designer|userClassName": "acceptPayerOperation",
                 "fn": "acceptPayerOperation",
                 "implHandler": [
+                    "var me = this;",
+                    "var bpanel = Ext.getCmp('payerPanel');",
+                    "var data = bpanel.getData();",
+                    "",
                     "Ext.Viewport.setMasked({",
                     "    xtype: 'loadmask',",
-                    "    message: 'Realizando la<br/>transferencia ...'",
+                    "    message: ' Getting payee account '",
                     "});",
-                    "setTimeout(function(){",
-                    "    Ext.Viewport.setMasked(false);",
-                    "    Ext.getCmp('payerPanel').hide();",
-                    "},1000);"
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: me.getApplication().getController('UrlController').getBaseUrlServices()+'accept/send',",
+                    "    params: {",
+                    "        'idop': data.operationId",
+                    "    },",
+                    "    method: 'POST',",
+                    "    success: function(response){",
+                    "        var data = Ext.JSON.decode(response.responseText);",
+                    "        Ext.Viewport.setMasked(false);",
+                    "        me.makeTransfer(data);",
+                    "    },",
+                    "    failure: function(response){",
+                    "        Ext.Viewport.setMasked(false);",
+                    "        Ext.getCmp('payerPanel').hide();",
+                    "        Ext.Msg.alert('Fail', 'Something has gone wrong :(');  ",
+                    "    }",
+                    "",
+                    "});"
                 ]
             },
             "designerId": "a64d3546-508b-492f-9cdf-c392115fdd14"
@@ -95,6 +114,63 @@
                 "designer|controlQuery": "#payerOkAction"
             },
             "designerId": "32a8f12f-27b3-4c7e-b23a-653abb851f46"
+        },
+        {
+            "type": "basicfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "makeTransfer",
+                "fn": "makeTransfer",
+                "designer|params": [
+                    "result"
+                ],
+                "implHandler": [
+                    "var me = this;",
+                    "var bpanel = Ext.getCmp('payerPanel');",
+                    "var pdata = bpanel.getData();",
+                    "var token = Ext.getStore('User').getData().getAt(0).data.token;",
+                    "",
+                    "Ext.Viewport.setMasked({",
+                    "    xtype: 'loadmask',",
+                    "    message: ' Making transfer ',",
+                    "});",
+                    "",
+                    "Ext.Ajax.request({",
+                    "    url: me.getApplication().getController('UrlController').getTransferUrl(token),",
+                    "    jsonData: {",
+                    "        'originAccount': pdata.payerAccount,",
+                    "        'destinationAccount': result.data.account,",
+                    "        'value': pdata.amount,",
+                    "        'additionalData':{",
+                    "            'concept': 'Shake and Pay',",
+                    "            'payee': pdata.name",
+                    "        }",
+                    "    },",
+                    "    method: 'POST',",
+                    "    success: function(response){",
+                    "        Ext.Viewport.setMasked(false);",
+                    "        Ext.Msg.alert('Success', 'Transfer done!!');  ",
+                    "    },",
+                    "    failure: function(response){",
+                    "        Ext.Viewport.setMasked(false);",
+                    "        Ext.getCmp('payerPanel').hide();",
+                    "        //Ext.Msg.alert('Fail', 'Something has gone wrong :(');  ",
+                    "        Ext.Msg.alert('Fail', 'originAccount: ' + pdata.payerAccount +",
+                    "        ' destinationAccount ' + result.data.account +",
+                    "        ' value ' + pdata.amount +",
+                    "        'concept ' + ' Shake and Pay' +",
+                    "            ' payee' + pdata.name);",
+                    "        ",
+                    "    }",
+                    "",
+                    "});"
+                ]
+            },
+            "designerId": "289f1c78-2b01-41c9-93ff-5d797148682c"
         }
     ]
 }

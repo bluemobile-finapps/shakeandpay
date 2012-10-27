@@ -41,27 +41,19 @@ Ext.define('Finappsparty.view.PayerPanel', {
         },
         tpl: [
             '<div>',
-            '    <span>Busque el número {operationNumber} e introduzca la clave correspondiente.</span>',
+            '    <span>Ok to transfer you money?</span>',
             '</div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
             '    <div class="x-form-label label">',
-            '        <span>Beneficiario</span>',
+            '        <span>Payeeo</span>',
             '    </div>',
             '    <div class="x-input-el value">',
             '        <span>{name} {lastname}</span>',
             '    </div>',
             '</div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
-            '    <div class="x-form-label label">',
-            '        <span>Cuenta beneficiario</span>',
-            '    </div>',
-            '    <div class="x-input-el value">',
-            '        <span>{account}</span>',
-            '    </div>',
-            '<div>',
-            '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
             '    <div class="x-form-label label myLabel">',
-            '        <span>Cuenta ordenante</span>',
+            '        <span>Your account</span>',
             '    </div>',
             '    <div class="x-input-el value myValue">',
             '        <span>{payerAccount}</span>',
@@ -69,7 +61,7 @@ Ext.define('Finappsparty.view.PayerPanel', {
             '<div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">        ',
             '    <div class="x-form-label label myLabel">',
-            '        <span>Importe</span>',
+            '        <span>Amount</span>',
             '    </div>',
             '    <div class="x-input-el value myValue">',
             '        <span>{amount} €</span>',
@@ -80,23 +72,7 @@ Ext.define('Finappsparty.view.PayerPanel', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Beneficiario encontrado'
-            },
-            {
-                xtype: 'fieldset',
-                cls: [
-                    'operationNumberFieldSet'
-                ],
-                title: 'Confirme la operación',
-                items: [
-                    {
-                        xtype: 'passwordfield',
-                        id: 'passOperationField',
-                        itemId: 'passOperationField',
-                        label: 'Clave',
-                        labelWidth: '50%'
-                    }
-                ]
+                title: 'Payee found'
             },
             {
                 xtype: 'container',
@@ -115,7 +91,7 @@ Ext.define('Finappsparty.view.PayerPanel', {
                         id: 'payerCancelAction',
                         itemId: 'payerCancelAction',
                         ui: 'decline',
-                        text: 'Cancelar'
+                        text: 'No!'
                     },
                     {
                         xtype: 'button',
@@ -123,7 +99,7 @@ Ext.define('Finappsparty.view.PayerPanel', {
                         id: 'payerOkAction',
                         itemId: 'payerOkAction',
                         ui: 'confirm',
-                        text: 'Aceptar'
+                        text: 'Yes'
                     }
                 ]
             }

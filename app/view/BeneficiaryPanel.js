@@ -41,8 +41,11 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
         },
         tpl: [
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
+            '<div class="x-input-el value">Just one step to get money</div>',
+            '</div>',
+            '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
             '    <div class="x-form-label label">',
-            '        <span>Ordenante</span>',
+            '        <span>Name</span>',
             '    </div>',
             '    <div class="x-input-el value">',
             '        <span>{name} {lastname}</span>',
@@ -50,23 +53,15 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
             '</div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
             '    <div class="x-form-label label">',
-            '        <span>Concepto</span>',
+            '        <span>Concept</span>',
             '    </div>',
             '    <div class="x-input-el value">',
             '        <span>{concept}</span>',
             '    </div>',
             '</div>',
-            '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
-            '    <div class="x-form-label label">',
-            '        <span>Cuenta ordenante</span>',
-            '    </div>',
-            '    <div class="x-input-el value">',
-            '        <span>{account}</span>',
-            '    </div>',
-            '<div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">        ',
             '    <div class="x-form-label label">',
-            '        <span>Importe</span>',
+            '        <span>Amount</span>',
             '    </div>',
             '    <div class="x-input-el value">',
             '        <span>{amount} €</span>',
@@ -74,7 +69,7 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
             '</div>',
             '<div class="x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty">    ',
             '    <div class="x-form-label label myLabel">',
-            '        <span>Cuenta beneficiaria</span>',
+            '        <span>Your account</span>',
             '    </div>',
             '    <div class="x-input-el value myValue">',
             '        <span>{beneficiaryAccount}</span>',
@@ -85,7 +80,7 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
             {
                 xtype: 'toolbar',
                 docked: 'top',
-                title: 'Ordenante encontrado'
+                title: 'Payer found'
             },
             {
                 xtype: 'container',
@@ -104,7 +99,7 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
                         id: 'beneficiaryCancelButton',
                         itemId: 'beneficiaryCancelButton',
                         ui: 'decline',
-                        text: 'Cancelar'
+                        text: 'No'
                     },
                     {
                         xtype: 'button',
@@ -112,7 +107,7 @@ Ext.define('Finappsparty.view.BeneficiaryPanel', {
                         id: 'beneficiaryOkButton',
                         itemId: 'beneficiaryOkButton',
                         ui: 'confirm',
-                        text: 'Aceptar'
+                        text: 'Yes'
                     }
                 ]
             }

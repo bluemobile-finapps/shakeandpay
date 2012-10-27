@@ -38,7 +38,7 @@ Ext.define('Finappsparty.controller.PayerController', {
     cancelPayerOperation: function() {
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: ' Operación cancelada ',
+            message: ' Transfer cancelled ',
             indicator: false
         });
         setTimeout(function(){
@@ -48,14 +48,75 @@ Ext.define('Finappsparty.controller.PayerController', {
     },
 
     acceptPayerOperation: function() {
+        var me = this;
+        var bpanel = Ext.getCmp('payerPanel');
+        var data = bpanel.getData();
+
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: 'Realizando la<br/>transferencia ...'
+            message: ' Getting payee account '
         });
-        setTimeout(function(){
-            Ext.Viewport.setMasked(false);
-            Ext.getCmp('payerPanel').hide();
-        },1000);
+
+        Ext.Ajax.request({
+            url: me.getApplication().getController('UrlController').getBaseUrlServices()+'accept/send',
+            params: {
+                'idop': data.operationId
+            },
+            method: 'POST',
+            success: function(response){
+                var data = Ext.JSON.decode(response.responseText);
+                Ext.Viewport.setMasked(false);
+                me.makeTransfer(data);
+            },
+            failure: function(response){
+                Ext.Viewport.setMasked(false);
+                Ext.getCmp('payerPanel').hide();
+                Ext.Msg.alert('Fail', 'Something has gone wrong :(');  
+            }
+
+        });
+    },
+
+    makeTransfer: function(result) {
+        var me = this;
+        var bpanel = Ext.getCmp('payerPanel');
+        var pdata = bpanel.getData();
+        var token = Ext.getStore('User').getData().getAt(0).data.token;
+
+        Ext.Viewport.setMasked({
+            xtype: 'loadmask',
+            message: ' Making transfer ',
+        });
+
+        Ext.Ajax.request({
+            url: me.getApplication().getController('UrlController').getTransferUrl(token),
+            jsonData: {
+                'originAccount': pdata.payerAccount,
+                'destinationAccount': result.data.account,
+                'value': pdata.amount,
+                'additionalData':{
+                    'concept': 'Shake and Pay',
+                    'payee': pdata.name
+                }
+            },
+            method: 'POST',
+            success: function(response){
+                Ext.Viewport.setMasked(false);
+                Ext.Msg.alert('Success', 'Transfer done!!');  
+            },
+            failure: function(response){
+                Ext.Viewport.setMasked(false);
+                Ext.getCmp('payerPanel').hide();
+                //Ext.Msg.alert('Fail', 'Something has gone wrong :(');  
+                Ext.Msg.alert('Fail', 'originAccount: ' + pdata.payerAccount +
+                ' destinationAccount ' + result.data.account +
+                ' value ' + pdata.amount +
+                'concept ' + ' Shake and Pay' +
+                ' payee' + pdata.name);
+
+            }
+
+        });
     }
 
 });

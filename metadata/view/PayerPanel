@@ -48,44 +48,9 @@
                 "designer|userClassName": "MyToolbar2",
                 "designer|displayName": "PayerToolbar",
                 "docked": "top",
-                "title": "Beneficiario encontrado"
+                "title": "Payee found"
             },
             "designerId": "2aa4e1d8-79bc-4390-ba0d-becdfac07db4"
-        },
-        {
-            "type": "fieldset",
-            "reference": {
-                "name": "items",
-                "type": "array"
-            },
-            "codeClass": null,
-            "userConfig": {
-                "designer|userClassName": "MyFieldSet5",
-                "cls": [
-                    "operationNumberFieldSet"
-                ],
-                "title": "Confirme la operación"
-            },
-            "designerId": "5a24b481-0069-4335-b923-11e422afacda",
-            "cn": [
-                {
-                    "type": "passwordfield",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MyPasswordField1",
-                        "designer|displayName": "PassOperation",
-                        "id": "passOperationField",
-                        "itemId": "passOperationField",
-                        "label": "Clave",
-                        "labelWidth": "50%"
-                    },
-                    "designerId": "30ec7d31-c1f4-4d94-bc28-141c51e88b45"
-                }
-            ]
         },
         {
             "type": "container",
@@ -122,7 +87,7 @@
                         "id": "payerCancelAction",
                         "itemId": "payerCancelAction",
                         "ui": "decline",
-                        "text": "Cancelar"
+                        "text": "No!"
                     },
                     "designerId": "5bfc0733-71be-4d21-82ae-85806b3f0aa9"
                 },
@@ -140,7 +105,7 @@
                         "id": "payerOkAction",
                         "itemId": "payerOkAction",
                         "ui": "confirm",
-                        "text": "Aceptar"
+                        "text": "Yes"
                     },
                     "designerId": "23e15a4a-c101-4df4-a903-2aa811bd41ab"
                 }
@@ -157,27 +122,19 @@
                 "designer|userClassName": "tpl",
                 "implHandler": [
                     "<div>",
-                    "    <span>Busque el número {operationNumber} e introduzca la clave correspondiente.</span>",
+                    "    <span>Ok to transfer you money?</span>",
                     "</div>",
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
                     "    <div class=\"x-form-label label\">",
-                    "        <span>Beneficiario</span>",
+                    "        <span>Payeeo</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value\">",
                     "        <span>{name} {lastname}</span>",
                     "    </div>",
                     "</div>",
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
-                    "    <div class=\"x-form-label label\">",
-                    "        <span>Cuenta beneficiario</span>",
-                    "    </div>",
-                    "    <div class=\"x-input-el value\">",
-                    "        <span>{account}</span>",
-                    "    </div>",
-                    "<div>",
-                    "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">    ",
                     "    <div class=\"x-form-label label myLabel\">",
-                    "        <span>Cuenta ordenante</span>",
+                    "        <span>Your account</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value myValue\">",
                     "        <span>{payerAccount}</span>",
@@ -185,7 +142,7 @@
                     "<div>",
                     "<div class=\"x-container x-field-text x-field x-label-align-top x-field-labeled x-form-label-nowrap x-empty\">        ",
                     "    <div class=\"x-form-label label myLabel\">",
-                    "        <span>Importe</span>",
+                    "        <span>Amount</span>",
                     "    </div>",
                     "    <div class=\"x-input-el value myValue\">",
                     "        <span>{amount} €</span>",
