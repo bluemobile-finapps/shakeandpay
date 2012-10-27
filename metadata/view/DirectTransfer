@@ -11,6 +11,12 @@
         "id": "directTransfer",
         "itemId": "directTransfer",
         "style": null,
+        "scrollable": [
+            "{",
+            "    direction: 'vertical',",
+            "    directionLock: true",
+            "}"
+        ],
         "url": null
     },
     "id": "ExtBox1-ext-gen12260",
@@ -58,25 +64,6 @@
                         "designer|userClassName": "MySpacer"
                     },
                     "designerId": "219972aa-d676-4354-bbae-24913a4c3bda"
-                },
-                {
-                    "type": "button",
-                    "reference": {
-                        "name": "items",
-                        "type": "array"
-                    },
-                    "codeClass": null,
-                    "userConfig": {
-                        "designer|userClassName": "MyButton4",
-                        "designer|displayName": "SearchTransferButton",
-                        "id": "searchTransferButton",
-                        "itemId": "searchTransferButton",
-                        "ui": "confirm",
-                        "iconCls": "action",
-                        "iconMask": true,
-                        "text": null
-                    },
-                    "designerId": "aef947b7-12fd-423d-8378-b723493db730"
                 }
             ]
         },
@@ -204,6 +191,7 @@
             "codeClass": null,
             "userConfig": {
                 "designer|userClassName": "MyFieldSet2",
+                "hidden": true,
                 "title": "Concepto"
             },
             "designerId": "e387d173-472e-473d-b740-23b09fe92180",
@@ -222,7 +210,10 @@
                         "itemId": "conceptField",
                         "label": null,
                         "labelAlign": null,
-                        "name": "concept"
+                        "name": "concept",
+                        "value": [
+                            "Shake & Pay"
+                        ]
                     },
                     "designerId": "a9beddcd-3891-4ab7-ba09-68c6917c2ae0"
                 }
@@ -276,6 +267,24 @@
                 "direction": null
             },
             "designerId": "3dea564c-c9de-4860-b72e-ef735aa55bef"
+        },
+        {
+            "type": "button",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "designer|userClassName": "MyButton7",
+                "designer|displayName": "SearchTransferButton",
+                "cls": "mainButton",
+                "id": "searchTransferButton",
+                "itemId": "searchTransferButton",
+                "ui": "confirm",
+                "text": "Receive money"
+            },
+            "designerId": "2a04ced4-9a2b-4c46-be38-bbe8ad28a6d4"
         }
     ]
 }

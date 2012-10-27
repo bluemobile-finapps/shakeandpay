@@ -82,11 +82,9 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         /*
         Ext.Viewport.setMasked({
         xtype: 'loadmask',
-        message: ''
+        message: 'obteniendo localización ...'
         });
-        */
 
-        /*
         Ext.device.Geolocation.getCurrentPosition({
         success: function(position) {
         console.log(position.coords);
@@ -107,25 +105,23 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         }
         Ext.getCmp('latField').setValue(lat);
         Ext.getCmp('lonField').setValue(lon);
-        //Ext.Viewport.setMasked(false);
+        Ext.Viewport.setMasked(false);
         if (me.isPayer()) {
-            me.searchBeneficiary();
+        me.searchPayee();
+        } else {
+        me.searchPayer();    
+        }
+        };
+        */
+
+        Ext.getCmp('latField').setValue(0);
+        Ext.getCmp('lonField').setValue(0);
+
+        if (me.isPayer()) {
+            me.searchPayee();
         } else {
             me.searchPayer();    
         }
-    };
-
-    */
-
-    Ext.getCmp('latField').setValue(0);
-    Ext.getCmp('lonField').setValue(0);
-
-    if (me.isPayer()) {
-        me.searchPayee();
-    } else {
-        me.searchPayer();    
-    }
-
     },
 
     isPayer: function() {
@@ -228,6 +224,14 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         Ext.getCmp('userNameField').setValue(userData.firstName);
         Ext.getCmp('userLastnameField').setValue(userData.lastName);
         this.createAccountSelectCarousel();
+    },
+
+    changeButtonSearchTransfer: function() {
+        if (Ext.getCmp('amount').getValue() !== '') {
+            Ext.getCmp('searchTransferButton').setUi('decline');
+        } else {
+            Ext.getCmp('searchTransferButton').setUi('confirm');
+        }
     }
 
 });

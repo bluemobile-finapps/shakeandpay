@@ -22,6 +22,10 @@ Ext.define('Finappsparty.view.LoginForm', {
         itemId: 'loginForm',
         hideOnMaskTap: false,
         url: 'services/login.js',
+        scrollable: {
+            direction: 'vertical',
+            directionLock: true
+        },
         items: [
             {
                 xtype: 'titlebar',
@@ -37,7 +41,8 @@ Ext.define('Finappsparty.view.LoginForm', {
                         id: 'usernameField',
                         itemId: 'usernameField',
                         inputCls: 'inputLarge',
-                        name: 'username'
+                        name: 'username',
+                        value: 'vjjordan'
                     }
                 ]
             },
@@ -50,7 +55,8 @@ Ext.define('Finappsparty.view.LoginForm', {
                         id: 'passwordField',
                         itemId: 'passwordField',
                         inputCls: 'inputLarge',
-                        name: 'password'
+                        name: 'password',
+                        value: 'sadiel'
                     }
                 ]
             },

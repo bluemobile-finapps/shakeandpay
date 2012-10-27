@@ -13,6 +13,12 @@
         "itemId": "loginForm",
         "hideOnMaskTap": false,
         "masked": null,
+        "scrollable": [
+            "{",
+            "    direction: 'vertical',",
+            "    directionLock: true",
+            "}"
+        ],
         "url": "services/login.js"
     },
     "id": "ExtBox1-ext-gen7440",
@@ -61,7 +67,9 @@
                         "inputCls": "inputLarge",
                         "label": null,
                         "name": "username",
-                        "value": null
+                        "value": [
+                            "vjjordan"
+                        ]
                     },
                     "designerId": "d8886855-bb4e-4200-b0ca-074594c53b12"
                 }
@@ -95,7 +103,9 @@
                         "inputCls": "inputLarge",
                         "label": null,
                         "name": "password",
-                        "value": null
+                        "value": [
+                            "sadiel"
+                        ]
                     },
                     "designerId": "0e711f02-9fbf-44c2-bf29-959c140a1b32"
                 }
