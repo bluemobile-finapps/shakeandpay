@@ -138,7 +138,8 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         var data = result.data;
         data.payerAccount = payerAccount;
         data.amount = amount;
-        panel.updateData(data);
+        data.operationId = result.operationId;
+        panel.setData(data);
         Ext.Viewport.add(panel);
         panel.show();
     },
@@ -147,7 +148,8 @@ Ext.define('Finappsparty.controller.DirectTransferController', {
         var beneficiaryAccount = Ext.getCmp('accountHiddenField').getValue();
         var data = result.data;
         data.beneficiaryAccount = beneficiaryAccount;
-        panel.updateData(data);
+        data.operationId = result.operationId;
+        panel.setData(data);
         Ext.Viewport.add(panel);
         panel.show();
     },
