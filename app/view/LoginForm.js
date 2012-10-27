@@ -32,6 +32,10 @@ Ext.define('Finappsparty.view.LoginForm', {
             {
                 xtype: 'fieldset',
                 title: 'Username',
+                layout: {
+                    align: 'center',
+                    type: 'vbox'
+                },
                 items: [
                     {
                         xtype: 'textfield',

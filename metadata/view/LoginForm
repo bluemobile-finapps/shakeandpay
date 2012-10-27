@@ -45,6 +45,7 @@
             },
             "codeClass": null,
             "userConfig": {
+                "container|align": "center",
                 "designer|userClassName": "MyFieldSet3",
                 "title": "Username"
             },

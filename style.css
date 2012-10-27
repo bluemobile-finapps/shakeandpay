@@ -66,11 +66,11 @@
     background: rgba(0, 0, 0, 0.5);
 }
 .x-form-field {
-    //color: #999999;
-    //text-shadow: -1px -1px #dddddd, 1px 1px #333333;
+    /*color: #999999;
+    text-shadow: -1px -1px #dddddd, 1px 1px #333333;*/
 }
 .x-field-input {
-    //-webkit-box-shadow: inset 0 0 4px #000000;
+    /*-webkit-box-shadow: inset 0 0 4px #000000;*/
     font-weight: bold;
     letter-spacing: 0.05em;
 }
@@ -81,5 +81,5 @@
     margin:0em 0.7em 0.3em;
 }
 .x-spinner .x-input-el, .x-field-select .x-input-el {
-    //-webkit-text-fill-color: #999999;
+    /*-webkit-text-fill-color: #999999;*/
 }
