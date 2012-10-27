@@ -85,7 +85,7 @@ Ext.define('Finappsparty.controller.PayerController', {
 
         Ext.Viewport.setMasked({
             xtype: 'loadmask',
-            message: ' Making transfer ',
+            message: ' Making transfer '
         });
 
         Ext.Ajax.request({
@@ -103,17 +103,12 @@ Ext.define('Finappsparty.controller.PayerController', {
             success: function(response){
                 Ext.Viewport.setMasked(false);
                 Ext.Msg.alert('Success', 'Transfer done!!');  
+                Ext.getCmp('payerPanel').hide();
             },
             failure: function(response){
                 Ext.Viewport.setMasked(false);
                 Ext.getCmp('payerPanel').hide();
-                //Ext.Msg.alert('Fail', 'Something has gone wrong :(');  
-                Ext.Msg.alert('Fail', 'originAccount: ' + pdata.payerAccount +
-                ' destinationAccount ' + result.data.account +
-                ' value ' + pdata.amount +
-                'concept ' + ' Shake and Pay' +
-                ' payee' + pdata.name);
-
+                Ext.Msg.alert('Fail', 'Something has gone wrong :(');
             }
 
         });
